@@ -5,17 +5,22 @@
 <head>
 <meta charset="utf-8">
 <title>LOGIN</title>
+<link rel="stylesheet" type="text/css" href="login.css"/>
 </head>
 <body>
-	<form action="loginServlet" method="post">
- 
-		username: <input type="text" name="username" placeholder="username">
-		 <br><br>
-		 password: <input type="password" name="password" placeholder="password">
-		<br> <br>
-		 <input type="submit" value="login">
-		 <a href="register.jsp">register </a>
- 
-	</form>
+<form action="loginServlet" method="post">
+	<div id="login">  
+        <h1>Login</h1>    
+            <input type="text" required="required" placeholder="Username" name="username"></input>  
+            <input type="password" required="required" placeholder="Password" name="password"></input>   
+            <button class="but" type="submit">Login</button>
+            <br>
+            <button class="but" onclick = "window.location.href = 'register.jsp'">Sign up</button>
+            
+
+            
+            
+        </form>  
+    </div>  
 </body>
 </html>
