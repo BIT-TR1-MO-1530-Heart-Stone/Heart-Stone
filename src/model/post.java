@@ -5,19 +5,18 @@ import javax.swing.text.AbstractDocument;
 public class post {
     private int id;
     private int Category;
-    private char Date;
-    private char Introduction;
-    private char Content;
-    private char Picture;
+    private String Date;
+    private String info;
+    private String Picture;
+
 
     public post() {
     }
 
-    public post(int Category, char Date, char Introduction, char Content, char Picture) {
+    public post(int Category, String Date, String info, String Picture) {
         this.Category = Category;
         this.Date = Date;
-        this.Introduction = Introduction;
-        this.Content = Content;
+        this.info = info;
         this.Picture = Picture;
     }
 
@@ -34,31 +33,23 @@ public class post {
         Category = category;
     }
 
-    public char getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public char getIntroduction() {
-        return Introduction;
-    }
-
-    public void setIntroduction(char introduction) {
-        Introduction = introduction;
-    }
-
-    public char getContent() {
-        return Content;
-    }
-
-    public void setContent(char content) {
-        Content = content;
-    }
-
-    public char getPicture() {
+    public String getPicture() {
         return Picture;
     }
 
-    public void setPicture(char picture) {
+    public void setPicture(String picture) {
         Picture = picture;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }
