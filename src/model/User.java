@@ -2,92 +2,37 @@ package model;
 
 public class User {
 	private int id;
-	private String username;   
-	private String password; 
 	private String email;
-	private String gender;
-	private String country;
-	private String first_name;
-	private String last_name;
-	
-	public User() {
+	private String password; 
+	private String fullname;
+	private String screenname;
+	private String phone_number;
+	private String info;
+	private int gender;
+	public User(){
 	}
- 
-	public User(String username, String password,String email,String gender,String country,String first_name,String last_name) {
- 
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.gender = gender;
-		this.country = country;
-		this.first_name = first_name;
-		this.last_name  = last_name;
+	public User(String email,String password,String fullname,String screenname,String phone_number,String info,int gender){
+		this.email=email;
+		this.password=password;
+		this.fullname=fullname;
+		this.screenname=screenname;
+		this.phone_number=phone_number;
+		this.info=info;
+		this.gender=gender;
 	}
- 
-	public int getId() {
-		return id;
-	}
- 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
- 
-	public void setEmail(String email) {
-		this.email = email;
-	}
- 
-	public String getUsername() {
-		return username;
-	}
- 
-	public void setUsername(String username) {
-		this.username = username;
-	}
- 
-	public String getPassword() {
-		return password;
-	}
- 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public String getFirst_name() {
-		return first_name;
-	}
- 
-	public void setFirstname(String first_name) {
-		this.first_name = first_name;
-	}
-	
-	public String getLast_name() {
-		return last_name;
-	}
-	
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-	
-	public String getGender() {
-		return gender;
-	}
-	
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	
-	public String getCountry() {
-		return country;
-	}
-	
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
-	
- 
+
+	public String getEmail() {		return email;	}
+	public String getPassword() {		return password;	}
+	public void setPassword(String password) {		this.password = password;	}
+	public String getFullname() {		return fullname;	}
+	public void setFullname(String fullname) {		this.fullname = fullname;	}
+	public String getScreenname() {		return screenname;	}
+	public void setScreenname(String screenname) {		this.screenname = screenname;	}
+	public String getPhone_number() {		return phone_number;	}
+	public void setPhone_number(String phone_number) {		this.phone_number = phone_number;	}
+	public String getInfo() {		return info;	}
+	public void setInfo(String info) {		this.info = info;	}
+	public int getGender() {		return gender;	}
+	public void setGender(int gender) {		this.gender = gender;	}
+	public int getId() {		return id;	}
 }
