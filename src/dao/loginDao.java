@@ -1,12 +1,11 @@
 package dao;
 
+import model.User;
+import util.JDBCutil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
- 
-import model.User;
- 
-import util.JDBCutil;
  
 public class loginDao {
 	static Connection conn = null;
@@ -15,20 +14,20 @@ public class loginDao {
  
 	private User user = new User();
  
-	// ÓÃ»§µÇÂ¼
+	// ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	public static int login(User user) throws Exception {
  
 		int result = -1;
-		conn = JDBCutil.getCon(); // »ñÈ¡Ò»¸öÊý¾Ý¿âÁ¬½Ó
+		conn = JDBCutil.getCon(); // ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
  
-		String sql = "select * from t1_user where username=? and password=?"; // ±àÐ´sqlÓï¾ä
+		String sql = "select * from user where Email=? and password=?"; // ï¿½ï¿½Ð´sqlï¿½ï¿½ï¿½
  
-		prst = conn.prepareStatement(sql); // ¶ÔssqlÓï¾ä½øÐÐÔ¤´¦Àí
+		prst = conn.prepareStatement(sql); // ï¿½ï¿½ssqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½
  
-		prst.setString(1, user.getUsername());
+		prst.setString(1, user.getEmail());
 		prst.setString(2, user.getPassword());
  
-		rs = prst.executeQuery(); // Ö´ÐÐsqlÓï¾ä£¬ ²¢·µ»Ø½á¹û¼¯
+		rs = prst.executeQuery(); // Ö´ï¿½ï¿½sqlï¿½ï¿½ä£¬ ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½
  
 		if (rs.next())
 			result = rs.getInt(1);
@@ -41,23 +40,23 @@ public class loginDao {
  
 	}
  
-	// ÓÃ»§×¢²á
+	// ï¿½Ã»ï¿½×¢ï¿½ï¿½
 	public static boolean register(User user) throws Exception {
  
-		conn = JDBCutil.getCon(); // »ñÈ¡Êý¾Ý¿âÁ¬½Ó
+		conn = JDBCutil.getCon(); // ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
  
-		String sql = "insert into t1_user(username,password,email,gender,country,first_name,last_name) values(?,?,?,?,?,?,?)"; // ±àÐ´sqlÓï¾ä
+		String sql = "insert into user(Email,password,Fullname,Screenname,phone_number,info,Gender) values(?,?,?,?,?,?,?)"; // ï¿½ï¿½Ð´sqlï¿½ï¿½ï¿½
  
-		prst = conn.prepareStatement(sql); // ¶ÔsqlÓï¾ä½øÐÐÔ¤´¦Àí
+		prst = conn.prepareStatement(sql); // ï¿½ï¿½sqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½
  
-		prst.setString(1, user.getUsername());
+		prst.setString(1, user.getEmail());
 		prst.setString(2, user.getPassword());
-		prst.setString(3, user.getEmail());
-		prst.setString(4, user.getGender());
-		prst.setString(5, user.getCountry());
-		prst.setString(6, user.getFirst_name());
-		prst.setString(7, user.getLast_name());
-		boolean result = prst.executeUpdate() > 0; // Ö´ÐÐsqlÓï¾ä
+		prst.setString(3, user.getFullname());
+		prst.setString(4, user.getScreenname());
+		prst.setString(5, user.getPhone_number());
+		prst.setString(6, user.getInfo());
+		prst.setInt(7, user.getGender());
+		boolean result = prst.executeUpdate() > 0; // Ö´ï¿½ï¿½sqlï¿½ï¿½ï¿½
 		return result;
 	}
 }
