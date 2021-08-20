@@ -3,7 +3,7 @@ package model;
 public class Post {
     private int id;
     private int Category;
-    private String info;
+    private String Info;
     private String Title;
     private String Picture;
     private String Date;
@@ -11,9 +11,9 @@ public class Post {
     public Post() {
     }
 
-    public Post(int Category, String info, String Title, String Picture, String Date) {
+    public Post(int Category, String Info, String Title, String Picture, String Date) {
         this.Category = Category;
-        this.info = info;
+        this.Info = Info;
         this.Title = Title;
         this.Picture = Picture;
         this.Date = Date;
@@ -28,8 +28,8 @@ public class Post {
         return Category;
     }
 
-    public void setCategory(int category) {
-        Category = category;
+    public void setCategory(int Category) {
+        this.Category = Category;
     }
 
     public String getDate() {
@@ -40,23 +40,23 @@ public class Post {
         return Picture;
     }
 
-    public void setPicture(String picture) {
-        Picture = picture;
+    public void setPicture(String Picture) {
+        this.Picture = Picture;
     }
 
     public String getInfo() {
-        return info;
+        return Info;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setInfo(String Info) {
+        this.Info = Info;
     }
 
     public String getTitle() {
         return Title;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setTitle(String Title) {
+        this.Title = Title;
     }
 }

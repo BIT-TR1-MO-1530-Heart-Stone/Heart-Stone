@@ -17,9 +17,9 @@ public class postDao {
     public static boolean create(Post post) throws Exception{
         conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
 
-        String sql = "insert into post(Category, Title, info, Picture, Date) values(?,?,?,?,?)"; // ��дsql���
+        String createPost = "insert into post(Category, Title, Info, Picture, Date) values(?,?,?,?,?)"; // ��дsql���
 
-        prst = conn.prepareStatement(sql); // ��sql������Ԥ����
+        prst = conn.prepareStatement(createPost); // ��sql������Ԥ����
 
         prst.setInt(1, post.getCategory());
         prst.setString(2, post.getInfo());
@@ -30,6 +30,14 @@ public class postDao {
         return result;
 
     }
+
+//    public static boolean delete(Post post) throws Exception{
+//        conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
+//
+//        String deletePost = "DELETE FROM calories WHERE id=?"; // ��дsql���
+//
+//        prst = conn.prepareStatement(deletePost); // ��sql������Ԥ����
+//    }
 
 
 
