@@ -2,7 +2,7 @@ package model;
 
 import javax.swing.text.AbstractDocument;
 
-public class post {
+public class Post {
     private int id;
     private int Category;
     private String Date;
@@ -10,10 +10,10 @@ public class post {
     private String Picture;
 
 
-    public post() {
+    public Post() {
     }
 
-    public post(int Category, String Date, String info, String Picture) {
+    public Post(int Category, String Date, String info, String Picture) {
         this.Category = Category;
         this.Date = Date;
         this.info = info;
