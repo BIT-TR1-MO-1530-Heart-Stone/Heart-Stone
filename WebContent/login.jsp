@@ -10,8 +10,8 @@
 <body>
 <form action="loginServlet" method="post">
 	<div id="login">  
-        <h1>Login</h1>    
-            <input type="text" required="required" placeholder="Username" name="username"></input>  
+        <h1>Welcome</h1>    
+            <input type="text" required="required" placeholder="Email" name="username"></input>  
             <input type="password" required="required" placeholder="Password" name="password"></input>   
             <button class="but" type="submit">Login</button>
             <br>

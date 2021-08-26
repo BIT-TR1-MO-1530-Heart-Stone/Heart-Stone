@@ -32,7 +32,7 @@ h1{
     font-size: 2em;   
     margin: 0.67em 0; 
 } 
-input{   
+input[type="text"]{   
     width: 278px;   
     height: 15px;   
     margin-bottom: 10px;   
@@ -40,7 +40,7 @@ input{
     padding: 10px;   
     font-size: 13px;   
     color: #fff;   
-    text-shadow:1px 1px 1px;   
+      
     border-top: 1px solid #312E3D;   
     border-left: 1px solid #312E3D;   
     border-right: 1px solid #312E3D;   
@@ -48,6 +48,10 @@ input{
     border-radius: 4px;   
     background-color: #2D2D3F;   
 } 
+input[type="radio"]{
+	vertical-align:middle;
+	color: #fff;
+}
 .but{   
     width: 300px;   
     min-height: 20px;   
@@ -61,3 +65,9 @@ input{
     border-radius: 5px;   
     margin: 0;   
 }
+.radio{
+	color: #fff;
+}
+
+
+

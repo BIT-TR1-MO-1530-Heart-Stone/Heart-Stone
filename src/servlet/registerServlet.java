@@ -19,15 +19,15 @@ public class registerServlet extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 request.setCharacterEncoding("utf-8");   
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String email = request.getParameter("email");
-		String gender = request.getParameter("gender");
-		String country = request.getParameter("country");
-		String first_name = request.getParameter("first_name");
-		String last_name = request.getParameter("last_name");
+		 String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			String fullname = request.getParameter("fullname");
+			String screenname = request.getParameter("screenname");
+			String phone_number = request.getParameter("phone_number");
+			String info = request.getParameter("info");
+			int gender = Integer.parseInt(request.getParameter("gender"));
 		
-		User user=new User(username,password,email,gender,country,first_name,last_name);  
+		User user=new User( email, password, fullname, screenname, phone_number, info, gender);  
 		
 		try {
 			boolean result=loginDao.register(user);

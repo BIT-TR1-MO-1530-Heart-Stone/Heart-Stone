@@ -22,13 +22,13 @@ public class loginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		 request.setCharacterEncoding("utf-8");   
-		 String email = request.getParameter("email");
+		 String email = request.getParameter("username");
 			String password = request.getParameter("password");
 			String fullname = request.getParameter("fullname");
 			String screenname = request.getParameter("screenname");
 			String phone_number = request.getParameter("phone_number");
 			String info = request.getParameter("info");
-			int gender = request.getParameter("gender");
+			int gender = 1;
 		
 		User user=new User( email, password, fullname, screenname, phone_number, info, gender);
 		

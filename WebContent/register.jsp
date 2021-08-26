@@ -14,15 +14,21 @@
 
 	<div id="register">  
 	        <h1>register</h1>
-	                <input type="text" required="required" placeholder="Username" name="username"></input>
-	                <input type="text" required="required" placeholder="Password" name="password"></input>
-	                <input type="text" required="required" placeholder="Email" name="email"></input>
-	                <input type="text" required="required" placeholder="Gender" name="gender"></input>
-	                <input type="text" required="required" placeholder="Country" name="country"></input>
-	                <input type="text" required="required" placeholder="first_name" name="first_name"></input>
-	                <input type="text" required="required" placeholder="Last_name" name="last_name"></input>
+	                <input type="text" required="required" placeholder="email" name="email"></input>
+	                <input type="text" required="required" placeholder="password" name="password"></input>
+	                <input type="text" required="required" placeholder="fullname" name="fullname"></input>
+	                <input type="text" required="required" placeholder="screenname" name="screenname"></input>
+	                <input type="text" required="required" placeholder="phone_number" name="phone_number"></input>
+                    
+                    <input type="radio" name="gender" value="1"><font color="white">Male</font>
+                    <input type="radio" name="gender" value="2"><font color="white">Female</font><br>
+                    
+	                
+                    
 	                <button class="but" type="submit">Sign up</button>
+	            </div>
 	</form>
-    </div>  
+	
+     
 </body>
 </html>
