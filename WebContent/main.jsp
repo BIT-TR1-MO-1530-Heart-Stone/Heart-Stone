@@ -20,10 +20,10 @@
   
 <form>
 <ul class="medium">
-  <li class="medium"><a class="active" href="#home">Home</a></li>
-  <li class="medium"><a href="#news">Food</a></li>
-  <li class="medium"><a href="#contact">Travel</a></li>
-  <li class="medium"><a href="#about">Fashion</a></li>
+  
+  <li class="medium"><a href="#">Food</a></li>
+  <li class="medium"><a href="#">Travel</a></li>
+  <li class="medium"><a href="#">Fashion</a></li>
 </ul>
 </form>
 </body>
