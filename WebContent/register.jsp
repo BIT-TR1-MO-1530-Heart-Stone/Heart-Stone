@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>register</title>
-<link rel="stylesheet" type="text/css" href="register.css"/>
+<link rel="stylesheet" type="text/css" href="User/register.css"/>
 </head>
 <body>
  	<form action="registerServlet" method="post">

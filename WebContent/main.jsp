@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>main</title>
-<link rel="stylesheet" type="text/css" href="main.css"/>
+<link rel="stylesheet" type="text/css" href="Main/main.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
 <body>
