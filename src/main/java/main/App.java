@@ -2,7 +2,7 @@ package main;
 
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
-import main.index.IndexController;
+import main.Controller.IndexController;
 
 /**
  * Main Application Class.
@@ -14,7 +14,7 @@ import main.index.IndexController;
  */
 public class App {
 
-    public static final int JAVALIN_PORT = 7000;
+    public static final int JAVALIN_PORT = 7001;
     public static final String CSS_DIR = "css/";
     public static final String IMAGES_DIR = "images/";
     public static final String JS_DIR = "js/";
