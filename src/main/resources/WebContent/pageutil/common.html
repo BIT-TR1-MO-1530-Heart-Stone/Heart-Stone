@@ -2,13 +2,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>common</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="common.css" rel="stylesheet">
 </head>
 <body>
-<header>
+<header th:common="header">
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
@@ -22,25 +23,5 @@
         </div>
     </nav>
 </header>
-<main role="main" class="container ">
-    <div class="jumbotron">
-        <h1 class="display-4">Welcome to your life sharing platform!</h1>
-
-        <hr class="my-4">
-        <h2>What can you do here?</h2>
-        <h5>Meet what you want</h5>
-        <h5>Share your beautiful life</h5>
-        <h5>Explore the unknown life</h5>
-
-        <hr class="my-4">
-        <h2></h2>
-        <h2></h2>
-        <p class="lead">
-
-            <a href="/login"><button class="btn btn-success btn-lg">GO!</button></a>
-        </p>
-    </div>
-
-</main>
 </body>
 </html>
