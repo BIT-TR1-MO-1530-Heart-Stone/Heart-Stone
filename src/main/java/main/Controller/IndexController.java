@@ -1,4 +1,4 @@
-package main.index;
+package main.Controller;
 
 import main.util.Path;
 import io.javalin.http.Handler;
