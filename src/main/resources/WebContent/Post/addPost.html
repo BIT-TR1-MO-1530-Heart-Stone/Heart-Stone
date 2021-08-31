@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+    <link rel="stylesheet" type="text/css" href="addPost.css"/>
+</head>
+<main role="main" class="container ">
+    <body>
+    <div class="container">
+        <div class="container-fluid">
+
+            <!-- create post -->
+            <h3>New Post</h3>
+            <form action="#" th:action="@{/toPost}" th:object="${postDto}" method="POST">
+                <div class="form-group">
+                    <input th:field="*{title}" type="text" class="form-control" style="width:545px;height:35px" placeholder="title">
+                </div>
+                <br></br>
+                <div class="form-group">
+                    <textarea th:field="*{content}" rows="5" class="form-control" style="resize: vertical;width:545px;height:135px" placeholder="body"></textarea>
+                </div>
+                <div style="text-align:center">
+                    <button style="display:block;margin:0 auto" class="but" type="submit">Submit</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    </body>
+</main>
+</html>
+
+
+
