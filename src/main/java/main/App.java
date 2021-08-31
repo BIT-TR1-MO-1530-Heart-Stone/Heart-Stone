@@ -2,11 +2,7 @@ package main;
 
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
-
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-
-import static io.javalin.apibuilder.ApiBuilder.before;
+import main.index.IndexController;
 
 /**
  * Main Application Class.
@@ -14,9 +10,7 @@ import static io.javalin.apibuilder.ApiBuilder.before;
  * Running this class as regular java application will start the Javalin HTTP
  * Server and our web application.
  *
- * @author Timothy Wiley, 2021. email: timothy.wiley@rmit.edu.au
- * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
- * @author Halil Ali, 2021. email halil.ali@rmit.edu.au
+ * @author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au
  */
 public class App {
 
@@ -32,6 +26,14 @@ public class App {
         // Create our HTTP server and listen in port 7000
         Javalin app = Javalin.create(config -> {
             config.registerPlugin(new RouteOverviewPlugin("/help/routes"));
+
+//            // Uncomment this if you have files in the CSS Directory
+//            config.addStaticFiles(CSS_DIR);
+//
+//            // Uncomment this if you have files in the Images Directory
+//            config.addStaticFiles(IMAGES_DIR);
+//            config.addStaticFiles(JS_DIR);
+//            config.addStaticFiles(WEBFONT_DIR);
         }).start(JAVALIN_PORT);
 
         // capture ctrl-c signal so we can shutdown server safely
@@ -39,18 +41,19 @@ public class App {
             app.stop();
         }));
 
-//
-//        // Configure Web Routes
-//        configureRoutes(app);
+
+        // Configure Web Routes
+        configureRoutes(app);
     }
 
     /**
      * set up each individual page of site
      **/
-//    public static void configureRoutes(Javalin app) {
-//        app.get(Path.Web.INDEX, IndexController.serverIndexPage);
+    public static void configureRoutes(Javalin app) {
+        app.get(main.util.Path.Web.INDEX, IndexController.serverIndexPage);
 //        app.get(Path.Web.REGISTER,RegisterController.registerPage);
 //        app.post(Path.Web.LOGIN, LoginController.handleLoginPost);
 //        app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegisterPost);
-//    }
+    }
+
 }
