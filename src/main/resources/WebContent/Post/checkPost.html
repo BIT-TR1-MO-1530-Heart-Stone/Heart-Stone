@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Check Post</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -25,21 +26,37 @@
 <br>
 <br>
 <br>
+<div class="card bg-light text-dark">
+    <div class="card-body">
 <div class="container">
     <div class="media">
         <div class="media-heading m-auto">
             <h1 th:text="${post.title}">title</h1>
             <h3 th:text="${post.content}">content</h3>
         </div>
-        <span th:text="${'post on ' + post.creationDate}"></span>
 
     </div>
+    <form action="#" th:action="@{/toResponse}" th:object="${}" method="POST">
+
+        <div class="form-group m-auto" >
+            <input th:text="*{response}" type="text" class="form-control m-auto" style="width:350px;height:35px" placeholder="comment">
+            <input type="submit" value="Publish" style="margin-left:625px" >
+        </div>
+
+        <br>
+<!--                    <div style="text-align:center">-->
+<!--                        <button style="display:block;margin:0 auto" class="but" type="submit">Submit</button>-->
+<!--                    </div>-->
+
+
+    </form>
     <div class="m">
-        <h3 style=" text-align:center;"><a  href="/Postlist(delete)">back</a></h3>
+        <h3 style="text-align:center"><a  href="/Postlist(delete)">back</a></h3>
     </div>
 
 </div>
-
+    </div>
+</div>
 </body>
 </main>
 </html>

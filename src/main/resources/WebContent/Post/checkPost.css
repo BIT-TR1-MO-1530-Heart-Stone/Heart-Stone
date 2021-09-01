@@ -1,3 +1,4 @@
-m{
+input[type="submit"]{
+    position: absolute;
     text-align: center;
 }
