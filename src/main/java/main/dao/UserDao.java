@@ -4,8 +4,10 @@ import main.model.User;
 import main.util.JDBCutil;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class userDao {
+public class UserDao {
 	static Connection conn = null;
 	static PreparedStatement prst = null;
 	static ResultSet rs = null;
@@ -109,5 +111,44 @@ public class userDao {
 	         return false;
 	     }
 	 }
+	private static final List<User> getAllUsers(){
+		ArrayList<User> userList = new ArrayList<>();
+		try {
+			Statement statement = conn.createStatement();
+			statement.setQueryTimeout(30);
+			String query = "SELECT T.ID,\n" +
+					"       T.Password,\n" +
+					"       T.Fullname,\n" +
+					"       T.Screenname,\n" +
+					"       T.Gender,\n" +
+					"       T.Phone_number,\n" +
+					"       T.Email,\n" +
+					"       T.info"+
+					"  FROM user T";
+			System.out.println(query);
+			ResultSet results = statement.executeQuery(query);
+			User user;
+			while (results.next()) {
+				user = new User();
+				user.setId(results.getString("user_id"));
+				user.setScreenname(results.getString("user_screenname"));
+				user.setFullname(results.getString("user_fullname"));
+				user.setGender(results.getInt("user_gender"));
+				user.setPassword(results.getString("user_password"));
+				user.setPhone_number(results.getString("user_phonenumber"));
+				user.setEmail(results.getString("user_email"));
+				user.setInfo(results.getString("user_info"));
+				userList.add(user);
+			}
+			statement.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		return userList;
+	}
 
+	public static User getUserByUsernameAndPssword(String email, String password) {
+		return getAllUsers().stream().filter(user ->(user.getEmail().equals(email) && user.getPassword().equals(password))
+		).findFirst().orElse(null);
+	}
 }

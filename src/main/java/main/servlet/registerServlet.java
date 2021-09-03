@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-import main.dao.loginDao;
+import main.dao.LoginDao;
 import main.model.User;
  
 @WebServlet("/registerServlet")
@@ -30,7 +30,7 @@ public class registerServlet extends HttpServlet {
 		User user=new User( email, password, fullname, screenname, phone_number, info, gender);  
 		
 		try {
-			boolean result=loginDao.register(user);
+			boolean result= LoginDao.register(user);
 			
 			if(result==true) {
 				System.out.println("ע��ɹ���");

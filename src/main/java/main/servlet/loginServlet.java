@@ -1,6 +1,6 @@
 package main.servlet;
 
-import main.dao.loginDao;
+import main.dao.LoginDao;
 import main.model.User;
 
 import javax.servlet.ServletException;
@@ -33,7 +33,7 @@ public class loginServlet extends HttpServlet {
 		User user=new User( email, password, fullname, screenname, phone_number, info, gender);
 		
 	    try {
-	    	int result=loginDao.login(user);
+	    	int result= LoginDao.login(user);
 			
 			if(result>0) 
 				request.getRequestDispatcher("main.jsp").forward(request, response);
