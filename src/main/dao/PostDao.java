@@ -1,11 +1,12 @@
 package main.dao;
 
 import main.model.Post;
+import main.model.User;
 import main.util.JDBCutil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostDao {
     static Connection conn = null;
@@ -14,7 +15,7 @@ public class PostDao {
 
     private Post post = new Post();
 
-    public static boolean create(Post post) throws Exception{
+    public static boolean create(Post post) throws Exception {
         conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
 
         String createPost = "insert into post(Category, Title, Info, Picture, Date) values(?,?,?,?,?)"; // ��дsql���
@@ -26,18 +27,41 @@ public class PostDao {
         prst.setString(3, post.getTitle());
         prst.setString(4, post.getPicture());
         prst.setString(5, post.getDate());
+        prst.setInt(6, post.getUserID());
         boolean result = prst.executeUpdate() > 0; // ִ��sql���
         return result;
 
     }
 
-//    public static boolean delete(Post post) throws Exception{
-//        conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
-//
-//        String deletePost = "DELETE FROM calories WHERE id=?"; // ��дsql���
-//
-//        prst = conn.prepareStatement(deletePost); // ��sql������Ԥ����
-//    }
+    public static boolean delete(int id) throws Exception {
+        conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
+
+        String deletePost = "DELETE FROM post WHERE id=?"; // ��дsql���
+
+        prst = conn.prepareStatement(deletePost); // ��sql������Ԥ����
+        boolean result = prst.executeUpdate() > 0; // sql delete success
+        return result;
+    }
+
+    public List<Post> getAllPosts() throws Exception {
+        ArrayList<Post> postList = new ArrayList<Post>();
+        Statement statement = conn.createStatement();
+        ResultSet rs = statement.executeQuery("Select * FROM post");
+        while (rs.next()) {
+            postList.add(mapPost(rs));
+        }
+        statement.close();
+        return postList;
+
+    }
+
+    private Post mapPost(ResultSet rs) throws SQLException {
+        Post post = new Post(rs.getInt(2), rs.getString(3), rs.getString(4),
+                rs.getString(5), rs.getString(6), rs.getInt(7));
+        post.setId(rs.getInt(1));
+        return post;
+    }
+
 
 //    public static List<Post> getAllPosts() throws Exception{
 //         ArrayList<Post> postList = new ArrayList<Post>();
@@ -64,7 +88,7 @@ public class PostDao {
 //                 user.setScreenname(results.getString("user_screenname"));
 //                 user.setProfile_picture(results.getString("user_profile_picture"));
 //                 post.setUser(user);
-//                 post.setPostId(postId);
+//                 post.PostId(postId);
 //                 post.setUserId(userId);
 //                 post.setContent(results.getString("post_content"));
 //                 post.setPostDate(results.getString("post_date"));
@@ -80,4 +104,6 @@ public class PostDao {
 //         }
 //         return postList;
 //     }
+
+
 }

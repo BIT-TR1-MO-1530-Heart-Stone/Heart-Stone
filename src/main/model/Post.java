@@ -7,21 +7,27 @@ public class Post {
     private String Title;
     private String Picture;
     private String Date;
+    private int User_id;
 
     public Post() {
     }
 
-    public Post(int Category, String Info, String Title, String Picture, String Date) {
+    public Post(int Category, String Info, String Title, String Picture, String Date,int User_id) {
         this.Category = Category;
         this.Info = Info;
         this.Title = Title;
         this.Picture = Picture;
         this.Date = Date;
+        this.User_id = User_id;
     }
 
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCategory() {
@@ -58,5 +64,9 @@ public class Post {
 
     public void setTitle(String Title) {
         this.Title = Title;
+    }
+
+    public int getUserID() {
+        return User_id;
     }
 }
