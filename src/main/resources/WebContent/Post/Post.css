@@ -34,3 +34,7 @@ div.form-group{
     margin: 0;
 
 }
+input[type="submit"]{
+    position: absolute;
+    text-align: center;
+}
