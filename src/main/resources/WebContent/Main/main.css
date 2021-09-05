@@ -1,0 +1,28 @@
+html{
+    overflow-y: scroll;
+}
+body{
+    background-image: url(../images/a.jpg);
+    background-repeat:no-repeat;
+    background-size:1300px 550px;
+}
+.search form {
+    height: 42px;
+}
+.search input{
+    width: 350px;
+    border-radius: 42px;
+    border: 2px solid #324B4E;
+
+    transition:  .3s linear;
+
+}
+.search input:focus{
+    width:300px;
+}
+h1{
+    font-family: "Sofia";
+
+}
+
+
