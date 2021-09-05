@@ -26,6 +26,8 @@ public class Path {
 
         public static final String MAIN = "pages/main.html";
 
+        public static final String CreatePost = "WebContent/Post/addPost.html";
+
 
         public static final String BOOKS_ALL = "/velocity/book/all.vm";
         public static final String BOOKS_ONE = "/velocity/book/one.vm";

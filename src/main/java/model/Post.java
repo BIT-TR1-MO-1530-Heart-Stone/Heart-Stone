@@ -44,6 +44,10 @@ public class Post {
         return Date;
     }
 
+    public void setDate(String date) {
+        this.Date = Date;
+    }
+
     public String getPicture() {
         return Picture;
     }
@@ -70,5 +74,9 @@ public class Post {
 
     public int getUserID() {
         return User_id;
+    }
+
+    public void setUserID(int User_id) {
+        this.User_id = User_id;
     }
 }

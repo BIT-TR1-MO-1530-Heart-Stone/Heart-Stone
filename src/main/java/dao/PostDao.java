@@ -11,14 +11,13 @@ import java.util.List;
 public class PostDao {
     static Connection conn = null;
     static PreparedStatement prst = null;
-    static ResultSet rs = null;
 
     private Post post = new Post();
 
     public static boolean create(Post post) throws Exception {
         conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
 
-        String createPost = "insert into post(Category, Title, Info, Picture, Date) values(?,?,?,?,?)"; // ��дsql���
+        String createPost = "insert into post(Category, Title, Info, Picture, Date, UserID) values(?,?,?,?,?,?)"; // ��дsql���
 
         prst = conn.prepareStatement(createPost); // ��sql������Ԥ����
 
@@ -34,76 +33,55 @@ public class PostDao {
     }
 
     public static boolean delete(int id) throws Exception {
-        conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
-
-        String deletePost = "DELETE FROM post WHERE id=?"; // ��дsql���
-
-        prst = conn.prepareStatement(deletePost); // ��sql������Ԥ����
-        boolean result = prst.executeUpdate() > 0; // sql delete success
-        return result;
-    }
-
-    public List<Post> getAllPosts() throws Exception {
-        ArrayList<Post> postList = new ArrayList<Post>();
-        Statement statement = conn.createStatement();
-        ResultSet rs = statement.executeQuery("Select * FROM post");
-        while (rs.next()) {
-            postList.add(mapPost(rs));
+        try {
+            Statement statement = conn.createStatement();
+            statement.setQueryTimeout(30);
+            String deletePost = "DELETE FROM post WHERE id=?";
+            System.out.println(deletePost);
+            int result = statement.executeUpdate(deletePost);
+            statement.close();
+            return result > 0 ? true : false;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            return false;
         }
-        statement.close();
+    }
+
+
+
+    public static final List<Post> getAllPosts(){
+         ArrayList<Post> postList = new ArrayList<>();
+         try {
+             Statement statement = conn.createStatement();
+             statement.setQueryTimeout(30);
+             String query = "SELECT ID,\n" +
+                     "       Category,\n" +
+                     "       Title,\n" +
+                     "       Info,\n" +
+                     "       Picture,\n" +
+                     "       Date,\n" +
+                     "       User_ID"+
+                     "  FROM post";
+             System.out.println(query);
+             ResultSet results = statement.executeQuery(query);
+             Post post;
+             while (results.next()) {
+                 post = new Post();
+                 post.setId(results.getInt("Post_ID"));
+                 post.setCategory(results.getInt("Post_Category"));
+                 post.setTitle(results.getString("Post_Title"));
+                 post.setInfo(results.getString("Post_Info"));
+                 post.setPicture(results.getString("Post_Picture"));
+                 post.setDate(results.getString("Post_Date"));
+                 post.setUserID(results.getInt("User_ID"));
+                 postList.add(post);
+             }
+             statement.close();
+         } catch (SQLException e) {
+             System.err.println(e.getMessage());
+         }
         return postList;
-
     }
-
-    private Post mapPost(ResultSet rs) throws SQLException {
-        Post post = new Post(rs.getInt(2), rs.getString(3), rs.getString(4),
-                rs.getString(5), rs.getString(6), rs.getInt(7));
-        post.setId(rs.getInt(1));
-        return post;
-    }
-
-
-//    public static List<Post> getAllPosts() throws Exception{
-//         ArrayList<Post> postList = new ArrayList<Post>();
-//         try {
-//             Statement statement = conn.createStatement();
-//             statement.setQueryTimeout(30);
-//             String query = " SELECT U.USER_SCREENNAME,\n" + "           U.USER_PROFILE_PICTURE,\n"
-//                     + "           P.POST_ID,\n" + "           P.USER_ID,\n" + "           P.POST_CONTENT,\n"
-//                     + "           P.ORIGINAL,\n" + "           P.REPOST_ID,\n"
-//                     + "           TO_CHAR(P.POST_DATE, 'yyyy-MM-dd hh24:mi:ss') POST_DATE\n"
-//                     + "      FROM post P, user U\n" + "     WHERE P.USER_ID = U.USER_ID\n"
-//                     + "     ORDER BY P.POST_DATE";
-//             ResultSet results = statement.executeQuery(query);
-//             Post post = null;
-//             User user = null;
-//             while (results.next()) {
-//                 post = new Post();
-//                 user = new User();
-//                 String userId = results.getString("user_id");
-//                 String postId = results.getString("post_id");
-//                 // Like 0——no 1——yes
-//                 int isLike = isLike(userId, postId);
-//                 post.setLikes(isLike);
-//                 user.setScreenname(results.getString("user_screenname"));
-//                 user.setProfile_picture(results.getString("user_profile_picture"));
-//                 post.setUser(user);
-//                 post.PostId(postId);
-//                 post.setUserId(userId);
-//                 post.setContent(results.getString("post_content"));
-//                 post.setPostDate(results.getString("post_date"));
-//                 post.setOriginal(Integer.valueOf(results.getString("original")));
-//                 post.setRepostId(Integer.valueOf(results.getString("repost_id")));
-//                 post.setCommentCount(queryCommentCount(postId));
-//                 post.setLikeCount(queryLikeCount(postId));
-//                 postList.add(post);
-//             }
-//             statement.close();
-//         } catch (SQLException e) {
-//             System.err.println(e.getMessage());
-//         }
-//         return postList;
-//     }
 
 
 }

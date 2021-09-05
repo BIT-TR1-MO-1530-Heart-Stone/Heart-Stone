@@ -1,6 +1,7 @@
 package util;
 
 import io.javalin.http.Context;
+import model.Post;
 import model.User;
 
 public class RequestUtil {
@@ -30,5 +31,24 @@ public class RequestUtil {
         return user;
     }
 
+
+    public static Post getPostInfo(Context ctx) {
+        Post post = new Post();
+
+        String category = ctx.formParam("category");
+        String postInfo = ctx.formParam("postInfo");
+        String title = ctx.formParam("title");
+        String picture = ctx.formParam("picture");
+
+        post.setCategory(Integer.valueOf(category));
+        post.setInfo(postInfo);
+        post.setTitle(title);
+        post.setPicture(picture);
+
+        return post;
+    }
+    public static String getDeletePostID(Context ctx) {
+        return ctx.formParam("DeletePostID");
+    }
 
 }
