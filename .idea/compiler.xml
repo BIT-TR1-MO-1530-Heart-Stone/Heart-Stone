@@ -7,9 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Heart-stone" />
-        <module name="project" />
+        <module name="Team Heart-Stone" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Team Heart-Stone" target="16" />
+    </bytecodeTargetLevel>
   </component>
 </project>
