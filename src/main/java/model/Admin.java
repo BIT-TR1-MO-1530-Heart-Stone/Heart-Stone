@@ -1,6 +1,8 @@
 package model;
 
-/**@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au**/
+/**
+ * @author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au
+ **/
 
 public class Admin {
     private int id;
@@ -29,14 +31,17 @@ public class Admin {
     public String getPassword() {
         return password;
     }
-    public void setEmail(String email){
-        this.email=email;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
-    public void setName(String name){
-        this.name=name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setPassword(String password){
-        this.password=password;
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

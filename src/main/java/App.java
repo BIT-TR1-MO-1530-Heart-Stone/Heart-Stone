@@ -3,7 +3,7 @@ import Controller.LoginController;
 import Controller.RegisterController;
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
-import util.Path;
+import util.*;
 
 
 /**
@@ -52,7 +52,7 @@ public class App {
      * set up each individual page of site
      **/
     public static void configureRoutes(Javalin app) {
-        app.get(util.Path.Web.INDEX, IndexController.serverIndexPage);
+        app.get(Path.Web.INDEX, IndexController.serverIndexPage);
         app.get(Path.Web.REGISTER, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
 //        app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegisterPost);

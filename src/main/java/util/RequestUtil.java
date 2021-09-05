@@ -7,9 +7,11 @@ public class RequestUtil {
     public static String getQueryUsername(Context ctx) {
         return ctx.formParam("username");
     }
+
     public static String getQueryPassword(Context ctx) {
         return ctx.formParam("password");
     }
+
     public static User getRegisterInfo(Context ctx) {
         User user = new User();
         String email = ctx.formParam("email");
