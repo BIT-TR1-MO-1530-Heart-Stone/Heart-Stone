@@ -1,16 +1,14 @@
 package main.Controller;
 
-
-import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import main.dao.UserDao;
 import main.model.User;
 import main.util.Path;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static main.util.RequestUtil.*;
+
+//@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au
 
 public class LoginController{
     //login

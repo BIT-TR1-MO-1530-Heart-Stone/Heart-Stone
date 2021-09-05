@@ -2,11 +2,12 @@ package main.dao;
 
 import main.model.User;
 import main.util.JDBCutil;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
- 
+
+/**@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au**/
+
 public class LoginDao {
 	static Connection conn = null;
 	static PreparedStatement prst = null;

@@ -4,6 +4,7 @@ import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 import main.Controller.IndexController;
 import main.Controller.LoginController;
+import main.Controller.RegisterController;
 import main.util.Path;
 
 /**
@@ -53,7 +54,7 @@ public class App {
      **/
     public static void configureRoutes(Javalin app) {
         app.get(main.util.Path.Web.INDEX, IndexController.serverIndexPage);
-//        app.get(Path.Web.REGISTER,RegisterController.registerPage);
+        app.get(Path.Web.REGISTER, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
 //        app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegisterPost);
     }

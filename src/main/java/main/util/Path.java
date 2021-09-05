@@ -20,7 +20,6 @@ public class Path {
         public static final String INDEX_NEW = "WebContent/User/login.html";
 
         public static final String REGISTER = "pages/register.html";
-        public static final String REGISTER_NEW = "pages/register_new.html";
 
         public static final String LOGIN = "pages/login.html";
         public static final String LOGIN_NEW = "pages/login_new.html";

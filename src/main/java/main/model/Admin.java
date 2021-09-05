@@ -1,5 +1,7 @@
 package main.model;
 
+/**@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au**/
+
 public class Admin {
     private int id;
     private String email;

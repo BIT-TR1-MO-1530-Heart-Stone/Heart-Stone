@@ -4,11 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
  
-/**
- *  ���������ݿ�Ĺ�����
- * @author Administrator
- *
- */
+
 public  class JDBCutil {
  
 	private static String url = "jdbc:mysql://localhost:3306/db_jsp?useUnicode=true&characterEncoding=utf8";

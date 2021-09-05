@@ -1,5 +1,7 @@
 package main.model;
 
+/**@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au**/
+
 public class Post {
     private int id;
     private int Category;
