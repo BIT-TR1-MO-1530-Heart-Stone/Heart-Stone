@@ -1,6 +1,8 @@
 package model;
 
-/**@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au**/
+/**
+ * @author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au
+ **/
 
 public class Post {
     private int id;
@@ -14,7 +16,7 @@ public class Post {
     public Post() {
     }
 
-    public Post(int Category, String Info, String Title, String Picture, String Date,int User_id) {
+    public Post(int Category, String Info, String Title, String Picture, String Date, int User_id) {
         this.Category = Category;
         this.Info = Info;
         this.Title = Title;

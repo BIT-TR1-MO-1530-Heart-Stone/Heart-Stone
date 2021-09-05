@@ -1,7 +1,7 @@
 package Controller;
 
 import io.javalin.http.Handler;
-import util.Path;
+import util.*;
 
 /**
  * Example Index HTML class using Javalin
@@ -11,7 +11,7 @@ import util.Path;
  *
  * @author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au
  */
-public class IndexController{
+public class IndexController {
     //Home page address-default is the login page
-    public static Handler serverIndexPage = ctx ->  ctx.render(Path.Template.INDEX_NEW);
+    public static Handler serverIndexPage = ctx -> ctx.render(Path.Template.INDEX_NEW);
 }
