@@ -131,7 +131,6 @@ public class UserDao {
                     "       T.Email,\n" +
                     "       T.info" +
                     "  FROM user T";
-            System.out.println(query);
             ResultSet results = statement.executeQuery(query);
             User user;
             while (results.next()) {
@@ -145,13 +144,11 @@ public class UserDao {
                 user.setEmail(results.getString("Email"));
                 user.setInfo(results.getString("info"));
                 userList.add(user);
-                System.out.println(user);
             }
             statement.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-        System.out.println(userList);
         return userList;
     }
 

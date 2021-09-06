@@ -5,8 +5,8 @@ import model.Post;
 import model.User;
 
 public class RequestUtil {
-    public static String getQueryUsername(Context ctx) {
-        return ctx.formParam("username");
+    public static String getQueryEmail(Context ctx) {
+        return ctx.formParam("email");
     }
 
     public static String getQueryPassword(Context ctx) {

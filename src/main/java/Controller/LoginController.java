@@ -18,6 +18,7 @@ public class LoginController {
         Map<String, Object> model = new HashMap<>();
         String email = getQueryEmail(ctx);
         String password = getQueryPassword(ctx);
+        System.out.println(email+password);
         if (!UserController.authenticate(email, password)) {
             ctx.render(Path.Template.LOGIN, model);
             System.out.printf("login failed!");

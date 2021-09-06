@@ -17,7 +17,7 @@ public class RegisterController {
     public static Handler handlerRegister = ctx -> {
         User user = getRegisterInfo(ctx);
         if (UserDao.register(user)) {
-            User user1 = UserDao.getUserByUsernameAndPssword(user.getEmail(), user.getPassword());
+            User user1 = UserDao.getUserByUserEmailAndPassword(user.getEmail(), user.getPassword());
             ctx.sessionAttribute("currentUser", user1);
             ctx.redirect(Path.Web.QUERYALLPOSTNOW);
         } else {
