@@ -21,7 +21,7 @@ public class Path {
 
         public static final String REGISTER = "pages/register.html";
 
-        public static final String LOGIN = "pages/login.html";
+        public static final String LOGIN = "WebContent/User/login.html";
         public static final String LOGIN_NEW = "pages/login_new.html";
 
         public static final String MAIN = "pages/main.html";

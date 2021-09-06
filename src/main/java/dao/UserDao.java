@@ -136,20 +136,22 @@ public class UserDao {
             User user;
             while (results.next()) {
                 user = new User();
-                user.setId(results.getString("user_id"));
-                user.setScreenname(results.getString("user_screenname"));
-                user.setFullname(results.getString("user_fullname"));
-                user.setGender(results.getInt("user_gender"));
-                user.setPassword(results.getString("user_password"));
-                user.setPhone_number(results.getString("user_phonenumber"));
-                user.setEmail(results.getString("user_email"));
-                user.setInfo(results.getString("user_info"));
+                user.setId(results.getString("ID"));
+                user.setScreenname(results.getString("Screenname"));
+                user.setFullname(results.getString("Fullname"));
+                user.setGender(results.getInt("Gender"));
+                user.setPassword(results.getString("Password"));
+                user.setPhone_number(results.getString("Phone_number"));
+                user.setEmail(results.getString("Email"));
+                user.setInfo(results.getString("info"));
                 userList.add(user);
+                System.out.println(user);
             }
             statement.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        System.out.println(userList);
         return userList;
     }
 
