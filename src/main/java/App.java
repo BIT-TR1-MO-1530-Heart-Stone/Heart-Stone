@@ -43,7 +43,6 @@ public class App {
             app.stop();
         }));
 
-
         // Configure Web Routes
         configureRoutes(app);
     }

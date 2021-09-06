@@ -63,6 +63,7 @@ public class UserDao {
     // Delete account
     public static boolean deleteAccount(String email, String password) throws Exception {
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "DELETE FROM user T WHERE T.email = '" + email + "'  AND T.Password = '"
@@ -78,8 +79,9 @@ public class UserDao {
     }
 
     // change Password
-    public static boolean changePassword(String email, String password, String new_password) {
+    public static boolean changePassword(String email, String password, String new_password) throws Exception{
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "UPDATE user T SET T.Password = '" + new_password + "' "
@@ -96,8 +98,9 @@ public class UserDao {
 
     // update personal information
     public static boolean modifyInfomation(String fullname, String screenname, String gender, String phone_number, String info,
-                                           String userId) {
+                                           String userId) throws Exception{
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "UPDATE user T SET T.=Fullname = '" + fullname + "', T.Screenname = '" + screenname + "', T.Gender = '" + gender
@@ -113,9 +116,10 @@ public class UserDao {
         }
     }
 
-    private static final List<User> getAllUsers() {
+    private static final List<User> getAllUsers() throws Exception{
         ArrayList<User> userList = new ArrayList<>();
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "SELECT T.ID,\n" +
@@ -149,7 +153,7 @@ public class UserDao {
         return userList;
     }
 
-    public static User getUserByUsernameAndPssword(String email, String password) {
+    public static User getUserByUserEmailAndPassword(String email, String password) throws Exception{
         return getAllUsers().stream().filter(user -> (user.getEmail().equals(email) && user.getPassword().equals(password))
         ).findFirst().orElse(null);
     }
