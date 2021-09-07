@@ -13,5 +13,5 @@ import util.*;
  */
 public class IndexController {
     //Home page address-default is the login page
-    public static Handler serverIndexPage = ctx -> ctx.render(Path.Template.INDEX_NEW);
+    public static Handler serverIndexPage = ctx -> ctx.render(Path.Template.INDEX);
 }
