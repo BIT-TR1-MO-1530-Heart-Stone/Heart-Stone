@@ -17,9 +17,9 @@ import util.*;
 public class App {
 
     public static final int JAVALIN_PORT = 7001;
-    public static final String CSS_DIR = "css/";
+    public static final String CSS_DIR = "WebContent/css/";
     public static final String IMAGES_DIR = "images/";
-    public static final String JS_DIR = "js/";
+//    public static final String JS_DIR = "js/";
     public static final String WEBFONT_DIR = "webfonts/";
 
     public static void main(String[] args) throws Exception {
@@ -30,7 +30,7 @@ public class App {
             config.registerPlugin(new RouteOverviewPlugin("/help/routes"));
 
 //            // Uncomment this if you have files in the CSS Directory
-//            config.addStaticFiles(CSS_DIR);
+            config.addStaticFiles(CSS_DIR);
 //
 //            // Uncomment this if you have files in the Images Directory
 //            config.addStaticFiles(IMAGES_DIR);

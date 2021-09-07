@@ -12,9 +12,9 @@ public class Path {
     }
 
     public static class Template {
-        public static final String INDEX = "WebContent/User/login.html";
-        public static final String REGISTER = "WebContent/User/register.html";
-        public static final String LOGIN = "WebContent/User/login.html";
+        public static final String INDEX = "WebContent/page/login.html";
+        public static final String REGISTER = "WebContent/page/register.html";
+        public static final String LOGIN = "WebContent/page/login.html";
         public static final String MAIN = "WebContent/Main/main.html";
         public static final String CreatePost = "WebContent/Post/addPost.html";
     }

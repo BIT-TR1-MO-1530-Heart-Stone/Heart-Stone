@@ -20,12 +20,14 @@ public class RequestUtil {
         String screenname = ctx.formParam("screenname");
         String gender = ctx.formParam("gender");
         String phone_number = ctx.formParam("phone_number");
+        String info = ctx.formParam("info");
         String password = ctx.formParam("password2");
 //        String profilePicture = "default.png";
         user.setEmail(email);
         user.setFullname(fullname);
         user.setScreenname(screenname);
         user.setGender(Integer.valueOf(gender));
+        user.setInfo(info);
         user.setPhone_number(phone_number);
         user.setPassword(password);
 //        user.setCreate_date(getCurrentDate());

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>LOGIN</title>
-<link rel="stylesheet" type="text/css" href="User/login.css"/>
+<link rel="stylesheet" type="text/css" href="css/login.css"/>
 </head>
 <body>
 <form action="loginServlet" method="post">
