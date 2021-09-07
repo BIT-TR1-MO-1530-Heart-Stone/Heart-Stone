@@ -1,32 +1,27 @@
-!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+<!DOCTYPE html>
+<head xmlns="http://www.w3.org/1999/html">
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="register.css"/>
 </head>
 <main role="main" class="container ">
-<body>
-<form th:action="@{/toRegister}" method="post">
-
-
-
-    <div id="register">
-        <h1>Register</h1>
-        <input type="text" required="required" placeholder="email" name="email"></input>
-        <input type="text" required="required" placeholder="password" name="password"></input>
-        <input type="text" required="required" placeholder="fullname" name="fullname"></input>
-        <input type="text" required="required" placeholder="screenname" name="screenname"></input>
-        <input type="text" required="required" placeholder="phone_number" name="phone_number"></input>
-
-        <input type="radio" name="gender" value="1"><font color="white">Male</font>
-        <input type="radio" name="gender" value="2"><font color="white">Female</font><br>
-
-
-
-        <button class="but" type="submit">Sign up</button>
-    </div>
-</form>
-</body>
+    <body>
+    <form id="register-form" action="/handlerRegister" method="post">
+        <div id="register">
+            <h1>Register</h1>
+            <input type="email" required="required" placeholder="email" id="email" name="email"/><br>
+            <input type="password" required="required" placeholder="password" id="password" name="password"/><br>
+            <input type="password" required="required" placeholder="Confirm User Password" id="password2" name="password2"/><br>
+            <input type="text" required="required" placeholder="fullname" id="fullname" name="fullname"/><br>
+            <input type="text" required="required" placeholder="screenname" id="screenname" name="screenname"/><br>
+            <input type="text" required="required" placeholder="phone_number" id="phone_number" name="phone_number"/><br>
+            <select name="gender">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select><br>
+            <button class="but" type="submit">Sign up</button>
+        </div>
+    </form>
+    </body>
 </main>
 </html>
