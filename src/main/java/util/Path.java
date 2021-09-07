@@ -15,7 +15,7 @@ public class Path {
         public static final String INDEX = "WebContent/page/login.html";
         public static final String REGISTER = "WebContent/page/register.html";
         public static final String LOGIN = "WebContent/page/login.html";
-        public static final String MAIN = "WebContent/Main/main.html";
+        public static final String MAIN = "WebContent/page/main.html";
         public static final String CreatePost = "WebContent/Post/addPost.html";
     }
 

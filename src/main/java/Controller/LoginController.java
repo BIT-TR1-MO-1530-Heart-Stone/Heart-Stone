@@ -27,6 +27,7 @@ public class LoginController {
             ctx.sessionAttribute("currentUser", user);
             ctx.redirect(Path.Web.QUERYALLPOSTNOW);
             System.out.printf("login success!");
+//            ctx.render(Path.Template.MAIN, model);
         }
     };
     //login out

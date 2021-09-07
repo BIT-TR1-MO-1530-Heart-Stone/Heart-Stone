@@ -17,7 +17,7 @@ public class PostDao {
     public static boolean create(Post post) throws Exception {
         conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
 
-        String createPost = "insert into post(Category, Title, Info, Picture, Date, UserID) values(?,?,?,?,?,?)"; // ��дsql���
+        String createPost = "insert into post(Category, Title, Info, Picture, Date, User_id) values(?,?,?,?,?,?)"; // ��дsql���
 
         prst = conn.prepareStatement(createPost); // ��sql������Ԥ����
 
@@ -34,6 +34,7 @@ public class PostDao {
 
     public static boolean delete(int id) throws Exception {
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String deletePost = "DELETE FROM post WHERE id=?";
@@ -49,9 +50,10 @@ public class PostDao {
 
 
 
-    public static final List<Post> getAllPosts(){
+    public static final List<Post> getAllPosts() throws Exception{
          ArrayList<Post> postList = new ArrayList<>();
          try {
+             conn = JDBCutil.getCon();
              Statement statement = conn.createStatement();
              statement.setQueryTimeout(30);
              String query = "SELECT ID,\n" +
@@ -62,19 +64,19 @@ public class PostDao {
                      "       Date,\n" +
                      "       User_ID"+
                      "  FROM post";
-             System.out.println(query);
              ResultSet results = statement.executeQuery(query);
              Post post;
              while (results.next()) {
                  post = new Post();
-                 post.setId(results.getInt("Post_ID"));
-                 post.setCategory(results.getInt("Post_Category"));
-                 post.setTitle(results.getString("Post_Title"));
-                 post.setInfo(results.getString("Post_Info"));
-                 post.setPicture(results.getString("Post_Picture"));
-                 post.setDate(results.getString("Post_Date"));
+                 post.setId(results.getInt("ID"));
+                 post.setCategory(results.getInt("Category"));
+                 post.setTitle(results.getString("Title"));
+                 post.setInfo(results.getString("Info"));
+                 post.setPicture(results.getString("Picture"));
+                 post.setDate(results.getString("Date"));
                  post.setUserID(results.getInt("User_ID"));
                  postList.add(post);
+//                 System.out.println(post.getTitle());
              }
              statement.close();
          } catch (SQLException e) {
