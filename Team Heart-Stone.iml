@@ -56,5 +56,6 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.18" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.jcraft:jsch:0.1.52" level="project" />
+    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
 </module>
