@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public  class JDBCutil {
  
-	private static String url = "jdbc:mysql://localhost:3306/data?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8";
+	private static String url = "jdbc:mysql://localhost:3306/db_jsp?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8";
 	private static String user = "root";
-	private static String password = "root";
+	private static String password = "396205";
 //	private static String driver = "com.mysql.jdbc.Driver";
 	private static String driver = "com.mysql.cj.jdbc.Driver";
 	
