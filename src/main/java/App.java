@@ -57,8 +57,10 @@ public class App {
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
 
+        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
-
+        app.post(Path.Web.CREATEPOST, PostController.handlerCreatePost);
+        app.get(Path.Web.DELETEPOST, PostController.handlerDeletePost);
     }
 
 }
