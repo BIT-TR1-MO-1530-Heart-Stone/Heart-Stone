@@ -40,6 +40,9 @@ public class RequestUtil {
     }
 
 
+    public static User getSessionCurrentUser(Context ctx) {
+        return ctx.sessionAttribute("currentUser");
+    }
     public static Post getPostInfo(Context ctx) {
         Post post = new Post();
 
@@ -53,9 +56,10 @@ public class RequestUtil {
         String title = "aaa";
         String picture = "aaaa";
         String date = getCurrentDate();
-        int userId = 111;
-        int Visible = 0;
 
+        int userId = 1222;
+        int Visible = 0;
+        User user = RequestUtil.getSessionCurrentUser(ctx);
 
         post.setCategory(Integer.valueOf(category));
         post.setInfo(postInfo);
@@ -64,7 +68,7 @@ public class RequestUtil {
 
         post.setDate(date);
         System.out.println(post.getDate());
-        post.setUserID(userId);
+        post.setUserID(user.getId());
         post.setVisible(Visible);
 
         return post;

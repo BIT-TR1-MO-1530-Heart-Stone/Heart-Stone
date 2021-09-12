@@ -135,7 +135,7 @@ public class UserDao {
             User user;
             while (results.next()) {
                 user = new User();
-                user.setId(results.getString("ID"));
+                user.setId(results.getInt("ID"));
                 user.setScreenname(results.getString("Screenname"));
                 user.setFullname(results.getString("Fullname"));
                 user.setGender(results.getInt("Gender"));

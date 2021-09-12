@@ -3,6 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/HeartSQLDDL_V1.4.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/HeartSQLDDL_V1.5.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/HeartSQLDDL_V1.6.sql" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
