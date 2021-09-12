@@ -4,6 +4,10 @@ import io.javalin.http.Context;
 import model.Post;
 import model.User;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+
 public class RequestUtil {
     public static String getQueryEmail(Context ctx) {
         return ctx.formParam("email");
@@ -39,20 +43,41 @@ public class RequestUtil {
     public static Post getPostInfo(Context ctx) {
         Post post = new Post();
 
-        String category = ctx.formParam("category");
-        String postInfo = ctx.formParam("postInfo");
-        String title = ctx.formParam("title");
-        String picture = ctx.formParam("picture");
+//        String category = ctx.formParam("category");
+//        String postInfo = ctx.formParam("postInfo");
+//        String title = ctx.formParam("title");
+//        String picture = ctx.formParam("picture");
+
+        String category = "1";
+        String postInfo="adasdasd";
+        String title = "aaa";
+        String picture = "aaaa";
+        String date = getCurrentDate();
+        int userId = 111;
+        int Visible = 0;
+
 
         post.setCategory(Integer.valueOf(category));
         post.setInfo(postInfo);
         post.setTitle(title);
         post.setPicture(picture);
 
+        post.setDate(date);
+        System.out.println(post.getDate());
+        post.setUserID(userId);
+        post.setVisible(Visible);
+
         return post;
     }
     public static String getDeletePostID(Context ctx) {
         return ctx.formParam("DeletePostID");
     }
+    public static String getCurrentDate(){
 
+
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sf.format(new Date());
+
+    }
 }
+

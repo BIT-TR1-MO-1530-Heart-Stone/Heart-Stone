@@ -15,7 +15,7 @@ import static util.RequestUtil.*;
 
 public class PostController {
     // Jump to the Post  main page
-    public static Handler PostMainPage = ctx -> ctx.render(Path.Template.MAIN);
+    public static Handler CreatePostpage = ctx -> ctx.render(Path.Template.CreatePost);
     //Create a new post
     public static Handler handlerCreatePost = ctx ->{
         Post post = getPostInfo(ctx);

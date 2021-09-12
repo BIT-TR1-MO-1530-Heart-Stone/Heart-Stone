@@ -12,17 +12,19 @@ public class Post {
     private String Picture;
     private String Date;
     private int User_id;
+    private int Visible;
 
     public Post() {
     }
 
-    public Post(int Category, String Info, String Title, String Picture, String Date, int User_id) {
+    public Post(int Category, String Info, String Title, String Picture, String Date, int User_id,int Visible) {
         this.Category = Category;
         this.Info = Info;
         this.Title = Title;
         this.Picture = Picture;
         this.Date = Date;
         this.User_id = User_id;
+        this.Visible = Visible;
     }
 
 
@@ -46,8 +48,9 @@ public class Post {
         return Date;
     }
 
-    public void setDate(String date) {
+    public void setDate(String Date) {
         this.Date = Date;
+        System.out.print(1111);
     }
 
     public String getPicture() {
@@ -80,5 +83,13 @@ public class Post {
 
     public void setUserID(int User_id) {
         this.User_id = User_id;
+    }
+
+    public int getVisible() {
+        return Visible;
+    }
+
+    public void setVisible(int visible) {
+        Visible = visible;
     }
 }

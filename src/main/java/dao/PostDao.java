@@ -17,7 +17,7 @@ public class PostDao {
     public static boolean create(Post post) throws Exception {
         conn = JDBCutil.getCon(); // ��ȡ���ݿ�����
 
-        String createPost = "insert into post(Category, Title, Info, Picture, Date, User_id) values(?,?,?,?,?,?)"; // ��дsql���
+        String createPost = "insert into post (Category, Title, Info, Picture, Date, User_id, Visible) values(?,?,?,?,?,?,?)"; // ��дsql���
 
         prst = conn.prepareStatement(createPost); // ��sql������Ԥ����
 
@@ -26,8 +26,11 @@ public class PostDao {
         prst.setString(3, post.getTitle());
         prst.setString(4, post.getPicture());
         prst.setString(5, post.getDate());
+//        prst.setDate(5,new java.sql.Date(post.setDate());
         prst.setInt(6, post.getUserID());
-        boolean result = prst.executeUpdate() > 0; // ִ��sql���
+        prst.setInt(7, post.getVisible());
+        System.out.print("date succuss");
+        boolean result = prst.executeUpdate() > 0;
         return result;
 
     }
@@ -62,7 +65,8 @@ public class PostDao {
                      "       Info,\n" +
                      "       Picture,\n" +
                      "       Date,\n" +
-                     "       User_ID"+
+                     "       User_ID,\n"+
+                     "       Visible"+
                      "  FROM post";
              ResultSet results = statement.executeQuery(query);
              Post post;
@@ -75,6 +79,7 @@ public class PostDao {
                  post.setPicture(results.getString("Picture"));
                  post.setDate(results.getString("Date"));
                  post.setUserID(results.getInt("User_ID"));
+                 post.setVisible(results.getInt("Visible"));
                  postList.add(post);
 //                 System.out.println(post.getTitle());
              }
