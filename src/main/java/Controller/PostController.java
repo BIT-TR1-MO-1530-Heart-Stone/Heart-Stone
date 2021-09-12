@@ -14,12 +14,13 @@ import static util.RequestUtil.*;
 
 
 public class PostController {
-    // Jump to the Create post page
-    public static Handler CreatePostPage = ctx -> ctx.render(Path.Template.CreatePost);
+    // Jump to the Post  main page
+    public static Handler PostMainPage = ctx -> ctx.render(Path.Template.MAIN);
     //Create a new post
     public static Handler handlerCreatePost = ctx ->{
         Post post = getPostInfo(ctx);
         if(PostDao.create(post)){
+            System.out.println("Create a new post success");
             ctx.redirect(Path.Web.QUERYALLPOSTNOW);
         }else{
             System.err.println("Create a new post failed");
@@ -32,6 +33,8 @@ public class PostController {
         ArrayList<Post> allPost = new ArrayList<>();
         allPost = (ArrayList<Post>) PostDao.getAllPosts();
         Map<String, Object> model = new HashMap<>();
+        model.put("post",allPost);
+        System.out.printf("List all success");
         ctx.render(Path.Template.MAIN, model);
     };
 
@@ -42,6 +45,7 @@ public class PostController {
             ctx.redirect(Path.Web.QUERYALLPOSTNOW);
         }else{
             System.err.println("Delete failed");
+            ctx.render(Path.Template.DeletePost);
         }
     };
 
