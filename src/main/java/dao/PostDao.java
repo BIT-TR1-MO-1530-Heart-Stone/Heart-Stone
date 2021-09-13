@@ -51,30 +51,40 @@ public class PostDao {
         }
     }
 
-//    public static final List<Post> MainPagePost() throws Exception{
-//        ArrayList<Post> mainpostList = new ArrayList<>();
+//    public static final List<Post> PersonalPagePost() throws Exception{
+//        ArrayList<Post> personalpostlist = new ArrayList<>();
 //        try {
 //            conn = JDBCutil.getCon();
 //            Statement statement = conn.createStatement();
 //            statement.setQueryTimeout(30);
-//            String query = "SELECT Title,\n" +
-//                    "              Info,\n" +
-//                    "              Date" +
-//                    "  FROM post";
+//            String query = "SELECT ID,\n" +
+//                    "       Category,\n" +
+//                    "       Title,\n" +
+//                    "       Info,\n" +
+//                    "       Picture,\n" +
+//                    "       Date,\n" +
+//                    "       User_ID,\n"+
+//                    "       Visible"+
+//                    "  FROM post WHERE User_id = ?";
+//
 //            ResultSet results = statement.executeQuery(query);
 //            Post post;
 //            while (results.next()) {
 //                post = new Post();
+//                post.setId(results.getInt("ID"));
+//                post.setCategory(results.getInt("Category"));
 //                post.setTitle(results.getString("Title"));
 //                post.setInfo(results.getString("Info"));
+//                post.setPicture(results.getString("Picture"));
 //                post.setDate(results.getString("Date"));
-//                mainpostList.add(post);
+//                post.setVisible(results.getInt("Visible"));
+//                personalpostlist.add(post);
 //            }
 //            statement.close();
 //        } catch (SQLException e) {
 //            System.err.println(e.getMessage());
 //        }
-//        return mainpostList;
+//        return personalpostlist;
 //    }
 
     public static final List<Post> getAllPosts() throws Exception{

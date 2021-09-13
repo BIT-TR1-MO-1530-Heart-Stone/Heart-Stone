@@ -62,7 +62,7 @@ public class App {
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
         app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
         app.get(Path.Web.DELETEPOST, PostController.handlerDeletePost);
-        app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
+        //app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
 
 }

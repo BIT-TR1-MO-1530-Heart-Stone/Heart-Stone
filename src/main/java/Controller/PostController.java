@@ -7,6 +7,7 @@ import util.Path;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -21,8 +22,7 @@ public class PostController {
         Post post = getPostInfo(ctx);
         if(PostDao.create(post)){
             System.out.println("Create a new post success");
-            //ctx.redirect(Path.Web.QUERYALLPOSTNOW);
-            ctx.render(Path.Template.DeletePost);
+            ctx.redirect(Path.Web.QUERYALLPOSTNOW);
         }else{
             System.err.println("Create a new post failed");
             ctx.render(Path.Template.CreatePost);
@@ -39,14 +39,16 @@ public class PostController {
 //        ctx.render(Path.Template.MAIN, model);
 //    };
 
-    //List all posts in Postlist(Delete) page
+    //List all posts in main page
     public static Handler handlerListAllPost = ctx ->{
-        ArrayList<Post> allPost = new ArrayList<>();
-        allPost = (ArrayList<Post>) PostDao.getAllPosts();
+        List<Post> allPost = PostDao.getAllPosts();
         Map<String, Object> model = new HashMap<>();
-        model.put("post",allPost);
-        System.out.printf("List all success");
-        ctx.render(Path.Template.DeletePost, model);
+        model.put("postList",allPost);
+        //System.out.printf("List all success");
+        if(allPost != null){
+            System.out.println(allPost.get(0).getInfo());
+        }
+        ctx.render(Path.Template.MAIN, model);
     };
 
     //Delete a post

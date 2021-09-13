@@ -47,15 +47,16 @@ public class RequestUtil {
         Post post = new Post();
 
 //        String category = ctx.formParam("category");
-//        String postInfo = ctx.formParam("postInfo");
-//        String title = ctx.formParam("title");
+        String postInfo = ctx.formParam("postInfo");
+        String title = ctx.formParam("title");
 //        String picture = ctx.formParam("picture");
+        String date = getCurrentDate();
 
         String category = "1";
-        String postInfo="adasdasd";
-        String title = "aaa";
+//        String postInfo="adasdasd";
+//        String title = "aaa";
         String picture = "aaaa";
-        String date = getCurrentDate();
+
 
         int userId = 1222;
         int Visible = 0;

@@ -5,7 +5,7 @@ package model;
  **/
 
 public class Post {
-    private int id;
+    private int Id;
     private int Category;
     private String Info;
     private String Title;
@@ -29,11 +29,11 @@ public class Post {
 
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public int getCategory() {

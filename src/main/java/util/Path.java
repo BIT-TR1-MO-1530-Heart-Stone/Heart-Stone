@@ -13,7 +13,7 @@ public class Path {
         public static final String CREATEPOSTPAGE = "/addPost";
         public static final String DELETEPOST = "/Postlist(delete)";
         public static final String HANDLER_CREATEPOST = "/handlerCreatePost";
-        public static final String MAINPAGEPOSTLIST = "/MainPagePostList";
+        //public static final String MAINPAGEPOSTLIST = "/MainPagePostList";
     }
 
     public static class Template {
