@@ -58,11 +58,11 @@ public class App {
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
 
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
-
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
         app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
         app.get(Path.Web.DELETEPOST, PostController.handlerDeletePost);
+        app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
 
 }

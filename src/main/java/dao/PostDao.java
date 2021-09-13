@@ -51,7 +51,31 @@ public class PostDao {
         }
     }
 
-
+//    public static final List<Post> MainPagePost() throws Exception{
+//        ArrayList<Post> mainpostList = new ArrayList<>();
+//        try {
+//            conn = JDBCutil.getCon();
+//            Statement statement = conn.createStatement();
+//            statement.setQueryTimeout(30);
+//            String query = "SELECT Title,\n" +
+//                    "              Info,\n" +
+//                    "              Date" +
+//                    "  FROM post";
+//            ResultSet results = statement.executeQuery(query);
+//            Post post;
+//            while (results.next()) {
+//                post = new Post();
+//                post.setTitle(results.getString("Title"));
+//                post.setInfo(results.getString("Info"));
+//                post.setDate(results.getString("Date"));
+//                mainpostList.add(post);
+//            }
+//            statement.close();
+//        } catch (SQLException e) {
+//            System.err.println(e.getMessage());
+//        }
+//        return mainpostList;
+//    }
 
     public static final List<Post> getAllPosts() throws Exception{
          ArrayList<Post> postList = new ArrayList<>();

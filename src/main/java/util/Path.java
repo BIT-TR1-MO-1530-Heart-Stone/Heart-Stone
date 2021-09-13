@@ -6,14 +6,14 @@ public class Path {
         public static final String INDEX = "/";
         public static final String REGISTERPAGE = "/register";
         public static final String HANDLER_REGISTER = "/handlerRegister";
-        public static final String HANDLER_CREATEPOST = "/handlerCreatePost";
         public static final String LOGIN = "/login";
         public static final String LOGOUT = "/logout";
 
         public static final String QUERYALLPOSTNOW = "/queryAllPostNow";
         public static final String CREATEPOSTPAGE = "/addPost";
         public static final String DELETEPOST = "/Postlist(delete)";
-
+        public static final String HANDLER_CREATEPOST = "/handlerCreatePost";
+        public static final String MAINPAGEPOSTLIST = "/MainPagePostList";
     }
 
     public static class Template {
