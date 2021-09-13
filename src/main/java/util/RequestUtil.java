@@ -41,6 +41,7 @@ public class RequestUtil {
 
 
     public static User getSessionCurrentUser(Context ctx) {
+
         return ctx.sessionAttribute("currentUser");
     }
     public static Post getPostInfo(Context ctx) {
@@ -75,8 +76,15 @@ public class RequestUtil {
         return post;
     }
     public static String getDeletePostID(Context ctx) {
-        return ctx.formParam("DeletePostID");
+        System.out.println("This is in RequestUtil,getDeletePostID method");
+
+        System.out.println ( ctx.formParam("firstname") );
+
+        return ctx.formParam("with");
+//        return "2";
     }
+
+
     public static String getCurrentDate(){
 
 

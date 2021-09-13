@@ -35,14 +35,15 @@ public class PostDao {
 
     }
 
-    public static boolean delete(int id) throws Exception {
+    public static boolean deletePost(int postId,int userId) throws Exception {
         try {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String deletePost = "DELETE FROM post WHERE id=?";
+            String deletePost = "DELETE FROM post WHERE id='"+postId+"'and User_id='"+userId+"'";
             System.out.println(deletePost);
             int result = statement.executeUpdate(deletePost);
+
             statement.close();
             return result > 0 ? true : false;
         } catch (SQLException e) {
@@ -86,7 +87,6 @@ public class PostDao {
 //        }
 //        return personalpostlist;
 //    }
-
     public static final List<Post> getAllPosts() throws Exception{
          ArrayList<Post> postList = new ArrayList<>();
          try {
