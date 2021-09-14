@@ -25,4 +25,12 @@ public class RegisterController {
             ctx.render(Path.Template.REGISTER);
         }
     };
+
+    //Back to login
+    public static Handler handlerBackToLogin = ctx -> {
+
+        ctx.render(Path.Template.LOGIN);
+        System.out.println("Im back!!!");
+
+    };
 }

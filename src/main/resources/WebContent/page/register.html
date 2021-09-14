@@ -7,8 +7,9 @@
 <main role="main" class="container ">
     <body>
 
+    <div id="register">
     <form id="register-form" action="/handlerRegister" method="post">
-        <div id="register">
+
             <h1>Register</h1>
             <input type="email" required="required" placeholder="email" id="email" name="email"/><br>
             <input type="password" required="required" placeholder="password" id="password" name="password"/><br>
@@ -23,15 +24,19 @@
                 <option value="1"> Male</option>
                 <option value="0"> Female</option>
             </select>
+
             </div>
              <br>
             <button class="but" type="submit">Sign up</button>
             <br/>
-            <button class="but" onclick="window.location.href ='/login'">Back</button>
 
-        </div>
+
+
     </form>
-
+    <form id="backToLogin" action="/backLogin" method="post">
+        <button class="but" id="backLogin" type="submit">Back </button>
+    </form>
+    </div>
 
     <script type="text/javascript">
         function checkpassword() {
@@ -47,6 +52,11 @@
                 document.getElementById("submit").disabled = true;
             }
         }
+
+        function jump(){
+            window.location.href="http://blog.sina.com.cn/mleavs";
+        }
+
     </script>
     </body>
 </main>

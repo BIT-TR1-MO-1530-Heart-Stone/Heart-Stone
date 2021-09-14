@@ -7,8 +7,9 @@ public class Path {
         public static final String REGISTERPAGE = "/register";
         public static final String HANDLER_REGISTER = "/handlerRegister";
         public static final String LOGIN = "/login";
-        public static final String NAVIGATION_LOGOUT = "/logout";
+        public static final String BACKTOLOGIN = "/backLogin";
 
+        public static final String NAVIGATION_LOGOUT = "/logout";
         public static final String QUERYALLPOSTNOW = "/queryAllPostNow";
         public static final String CREATEPOSTPAGE = "/addPost";
         public static final String HANDLER_DELETEPOST = "/handlerDeletePost";
