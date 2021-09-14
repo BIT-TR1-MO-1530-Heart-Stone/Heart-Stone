@@ -22,8 +22,8 @@ public class PostDao {
         prst = conn.prepareStatement(createPost); // ��sql������Ԥ����
 
         prst.setInt(1, post.getCategory());
-        prst.setString(2, post.getInfo());
-        prst.setString(3, post.getTitle());
+        prst.setString(2, post.getTitle());
+        prst.setString(3, post.getInfo());
         prst.setString(4, post.getPicture());
         prst.setString(5, post.getDate());
 //        prst.setDate(5,new java.sql.Date(post.setDate());
