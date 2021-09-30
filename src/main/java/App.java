@@ -56,13 +56,17 @@ public class App {
         app.get(Path.Web.REGISTERPAGE, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
+        app.post(Path.Web.BACKTOLOGIN, RegisterController.handlerBackToLogin);
 
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
         app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
-        app.get(Path.Web.DELETEPOST, PostController.handlerDeletePost);
-        //app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
+        app.post(Path.Web.HANDLER_DELETEPOST, PostController.handlerDeletePost);
+        app.post(Path.Web.NAVIGATION_LOGOUT, LoginController.handlerLogout);
+
+
+      //  app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
 
 }

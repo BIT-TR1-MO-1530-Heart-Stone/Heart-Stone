@@ -32,7 +32,11 @@ public class LoginController {
     };
     //login out
     public static Handler handlerLogout = ctx -> {
+
+        System.out.println("User logout!!");
         ctx.sessionAttribute("currentUser", null);
-        ctx.redirect(Path.Web.INDEX);
+        ctx.render(Path.Template.LOGIN);
+        System.out.println("session is null!!");
+
     };
 }

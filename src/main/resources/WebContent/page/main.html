@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <link href="main.css" rel="stylesheet">
 </head>
 
@@ -19,7 +18,7 @@
 
         </div>
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" href="/">Redbook</a>
+            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,12 +39,17 @@
                     <a class="nav-link" href="/">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a  class="btn btn-outline-danger" href="/logout">Logout</a>
+                    <form name="logout" action="/logout" method="post">
+                        <button class="btn btn-danger" id="logout" type="submit">Logout </button>
+
+
+                    </form>
                 </li>
 
             </ul>
         </div>
     </nav>
+
 </header>
 <main role="main" class="container ">
 
@@ -78,21 +82,48 @@
             <li class="list-group-item" th:each="post:${postList}">
                 <div class="media">
                     <div class="media-heading">
+
+<!--                        <input type="text" name="firstname" value="Mickey">-->
+
+
                         <h2><a th:href="@{/posts/{postId}(postId=${post.Id})}" th:text="${post.Title}">title</a></h2>
-                        <h5 th:text="${post.Info}">content</h5>
+                        <h4 th:text="${post.Info}">content</h4>
+                        <span class="date" th:text="${'post on ' + post.Date}"></span>
                     </div>
-                    <span th:text="${'post on ' + post.Date}"></span>
-                    <div class="ml-auto float-right">
-                        <form th:method="DELETE" th:action="@{/posts/{postId}(postId=${post.Id})}">
-                            <button class="btn btn-danger" type="submit">delete</button>
+
+
+                    <div class="ml-auto float-right" onkeyup="getMessage()">
+                        <form name= "handlerPostId" action="/handlerDeletePost" method="post" >
+                        <input type="hidden" name="with" th:value="${post.id}"/>
+                            <input type="hidden" id="postUserID" th:value="${post.UserID}"/>
+                            <button class="btn btn-danger" id="handlerPostId"  type="submit" >delete </button>
+
                         </form>
                     </div>
+
+
 
                 </div>
             </li>
         </ul>
     </div>
 </main>
-</body>
 
+<script language="JavaScript">
+    function getMessage(){
+        var myName = '<%=session.getAttribute("currentUser.getId()")%>';
+        var message = $(“input#postUserID”).val();
+        var ui =document.getElementById("handlerPostId");
+        if(myName == message){
+
+            ui.style.visibility="visible";
+        }else{
+            ui.style.visibility="hidden";
+        }
+    }
+
+
+</script>
+
+</body>
 </html>

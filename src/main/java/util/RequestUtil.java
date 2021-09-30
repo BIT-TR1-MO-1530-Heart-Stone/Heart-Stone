@@ -5,6 +5,7 @@ import model.LikePost;
 import model.Post;
 import model.User;
 
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -40,6 +41,7 @@ public class RequestUtil {
         return user;
     }
 
+
     public static User getSessionCurrentUser(Context ctx) {
         return ctx.sessionAttribute("currentUser");
     }
@@ -47,15 +49,19 @@ public class RequestUtil {
     //Post
     public static Post getPostInfo(Context ctx) {
         Post post = new Post();
+
 //        String category = ctx.formParam("category");
         String postInfo = ctx.formParam("postInfo");
         String title = ctx.formParam("title");
 //        String picture = ctx.formParam("picture");
         String date = getCurrentDate();
+
         String category = "1";
 //        String postInfo="adasdasd";
 //        String title = "aaa";
         String picture = "aaaa";
+
+
         int userId = 1222;
         int Visible = 0;
         User user = RequestUtil.getSessionCurrentUser(ctx);
@@ -74,7 +80,12 @@ public class RequestUtil {
     }
 
     public static String getDeletePostID(Context ctx) {
-        return ctx.formParam("DeletePostID");
+        System.out.println("This is in RequestUtil,getDeletePostID method");
+
+        System.out.println ( ctx.formParam("firstname") );
+
+        return ctx.formParam("with");
+//        return "2";
     }
 
     //LikePost

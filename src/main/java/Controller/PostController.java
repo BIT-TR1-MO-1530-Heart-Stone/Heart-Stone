@@ -3,9 +3,9 @@ package Controller;
 import dao.PostDao;
 import io.javalin.http.Handler;
 import model.Post;
+import model.User;
 import util.Path;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,15 +46,19 @@ public class PostController {
         model.put("postList",allPost);
         //System.out.printf("List all success");
         if(allPost != null){
-            System.out.println(allPost.get(0).getInfo());
+           // System.out.println(allPost.get(0).getInfo());
         }
         ctx.render(Path.Template.MAIN, model);
     };
 
     //Delete a post
     public static Handler handlerDeletePost = ctx ->{
+        System.out.println("Deleting.......");
+        User user = ctx.sessionAttribute("currentUser");
         String DeletePostID = getDeletePostID(ctx);
-        if(PostDao.delete(Integer.valueOf(DeletePostID))){
+        System.out.println("DeletePostID is:   " + DeletePostID);
+        if(PostDao.deletePost(Integer.valueOf(DeletePostID),user.getId())){
+            System.out.println("Delete successfully");
             ctx.redirect(Path.Web.QUERYALLPOSTNOW);
         }else{
             System.err.println("Delete failed");

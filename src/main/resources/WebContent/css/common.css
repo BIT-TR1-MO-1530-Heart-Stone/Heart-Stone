@@ -22,7 +22,6 @@ body {
 /* Page CSS
 -------------------------------------------------- */
 
-
 body > .container {
     padding: 60px 15px 0;
 }
@@ -46,4 +45,8 @@ main {
 
 a.navbar-brand {
     text-align: center;
+}
+
+h1 {
+    font: italic bold 12px/30px Georgia, serif;
 }

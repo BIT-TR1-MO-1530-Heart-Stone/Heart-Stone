@@ -17,7 +17,7 @@ public class Post {
     public Post() {
     }
 
-    public Post(int Category, String Info, String Title, String Picture, String Date, int User_id,int Visible) {
+    public Post(int Category, String Title, String Info, String Picture, String Date, int User_id,int Visible) {
         this.Category = Category;
         this.Info = Info;
         this.Title = Title;
