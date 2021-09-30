@@ -1,11 +1,12 @@
 package util;
 
 import io.javalin.http.Context;
+import model.LikePost;
 import model.Post;
 import model.User;
 
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class RequestUtil {
@@ -39,25 +40,22 @@ public class RequestUtil {
         return user;
     }
 
-
     public static User getSessionCurrentUser(Context ctx) {
         return ctx.sessionAttribute("currentUser");
     }
+
+    //Post
     public static Post getPostInfo(Context ctx) {
         Post post = new Post();
-
 //        String category = ctx.formParam("category");
         String postInfo = ctx.formParam("postInfo");
         String title = ctx.formParam("title");
 //        String picture = ctx.formParam("picture");
         String date = getCurrentDate();
-
         String category = "1";
 //        String postInfo="adasdasd";
 //        String title = "aaa";
         String picture = "aaaa";
-
-
         int userId = 1222;
         int Visible = 0;
         User user = RequestUtil.getSessionCurrentUser(ctx);
@@ -74,12 +72,21 @@ public class RequestUtil {
 
         return post;
     }
+
     public static String getDeletePostID(Context ctx) {
         return ctx.formParam("DeletePostID");
     }
-    public static String getCurrentDate(){
 
+    //LikePost
+    public static LikePost getLikePost(Context ctx){
+        User user = RequestUtil.getSessionCurrentUser(ctx);
+        String date = getCurrentDate();
+        int postId = Integer.valueOf(ctx.formParam("postId"));
+        LikePost likepost=new LikePost(date,postId,user.getId());
+        return likepost;
+    }
 
+    public static String getCurrentDate() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sf.format(new Date());
 

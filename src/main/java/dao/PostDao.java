@@ -41,7 +41,7 @@ public class PostDao {
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String deletePost = "DELETE FROM post WHERE id=?";
-            System.out.println(deletePost);
+//            System.out.println(deletePost);
             int result = statement.executeUpdate(deletePost);
             statement.close();
             return result > 0 ? true : false;
