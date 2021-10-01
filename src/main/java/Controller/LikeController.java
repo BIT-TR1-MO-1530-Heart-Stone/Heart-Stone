@@ -10,12 +10,6 @@ import static util.RequestUtil.getLikePost;
 public class LikeController {
     public static Handler handlerLikePost = ctx ->{
         LikePost likePost = getLikePost(ctx);
-//        if(LikeDao.like(likePost)){
-//            ctx.redirect(Path.Web.QUERYALLPOSTNOW);
-//        }else{
-//            System.err.println("like failed");
-//            ctx.render(Path.Template.);
-//        }
         LikeDao.like(likePost);
     };
 

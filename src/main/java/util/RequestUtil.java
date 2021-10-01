@@ -1,6 +1,7 @@
 package util;
 
 import io.javalin.http.Context;
+import model.Collect;
 import model.LikePost;
 import model.Post;
 import model.User;
@@ -87,10 +88,18 @@ public class RequestUtil {
         User user = RequestUtil.getSessionCurrentUser(ctx);
         String date = getCurrentDate();
         int postId = Integer.valueOf(ctx.formParam("postId"));
-        LikePost likepost=new LikePost(date,postId,user.getId());
+        LikePost likepost=new LikePost(date,user.getId(),postId);
         return likepost;
     }
 
+    //Collect Post
+    public static Collect getCollectPost(Context ctx){
+        User user = RequestUtil.getSessionCurrentUser(ctx);
+        String date = getCurrentDate();
+        int postId = Integer.valueOf(ctx.formParam("postId"));
+        Collect collect=new Collect(date,user.getId(),postId);
+        return collect;
+    }
     public static String getCurrentDate() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sf.format(new Date());

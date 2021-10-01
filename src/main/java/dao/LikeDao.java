@@ -66,7 +66,7 @@ public class LikeDao {
     }
 
     // Query the number of likes of microblog
-    public static int queryLikeCount(String postId) {
+    public static int queryLikeCount(int postId) {
         int res = 0;
         try {
             Statement statement = conn.createStatement();

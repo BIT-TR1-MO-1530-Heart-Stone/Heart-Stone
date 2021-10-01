@@ -87,13 +87,13 @@
                     </div>
                     <!-- like area -->
             <li>
-                <!--<a th:onclick="likes([[${post.postId}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
-                <button th:id="'like'+${post.postId}" th:if="${post.likes} eq 1" type="button" class="btn"
-                        th:onclick="likes([[${post.postId}]])">
+                <!--<a th:onclick="likes([[${post.Id}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
+                <button th:id="'like'+${post.Id}" th:if="${post.likes} eq 1" type="button" class="btn"
+                        th:onclick="likes([[${post.Id}]])">
 									<span style="color: #00827A;"
-                                          th:id="'likespan'+${post.postId}"
+                                          th:id="'likespan'+${post.Id}"
                                           class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span
-                        th:text="${post.likeCount}" th:id="'likeCount'+${post.postId}"></span>
+                        th:text="${post.likeCount}" th:id="'likeCount'+${post.Id}"></span>
                 </button>
                 <button th:id="'like'+${post.postId}" th:if="${post.likes} eq 0" type="button" class="btn"
                         th:onclick="likes([[${post.postId}]])">

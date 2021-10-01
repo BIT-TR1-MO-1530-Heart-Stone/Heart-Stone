@@ -12,7 +12,9 @@ public class Post {
     private String Date;
     private User user;
     private int Visible;
-    private int likes;
+    private int isLikes;
+    private int likesCount;
+    private int isCollect;
 
     public Post() {
     }
@@ -84,15 +86,33 @@ public class Post {
         Visible = visible;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setIsLikes(int isLikes) {
+        this.isLikes = isLikes;
     }
 
     public User getUser() {
         return user;
     }
-
+    public int getIsLikes() {
+        return isLikes;
+    }
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getLikesCount() {
+        return likesCount;
+    }
+
+    public void setLikesCount(int likesCount) {
+        this.likesCount = likesCount;
+    }
+
+    public int getIsCollect() {
+        return isCollect;
+    }
+
+    public void setIsCollect(int isCollect) {
+        this.isCollect = isCollect;
     }
 }

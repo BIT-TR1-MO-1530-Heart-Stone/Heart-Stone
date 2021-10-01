@@ -15,6 +15,11 @@ public class Path {
         public static final String HANDLER_DELETEPOST = "/handlerDeletePost";
         public static final String HANDLER_CREATEPOST = "/handlerCreatePost";
         //public static final String MAINPAGEPOSTLIST = "/MainPagePostList";
+        public static final String LikePost = "/handlerLikePost";
+        public static final String UnLikePost = "/handlerUnLikePost";
+        public static final String CollectPost = "/handlerCollectPost";
+        public static final String UnCollectPost = "/handlerUnCollectPost";
+
     }
 
     public static class Template {

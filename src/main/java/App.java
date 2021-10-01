@@ -1,7 +1,4 @@
-import Controller.IndexController;
-import Controller.LoginController;
-import Controller.PostController;
-import Controller.RegisterController;
+import Controller.*;
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 import util.*;
@@ -57,6 +54,12 @@ public class App {
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
         app.post(Path.Web.BACKTOLOGIN, RegisterController.handlerBackToLogin);
+
+        app.post(Path.Web.LikePost, LikeController.handlerLikePost);
+        app.post(Path.Web.UnLikePost, LikeController.handlerUnLikePost);
+        app.post(Path.Web.CollectPost, CollectController.handlerCollectPost);
+        app.post(Path.Web.UnCollectPost, CollectController.handlerUnCollectPost);
+
 
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
