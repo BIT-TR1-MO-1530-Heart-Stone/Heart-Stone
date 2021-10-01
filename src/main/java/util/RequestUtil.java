@@ -49,31 +49,25 @@ public class RequestUtil {
     //Post
     public static Post getPostInfo(Context ctx) {
         Post post = new Post();
-
 //        String category = ctx.formParam("category");
         String postInfo = ctx.formParam("postInfo");
         String title = ctx.formParam("title");
 //        String picture = ctx.formParam("picture");
         String date = getCurrentDate();
-
         String category = "1";
 //        String postInfo="adasdasd";
 //        String title = "aaa";
         String picture = "aaaa";
-
-
         int userId = 1222;
         int Visible = 0;
-        User user = RequestUtil.getSessionCurrentUser(ctx);
-
+        User user = getSessionCurrentUser(ctx);
         post.setCategory(Integer.valueOf(category));
         post.setInfo(postInfo);
         post.setTitle(title);
         post.setPicture(picture);
-
         post.setDate(date);
         System.out.println(post.getDate());
-        post.setUserID(user.getId());
+        post.setUser(user);
         post.setVisible(Visible);
 
         return post;
