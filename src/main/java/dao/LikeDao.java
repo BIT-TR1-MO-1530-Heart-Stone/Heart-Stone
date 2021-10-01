@@ -49,6 +49,11 @@ public class LikeDao {
     public static int isLike(int userId, String postId) {
         int res = 0;
         try {
+            try {
+                conn = JDBCutil.getCon();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "SELECT T.ID  FROM `like` T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"

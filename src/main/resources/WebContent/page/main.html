@@ -36,7 +36,7 @@
                     <a class="nav-link" href="/">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">My Account</a>
+                    <a class="nav-link" href="/">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <form name="logout" action="/logout" method="post">
@@ -87,7 +87,7 @@
                     </div>
                     <!-- like area -->
             <li>
-                <!--<a th:onclick="likes([[${post.Id}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
+                <!--<a th:onclick="likes([[${postId}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
                 <button th:id="'like'+${post.Id}" th:if="${post.likes} eq 1" type="button" class="btn"
                         th:onclick="likes([[${post.Id}]])">
 									<span style="color: #00827A;"
@@ -100,7 +100,7 @@
 									<span style="color: #00827A;"
                                           th:id="'likespan'+${post.postId}"
                                           class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <span
-                        th:text="${post.likeCount}" th:id="'likeCount'+${post.postId}"></span>
+                        th:text="${post.likeCount}" th:id="'likeCount'+${post.Id}"></span>
                 </button>
             </li>
             <!-- like area end-->

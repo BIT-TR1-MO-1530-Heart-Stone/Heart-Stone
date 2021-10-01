@@ -50,6 +50,11 @@ public class CollectDao {
     public static int isCollect(int userId, String postId) {
         int res = 0;
         try {
+            try {
+                conn = JDBCutil.getCon();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "SELECT T.ID  FROM `collection` T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"
