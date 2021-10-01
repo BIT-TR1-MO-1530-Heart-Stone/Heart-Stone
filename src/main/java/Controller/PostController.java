@@ -41,7 +41,8 @@ public class PostController {
 
     //List all posts in main page
     public static Handler handlerListAllPost = ctx ->{
-        List<Post> allPost = PostDao.getAllPosts();
+        User user = ctx.sessionAttribute("currentUser");
+        List<Post> allPost = PostDao.getAllPosts( user.getId());
         Map<String, Object> model = new HashMap<>();
         model.put("postList",allPost);
         //System.out.printf("List all success");

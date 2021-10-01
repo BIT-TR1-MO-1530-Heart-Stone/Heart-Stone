@@ -2,8 +2,7 @@ package model;
 
 /**
  * @author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au
- **/
-
+ */
 public class Post {
     private int Id;
     private int Category;
@@ -11,22 +10,22 @@ public class Post {
     private String Title;
     private String Picture;
     private String Date;
-    private int User_id;
+    private User user;
     private int Visible;
+    private int likes;
 
     public Post() {
     }
 
-    public Post(int Category, String Title, String Info, String Picture, String Date, int User_id,int Visible) {
+    public Post(int Category, String Title, String Info, String Picture, String Date, User user, int Visible) {
         this.Category = Category;
         this.Info = Info;
         this.Title = Title;
         this.Picture = Picture;
         this.Date = Date;
-        this.User_id = User_id;
+        this.user = user;
         this.Visible = Visible;
     }
-
 
     public int getId() {
         return Id;
@@ -77,19 +76,23 @@ public class Post {
         this.Title = Title;
     }
 
-    public int getUserID() {
-        return User_id;
-    }
-
-    public void setUserID(int User_id) {
-        this.User_id = User_id;
-    }
-
     public int getVisible() {
         return Visible;
     }
 
     public void setVisible(int visible) {
         Visible = visible;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

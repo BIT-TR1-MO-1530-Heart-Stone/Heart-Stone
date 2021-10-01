@@ -27,7 +27,7 @@ public class PostDao {
         prst.setString(4, post.getPicture());
         prst.setString(5, post.getDate());
 //        prst.setDate(5,new java.sql.Date(post.setDate());
-        prst.setInt(6, post.getUserID());
+        prst.setInt(6, post.getUser().getId());
         prst.setInt(7, post.getVisible());
         System.out.print("date succuss");
         boolean result = prst.executeUpdate() > 0;
@@ -87,7 +87,7 @@ public class PostDao {
 //        }
 //        return personalpostlist;
 //    }
-    public static final List<Post> getAllPosts() throws Exception{
+    public static final List<Post> getAllPosts(int currentUserId) throws Exception{
          ArrayList<Post> postList = new ArrayList<>();
          try {
              conn = JDBCutil.getCon();
@@ -103,17 +103,27 @@ public class PostDao {
                      "       Visible"+
                      "  FROM post";
              ResultSet results = statement.executeQuery(query);
-             Post post;
+
              while (results.next()) {
-                 post = new Post();
+                 Post post = new Post();
+                 User user = new User();
+                 String postId = results.getString("ID");
+                 int isLike = LikeDao.isLike(currentUserId, postId);
+                 post.setLikes(isLike);
+                 user.setScreenname(results.getString("user_screenname"));
+                 user.setProfile_picture(results.getString("user_profile_picture"));
+                 user.setPrivacy(Integer.valueOf(results.getString("user_privacy")));
+                 post.setUser(user);
+
                  post.setId(results.getInt("ID"));
                  post.setCategory(results.getInt("Category"));
                  post.setTitle(results.getString("Title"));
                  post.setInfo(results.getString("Info"));
                  post.setPicture(results.getString("Picture"));
                  post.setDate(results.getString("Date"));
-                 post.setUserID(results.getInt("User_ID"));
+
                  post.setVisible(results.getInt("Visible"));
+
                  postList.add(post);
 //                 System.out.println(post.getTitle());
              }

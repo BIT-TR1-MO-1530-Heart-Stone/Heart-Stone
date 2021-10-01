@@ -3,10 +3,7 @@ package dao;
 import model.LikePost;
 import util.JDBCutil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class LikeDao {
     static Connection conn = null;
@@ -46,6 +43,45 @@ public class LikeDao {
             System.err.println(e.getMessage());
             return false;
         }
+    }
+
+    // Whether the user likes this post or not 0 - No 1 - yes
+    public static int isLike(int userId, String postId) {
+        int res = 0;
+        try {
+            Statement statement = conn.createStatement();
+            statement.setQueryTimeout(30);
+            String query = "SELECT T.ID  FROM `like` T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"
+                    + postId + "'";
+            System.out.println(query);
+            ResultSet results = statement.executeQuery(query);
+            if (results.next()) {
+                res = 1;
+            }
+            statement.close();
+        } catch (SQLException e) {
+            return res;
+        }
+        return res;
+    }
+
+    // Query the number of likes of microblog
+    public static int queryLikeCount(String postId) {
+        int res = 0;
+        try {
+            Statement statement = conn.createStatement();
+            statement.setQueryTimeout(30);
+            String query = "SELECT COUNT(*) LIKE_COUNT FROM `like` WHERE Post_id = '" + postId + "'";
+            System.out.println(query);
+            ResultSet results = statement.executeQuery(query);
+            while (results.next()) {
+                res = Integer.parseInt(results.getString("like_count"));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            return res;
+        }
+        return res;
     }
 
 }
