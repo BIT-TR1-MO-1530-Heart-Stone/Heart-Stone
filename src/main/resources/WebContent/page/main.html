@@ -41,8 +41,6 @@
                 <li class="nav-item">
                     <form name="logout" action="/logout" method="post">
                         <button class="btn btn-danger" id="logout" type="submit">Logout</button>
-
-
                     </form>
                 </li>
 
@@ -56,13 +54,13 @@
     <div class="search" style="margin: 100px 5px">
         <form action="#" method="post">
 
-            <input id=“search” type="text" placeholder=" posts">
-            <!--            <input type="submit" value="search">-->
-            <a class="btn btn-primary btn-sm" href="/">Search</a>
+            <input id=“search” type="text"  placeholder=" posts">
+<!--            <input type="submit" value="search">-->
+            <a  class="btn btn-primary btn-sm" href="/">Search</a>
         </form>
     </div>
     <div>
-        <h1>Meet your beautiful life!</h1>
+        <h1>your beautiful life!</h1>
         <h5>Meet what you want</h5>
         <h5>Share your beautiful life</h5>
         <h5>Explore the unknown life</h5>
@@ -70,7 +68,7 @@
     <br>
     <br>
     <div>
-        <a class="btn btn-primary btn-lg" onclick="window.location.href = '/addPost'">Post here</a>
+        <a  class="btn btn-primary btn-lg" onclick="window.location.href = '/addPost'" >Post here</a>
 
     </div>
     <div>
@@ -85,7 +83,7 @@
                         <!--                        <input type="text" name="firstname" value="Mickey">-->
                         <h2><a th:href="@{/posts/{postId}(postId=${post.Id})}" th:text="${post.Title}">title</a></h2>
                         <h4 th:text="${post.Info}">content</h4>
-                        <span class="date" th:text="${'post on ' + post.Date}"></span>
+                        <span class="date" th:text="${'Post on ' + post.Date}"></span>
                     </div>
                     <!-- like area -->
             <li>
@@ -116,27 +114,44 @@
             </div>
         </div>
         </li>
+
+<!--                    <input type="hidden" id="messageInput" th:value="${'sssss'}"/>-->
+                    <div class="ml-auto float-right" >
+<!--                        <button onclick="myFunction()">TRYYY</button>-->
+                        <form name= "handlerPostId" action="/handlerDeletePost" method="post" >
+                        <input type="hidden" name="with" th:value="${post.id}"/>
+
+<!--                            <input type="hidden" id="postUserID" th:value="${post.UserID}"/>-->
+                            <button class="btn btn-danger" id="handlerPostId"  type="submit" >delete </button>
+
+                        </form>
+                    </div>
+
+
+
+                </div>
+            </li>
         </ul>
     </div>
 </main>
 
-<script language="JavaScript">
-    function getMessage() {
-        var myName = '<%=session.getAttribute("currentUser.getId()")%>';
-        var message = $(“input
-        #postUserID”).
-        val();
-        var ui = document.getElementById("handlerPostId");
-        if (myName == message) {
+<script>
+    function myFunction(){
 
-            ui.style.visibility = "visible";
-        } else {
-            ui.style.visibility = "hidden";
-        }
+        //  var message = $(“input#messageInput”).val();
+        // alert("ddddd");
+        // var myName = '<%=session.getAttribute("currentUser")%>';
+        // var message = $(“input#postUserID”).val();
+        // var ui =document.getElementById("handlerPostId");
+        alert("222");
+        //
+        // if(myName.getId() == message){
+        //
+        //     ui.style.visibility="visible";
+        // }else{
+        //     ui.style.visibility="hidden";
+        // }
     }
-
-
 </script>
-
 </body>
 </html>
