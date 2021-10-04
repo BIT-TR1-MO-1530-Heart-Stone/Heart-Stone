@@ -86,49 +86,45 @@
                         <span class="date" th:text="${'Post on ' + post.Date}"></span>
                     </div>
                     <!-- like area -->
-            <li>
+            <div>
                 <!--<a th:onclick="likes([[${postId}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
-                <button th:id="'like'+${post.Id}" th:if="${post.likes} eq 1" type="button" class="btn"
+                <button th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 1" type="button" class="btn"
                         th:onclick="likes([[${post.Id}]])">
 									<span style="color: #00827A;"
                                           th:id="'likespan'+${post.Id}"
                                           class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span
-                        th:text="${post.likeCount}" th:id="'likeCount'+${post.Id}"></span>
-                </button>
-                <button th:id="'like'+${post.postId}" th:if="${post.likes} eq 0" type="button" class="btn"
-                        th:onclick="likes([[${post.postId}]])">
+                        th:text="${post.likesCount}" th:id="'likeCount'+${post.Id}"></span>
+                unlike</button>
+                <button th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 0" type="button" class="btn"
+                        th:onclick="likes([[${post.Id}]])">
 									<span style="color: #00827A;"
-                                          th:id="'likespan'+${post.postId}"
+                                          th:id="'likespan'+${post.Id}"
                                           class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <span
-                        th:text="${post.likeCount}" th:id="'likeCount'+${post.Id}"></span>
-                </button>
-            </li>
-            <!-- like area end-->
-            //
-            <div class="ml-auto float-right" onkeyup="getMessage()">
-                <form name="handlerPostId" action="/handlerDeletePost" method="post">
-                    <input type="hidden" name="with" th:value="${post.id}"/>
-                    <input type="hidden" id="postUserID" th:value="${post.UserID}"/>
-                    <button class="btn btn-danger" id="handlerPostId" type="submit">delete</button>
-                </form>
+                        th:text="${post.likesCount}" th:id="'likeCount'+${post.Id}"></span>
+                like</button>
             </div>
+            <!-- like area end-->
+            <!-- delete area start-->
+<!--            <div class="ml-auto float-right" onkeyup="getMessage()">                -->
+<!--                <form name="handlerPostId" action="/handlerDeletePost" method="post">-->
+<!--                    <input type="hidden" name="with" th:value="${post.Id}"/>-->
+<!--                    <input type="hidden" id="postUserID" th:value="${post.user.id}"/>-->
+<!--                    <button class="btn btn-danger" id="handlerPostId" type="submit">delete</button>-->
+<!--                </form>-->
+<!--            </div>-->
+            <!-- delete area end-->
         </div>
         </li>
+<!--&lt;!&ndash;                    <input type="hidden" id="messageInput" th:value="${'sssss'}"/>&ndash;&gt;-->
+<!--                    <div class="ml-auto float-right" >-->
+<!--&lt;!&ndash;                        <button onclick="myFunction()">TRYYY</button>&ndash;&gt;-->
+<!--                        <form name= "handlerPostId" action="/handlerDeletePost" method="post" >-->
+<!--                        <input type="hidden" name="with" th:value="${post.id}"/>-->
+<!--&lt;!&ndash;                            <input type="hidden" id="postUserID" th:value="${post.UserID}"/>&ndash;&gt;-->
+<!--                            <button class="btn btn-danger" id="handlerPostId"  type="submit" >delete </button>-->
 
-<!--                    <input type="hidden" id="messageInput" th:value="${'sssss'}"/>-->
-                    <div class="ml-auto float-right" >
-<!--                        <button onclick="myFunction()">TRYYY</button>-->
-                        <form name= "handlerPostId" action="/handlerDeletePost" method="post" >
-                        <input type="hidden" name="with" th:value="${post.id}"/>
-
-<!--                            <input type="hidden" id="postUserID" th:value="${post.UserID}"/>-->
-                            <button class="btn btn-danger" id="handlerPostId"  type="submit" >delete </button>
-
-                        </form>
-                    </div>
-
-
-
+<!--                        </form>-->
+<!--                    </div>-->
                 </div>
             </li>
         </ul>
