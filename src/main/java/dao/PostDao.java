@@ -109,10 +109,16 @@ public class PostDao {
                  String postId = results.getString("ID");
 
                  int isLike = LikeDao.isLike(currentUserId, postId);
-
+                 int isWriter;
+                 if(results.getInt("User_id")==currentUserId){
+                     isWriter=1;
+                 }else{
+                     isWriter=0;
+                 }
                  int isCollect = CollectDao.isCollect(currentUserId, postId);
                  post.setIsCollect(isCollect);
                  post.setIsLikes(isLike);
+                 post.setIsWriter(isWriter);
                  //get publisher info
                  post.setUser(UserDao.getUsersByID(results.getInt("User_id")));
                  post.setId(results.getInt("ID"));

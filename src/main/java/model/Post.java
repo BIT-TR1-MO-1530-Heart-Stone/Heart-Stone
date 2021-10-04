@@ -13,6 +13,7 @@ public class Post {
     private User user;
     private int Visible;
     private int isLikes;
+    private int isWriter;
     private int likesCount;
     private int isCollect;
 
@@ -114,5 +115,13 @@ public class Post {
 
     public void setIsCollect(int isCollect) {
         this.isCollect = isCollect;
+    }
+
+    public int getIsWriter() {
+        return isWriter;
+    }
+
+    public void setIsWriter(int isWriter) {
+        this.isWriter = isWriter;
     }
 }
