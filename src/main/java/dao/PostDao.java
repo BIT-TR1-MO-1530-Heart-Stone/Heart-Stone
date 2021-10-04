@@ -99,23 +99,22 @@ public class PostDao {
                      "       Info,\n" +
                      "       Picture,\n" +
                      "       Date,\n" +
-                     "       User_ID,\n"+
+                     "       User_id,\n"+
                      "       Visible"+
                      "  FROM post";
              ResultSet results = statement.executeQuery(query);
 
              while (results.next()) {
                  Post post = new Post();
-                 User user = new User();
                  String postId = results.getString("ID");
+
                  int isLike = LikeDao.isLike(currentUserId, postId);
                  int isCollect = CollectDao.isCollect(currentUserId, postId);
+
                  post.setIsCollect(isCollect);
                  post.setIsLikes(isLike);
-                 user.setScreenname(results.getString("user_screenname"));
-                 user.setProfile_picture(results.getString("user_profile_picture"));
-                 user.setPrivacy(Integer.valueOf(results.getString("user_privacy")));
-                 post.setUser(user);
+                 //get publisher info
+                 post.setUser(UserDao.getUsersByID(results.getInt("User_id")));
                  post.setId(results.getInt("ID"));
                  post.setCategory(results.getInt("Category"));
                  post.setTitle(results.getString("Title"));
@@ -125,7 +124,6 @@ public class PostDao {
                  post.setVisible(results.getInt("Visible"));
                  post.setLikesCount(LikeDao.queryLikeCount(post.getId()));
                  postList.add(post);
-
 //                System.out.println(post.getTitle());
              }
              statement.close();

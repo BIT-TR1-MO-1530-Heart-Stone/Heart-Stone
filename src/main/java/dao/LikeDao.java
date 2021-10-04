@@ -46,9 +46,10 @@ public class LikeDao {
     }
 
     // Whether the user likes this post or not 0 - No 1 - yes
-    public static int isLike(int userId, String postId) {
+    public static int isLike(int userId, String postId) throws Exception{
         int res = 0;
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "SELECT T.ID  FROM `like` T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"
@@ -66,9 +67,10 @@ public class LikeDao {
     }
 
     // Query the number of likes of microblog
-    public static int queryLikeCount(int postId) {
+    public static int queryLikeCount(int postId) throws Exception{
         int res = 0;
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "SELECT COUNT(*) LIKE_COUNT FROM `like` WHERE Post_id = '" + postId + "'";

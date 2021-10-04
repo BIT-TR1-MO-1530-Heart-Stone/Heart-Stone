@@ -47,9 +47,10 @@ public class CollectDao {
     }
 
     // Whether the user collect this post or not 0 - No 1 - yes
-    public static int isCollect(int userId, String postId) {
+    public static int isCollect(int userId, String postId) throws Exception{
         int res = 0;
         try {
+            conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String query = "SELECT T.ID  FROM `collection` T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"
