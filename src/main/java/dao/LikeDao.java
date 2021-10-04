@@ -14,11 +14,12 @@ public class LikeDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String deletePost = "insert into like (Like_Time, User_id, Post_id) values(?,?,?)";
+            String sss = "insert into likePost (Like_Time,User_id,Post_id) values(?,?,?)";
+            prst = conn.prepareStatement(sss);
             prst.setString(1, likePost.getLike_date());
             prst.setInt(2, likePost.getUser_id());
             prst.setInt(3, likePost.getPost_id());
-            int result = statement.executeUpdate(deletePost);
+            int result = statement.executeUpdate(sss);
             statement.close();
             return result > 0 ? true : false;
         } catch (SQLException e) {
@@ -33,10 +34,11 @@ public class LikeDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String deletePost = "DELETE FROM `like` WHERE User_id=? and Post_id=?";
+            String unlike = "DELETE FROM likePost WHERE User_id=? and Post_id=?";
+            prst = conn.prepareStatement(unlike);
             prst.setInt(1, likePost.getUser_id());
             prst.setInt(2, likePost.getPost_id());
-            int result = statement.executeUpdate(deletePost);
+            int result = statement.executeUpdate(unlike);
             statement.close();
             return result > 0 ? true : false;
         } catch (SQLException e) {
@@ -52,7 +54,7 @@ public class LikeDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String query = "SELECT T.ID  FROM `like` T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"
+            String query = "SELECT T.ID  FROM likePost T WHERE T.User_id = '" + userId + "'  AND T.Post_id = '"
                     + postId + "'";
             System.out.println(query);
             ResultSet results = statement.executeQuery(query);
@@ -73,7 +75,7 @@ public class LikeDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String query = "SELECT COUNT(*) LIKE_COUNT FROM `like` WHERE Post_id = '" + postId + "'";
+            String query = "SELECT COUNT(*) LIKE_COUNT FROM likePost WHERE Post_id = '" + postId + "'";
             System.out.println(query);
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {

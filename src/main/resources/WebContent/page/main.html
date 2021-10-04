@@ -87,16 +87,20 @@
                     </div>
                     <!-- like area -->
             <div>
-                <form name= "handlerPostId" action="/handlerLikePost" method="post" >
+                <form name= "handlerPostId" action="/handlerUnLikePost" method="post" >
                 <!--<a th:onclick="likes([[${postId}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
-                <button class="btn btn-success" th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 1" type="submit"
+                    <input type="hidden" name="postId" th:value="${post.Id}"/>
+                    <button class="btn btn-success" th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 1" type="submit"
                         th:onclick="likes([[${post.Id}]])">
 									<span style="color: #00827A;"
                                           th:id="'likespan'+${post.Id}"
                                           class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span
                         th:text="${post.likesCount}" th:id="'likeCount'+${post.Id}"></span>
                 unlike</button>
-                <button class="btn btn-success" th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 0" type="submit"
+                </form>
+                <form name= "handlerPostId" action="/handlerLikePost" method="post" >
+                    <input type="hidden" name="postId" th:value="${post.Id}"/>
+                    <button class="btn btn-success" th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 0" type="submit"
                         th:onclick="likes([[${post.Id}]])">
 									<span style="color: #00827A;"
                                           th:id="'likespan'+${post.Id}"

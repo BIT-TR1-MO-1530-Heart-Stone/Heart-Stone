@@ -11,11 +11,13 @@ public class LikeController {
     public static Handler handlerLikePost = ctx ->{
         LikePost likePost = getLikePost(ctx);
         LikeDao.like(likePost);
+        ctx.redirect(Path.Web.QUERYALLPOSTNOW);
     };
 
     public static Handler handlerUnLikePost = ctx ->{
         LikePost likePost = getLikePost(ctx);
         LikeDao.unlike(likePost);
+        ctx.redirect(Path.Web.QUERYALLPOSTNOW);
     };
 
 }
