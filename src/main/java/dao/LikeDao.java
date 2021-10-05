@@ -32,7 +32,7 @@ public class LikeDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String unlike = "DELETE FROM t_like T WHERE T.User_id=? and T.Post_id=?";
+            String unlike = "DELETE FROM t_like  WHERE User_id=? and Post_id=?";
             prst = conn.prepareStatement(unlike);
             prst.setInt(1, likePost.getUser_id());
             prst.setInt(2, likePost.getPost_id());
