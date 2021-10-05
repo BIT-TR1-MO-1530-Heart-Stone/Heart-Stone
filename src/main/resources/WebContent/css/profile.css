@@ -1,0 +1,59 @@
+.basic-info {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.info {
+    font-size: 16px;
+    margin-right: 50px;
+}
+
+.info-span {
+    color: inherit;
+}
+
+.span {
+    font-weight: 600;
+}
+
+.info-a {
+    text-decoration: none;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    list-style: none;
+}
+
+.tool1 {
+    height: 50%;
+    width: 16%;
+    float: left;
+    padding-right: 20px;
+}
+
+.tool2 {
+    height: 50%;
+    width: 3%;
+    float: left;
+    padding-right: 20px;
+    /* background-color: Green; */
+}
+
+.whatup {
+    display: inline;
+    font-weight: 600;
+}
