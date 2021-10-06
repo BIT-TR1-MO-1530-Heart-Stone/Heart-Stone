@@ -43,6 +43,7 @@ ul {
     width: 16%;
     float: left;
     padding-right: 20px;
+    /* background-color: Green; */
 }
 
 .tool2 {
@@ -56,4 +57,46 @@ ul {
 .whatup {
     display: inline;
     font-weight: 600;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+
+    background-repeat: no-repeat;
+    background-size: 1300px 550px;
+}
+
+.search form {
+    height: 42px;
+}
+
+.search input {
+    width: 350px;
+    border-radius: 42px;
+    border: 2px solid #324B4E;
+    transition: .3s linear;
+}
+
+.search input:focus {
+    width: 300px;
+}
+
+h3,
+h5 {
+    padding-left: 37px;
+    /* background-color: yellow; */
+}
+
+.name {
+    width: 60%;
+    float: left;
+}
+
+.click-button {
+    position: relative;
+    top: 2px;
+    margin-left: 300px;
 }

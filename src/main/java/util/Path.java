@@ -20,6 +20,8 @@ public class Path {
         public static final String CollectPost = "/handlerCollectPost";
         public static final String UnCollectPost = "/handlerUnCollectPost";
 
+        public static final String GOTOPROFILE = "/goToProfile";
+        public static final String EDITPROFILE = "/editProfile";
     }
 
     public static class Template {
@@ -29,6 +31,8 @@ public class Path {
         public static final String MAIN = "WebContent/page/main.html";
         public static final String CreatePost = "WebContent/page/addPost.html";
         public static final String DeletePost = "WebContent/page/main.html";
+        public static final String PROFILE = "WebContent/page/profile.html";
+        public static final String EditPROFILE = "WebContent/page/editProfile.html";
     }
 
 }

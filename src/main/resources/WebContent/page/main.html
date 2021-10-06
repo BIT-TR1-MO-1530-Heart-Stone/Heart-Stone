@@ -36,10 +36,13 @@
                     <a class="nav-link" href="/">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">My Profile</a>
+                    <form id="goToProfile" action="/goToProfile" method="post">
+                        <button id="GoProfile" type="submit">Profile </button>
+<!--                        <a class="nav-link" href="" >My Profile</a>-->
+                    </form>
                 </li>
                 <li class="nav-item">
-                    <form name="logout" action="/logout" method="post">
+                    <form class="form1" name="logout" action="/logout" method="post">
                         <button class="btn btn-danger" id="logout" type="submit">Logout</button>
                     </form>
                 </li>
@@ -49,6 +52,7 @@
     </nav>
 
 </header>
+
 <main role="main" class="container ">
 
     <div class="search" style="margin: 100px 5px">
@@ -68,8 +72,7 @@
     <br>
     <br>
     <div>
-        <a  class="btn btn-primary btn-lg" onclick="window.location.href = '/addPost'" >Post here</a>
-
+        <a class="btn btn-primary btn-lg" onclick="window.location.href = '/addPost'" >Post here</a>
     </div>
     <div>
         <br><br><br>

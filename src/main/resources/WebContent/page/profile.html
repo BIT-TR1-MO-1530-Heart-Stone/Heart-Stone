@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="main.css" rel="stylesheet">
+    <script>
+        function jump(){
+            window.location.href="http:/www.baidu.com";
+        }
+    </script>
 </head>
 
 <style type="text/css">
@@ -139,7 +143,21 @@
 
             <div id="Midle">
                 <div>
-                    <h3>ScreenName</h3>
+                    <div class="name">
+                        <h3>ScreenName</h3>
+                    </div>
+
+
+                    <div class="click-button">
+                        <a class="btn btn-primary btn-lg" onclick="window.location.href = '/editProfile'" >Post here</a>
+<!--                        <form id="Profile" action="/editProfile" method="post">-->
+<!--                            <button id="editProfile" type="button" onclick="jump()">Edit Profile </button>-->
+<!--                        </form>-->
+<!--                        <button type="button" onclick="window.location.href ='editProfile.html'"> Edit Profile</button>-->
+<!--                        <button value="click" onclick="window.location.href = '/addPost'">edit profile</button>-->
+
+                    </div>
+
                 </div>
 
                 <ul class="basic-info">
@@ -166,10 +184,8 @@
             </div>
 
 
-
             <div id="Right">
-                <h4 class="whatup">This is my intro</h4>
-
+                <h5 class="whatup">This is my intro</h5>
             </div>
 
         </div>
@@ -177,4 +193,9 @@
 </main>
 </body>
 
+
+
 </html>
+
+
+
