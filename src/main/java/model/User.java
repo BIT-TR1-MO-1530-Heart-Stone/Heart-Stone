@@ -13,7 +13,7 @@ public class User {
     private String phone_number;
     private String info;
     private int gender;
-    private Integer privacy;
+    private int privacy;
     private String profile_picture;
 
     public User() {
@@ -93,11 +93,14 @@ public class User {
         this.id = id;
     }
 
-    public void setPrivacy(Integer privacy) {
-        this.privacy = privacy;
-    }
-
     public void setProfile_picture(String profile_picture) {
         this.profile_picture = profile_picture;
+    }
+
+    public void setPrivacy(int privacy) {
+        this.privacy = privacy;
+    }
+    public int getPrivacy() {
+        return privacy;
     }
 }

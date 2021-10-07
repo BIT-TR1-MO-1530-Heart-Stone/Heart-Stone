@@ -98,15 +98,14 @@ public class UserDao {
     }
 
     // update personal information
-    public static boolean modifyInfomation(String fullname, String screenname, String gender, String phone_number, String info,
-                                           String userId) throws Exception{
+    public static boolean modifyInfomation(User user) throws Exception{
         try {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String query = "UPDATE user T SET T.=Fullname = '" + fullname + "', T.Screenname = '" + screenname + "', T.Gender = '" + gender
-                    + "', T.Phone_number = '" + phone_number + "', T.info = '" + info + "'" + " WHERE T.ID = '"
-                    + userId + "'";
+            String query = "UPDATE user T SET T.=Fullname = '" + user.getFullname() + "', T.Screenname = '" + user.getScreenname() + "', T.Gender = '" + user.getGender()
+                    + "', T.Phone_number = '" + user.getPhone_number()+ "', T.Private = '" + user.getPrivacy() + "', T.info = '" + user.getInfo() + "'" + " WHERE T.ID = '"
+                    + user.getId() + "'";
             System.out.println(query);
             int result = statement.executeUpdate(query);
             statement.close();
@@ -130,7 +129,8 @@ public class UserDao {
                     "       T.Gender,\n" +
                     "       T.Phone_number,\n" +
                     "       T.Email,\n" +
-                    "       T.info" +
+                    "       T.info,\n" +
+                    "       T.private" +
                     "  FROM user T";
             ResultSet results = statement.executeQuery(query);
             User user;
@@ -144,6 +144,7 @@ public class UserDao {
                 user.setPhone_number(results.getString("Phone_number"));
                 user.setEmail(results.getString("Email"));
                 user.setInfo(results.getString("info"));
+                user.setPrivacy(results.getInt("private"));
                 userList.add(user);
             }
             statement.close();
@@ -157,32 +158,35 @@ public class UserDao {
         return getAllUsers().stream().filter(user -> (user.getEmail().equals(email) && user.getPassword().equals(password))
         ).findFirst().orElse(null);
     }
-    private static User getUsersByEmail(String email) throws Exception{
-        try {
-            conn = JDBCutil.getCon();
-            Statement statement = conn.createStatement();
-            statement.setQueryTimeout(30);
-            String query= "SELECT* FROM `user` WHERE Email=?";
-            prst.setString(1, email);
-            ResultSet results = statement.executeQuery(query);
-            User user = new User();
-                user.setId(results.getInt("ID"));
-                user.setScreenname(results.getString("Screenname"));
-                user.setFullname(results.getString("Fullname"));
-                user.setGender(results.getInt("Gender"));
-                user.setPassword(results.getString("Password"));
-                user.setPhone_number(results.getString("Phone_number"));
-                user.setEmail(results.getString("Email"));
-                user.setInfo(results.getString("info"));
-                user.setPrivacy(results.getInt("Private"));
-
-            statement.close();
-            return user;
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        return null;
-    }
+//    private static User getUsersByEmail(String email) throws Exception{
+//        try {
+//            conn = JDBCutil.getCon();
+//            Statement statement = conn.createStatement();
+//            statement.setQueryTimeout(30);
+//            String query= "SELECT* FROM `user` WHERE Email=?";
+//            prst.setString(1, email);
+//            ResultSet results = statement.executeQuery(query);
+//            User user = new User();
+//                user.setId(results.getInt("ID"));
+//                user.setScreenname(results.getString("Screenname"));
+//                user.setFullname(results.getString("Fullname"));
+//                user.setGender(results.getInt("Gender"));
+//                user.setPassword(results.getString("Password"));
+//                user.setPhone_number(results.getString("Phone_number"));
+//                user.setEmail(results.getString("Email"));
+//                user.setInfo(results.getString("info"));
+//                user.setPrivacy(results.getInt("Private"));
+//            statement.close();
+//            return user;
+//        } catch (SQLException e) {
+//            System.err.println(e.getMessage());
+//        }
+//        return null;
+//    }
+public static User getUserByUserEmail(String email) throws Exception{
+    return getAllUsers().stream().filter(user -> (user.getEmail().equals(email))
+    ).findFirst().orElse(null);
+}
     static User getUsersByID(int ID) throws Exception{
         try {
             conn = JDBCutil.getCon();

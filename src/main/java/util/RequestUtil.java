@@ -42,6 +42,28 @@ public class RequestUtil {
         return user;
     }
 
+    public static User getUpdateUserInfo(Context ctx) {
+        User user=new User();
+        User CurrentUser = ctx.sessionAttribute("currentUser");
+        user.setId(CurrentUser.getId());
+        user.setEmail(CurrentUser.getEmail());
+        user.setFullname(ctx.formParam("fullname"));
+        user.setScreenname(ctx.formParam("screenname"));
+        user.setPrivacy(Integer.parseInt(ctx.formParam("private")));
+        user.setGender(Integer.parseInt(ctx.formParam("gender")));
+        user.setInfo(ctx.formParam("info"));
+        user.setPhone_number(ctx.formParam("phonenumber"));
+//        user.setProfile_picture();
+        return user;
+    }
+    public static String[] getNewAndOldPwd(Context ctx) {
+        String Pwd[] = new String[0];
+        //Old Pwd
+        Pwd[0] = ctx.formParam("oldpwd");
+        //New Pwd
+        Pwd[1] = ctx.formParam("newpwd");
+        return Pwd;
+    }
 
     public static User getSessionCurrentUser(Context ctx) {
         return ctx.sessionAttribute("currentUser");
@@ -70,7 +92,6 @@ public class RequestUtil {
         System.out.println(post.getDate());
         post.setUser(user);
         post.setVisible(Visible);
-
         return post;
     }
 
@@ -103,7 +124,6 @@ public class RequestUtil {
     public static String getCurrentDate() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sf.format(new Date());
-
     }
 }
 

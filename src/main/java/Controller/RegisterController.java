@@ -16,7 +16,7 @@ public class RegisterController {
     // home page (the same as successful login)
     public static Handler handlerRegister = ctx -> {
         User user = getRegisterInfo(ctx);
-        System.out.println(user.getEmail());
+        System.out.println("Login as:"+user.getEmail());
         if (UserDao.register(user)) {
             User user1 = UserDao.getUserByUserEmailAndPassword(user.getEmail(), user.getPassword());
             ctx.sessionAttribute("currentUser", user1);
