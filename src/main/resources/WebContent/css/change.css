@@ -1,0 +1,52 @@
+html {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.main-body {
+    position: absolute;
+    margin: 0 auto;
+    padding: 10px 300px;
+    float: left;
+    width: 840px;
+    background-color: #fff;
+}
+
+.top {
+    font-size: 12px;
+    border-bottom: 2px solid red;
+    padding-bottom: 8px;
+}
+
+
+input {
+    width: 278px;
+    height: 15px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: black;
+    border-top: 1px solid #312E3D;
+    border-left: 1px solid #312E3D;
+    border-right: 1px solid #312E3D;
+    border-bottom: 1px solid #56536A;
+    border-radius: 4px;
+    /* background-color: #2D2D3F; */
+}
+
+button {
+    width: 180px;
+    height: 20px;
+    font-size: 10px;
+    margin-bottom: 20px;
+    margin-left: 310px;
+}

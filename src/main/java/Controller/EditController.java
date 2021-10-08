@@ -57,4 +57,10 @@ public class EditController {
         }
 
     };
+
+    public static Handler handlerBackProfile = ctx -> {
+
+        ctx.render(Path.Template.PROFILE);
+
+    };
 }

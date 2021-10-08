@@ -22,6 +22,12 @@ public class Path {
 
         public static final String GOTOPROFILE = "/goToProfile";
         public static final String EDITPROFILE = "/editProfile";
+
+        public static final String CHANGEPASSWORD = "/handlerChangePsw";
+        public static final String SAVEPASSWORD = "/savePassword";
+        public static final String BACKEDITPAGE = "/backEditPage";
+        public static final String BACKPROFILE = "/backProfile";
+
     }
 
     public static class Template {
@@ -33,6 +39,7 @@ public class Path {
         public static final String DeletePost = "WebContent/page/main.html";
         public static final String PROFILE = "WebContent/page/profile.html";
         public static final String EditPROFILE = "WebContent/page/editProfile.html";
+        public static final String ChangePsw = "WebContent/page/changePsw.html";
     }
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -12,48 +12,6 @@
 
 <body>
 
-<!--<header>-->
-
-<!--    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">-->
-<!--        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">-->
-
-<!--        </div>-->
-<!--        <div class="mx-auto order-0">-->
-<!--            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>-->
-<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">-->
-<!--                <span class="navbar-toggler-icon"></span>-->
-<!--            </button>-->
-<!--        </div>-->
-
-<!--        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">-->
-<!--            <ul class="navbar-nav mr-auto">-->
-
-<!--            </ul>-->
-<!--            <ul class="navbar-nav ml-auto">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/">History</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/">Help</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <form id="goToProfile" action="/goToProfile" method="post">-->
-<!--                        <button id="GoProfile" type="submit">Profile </button>-->
-<!--                        &lt;!&ndash;                        <a class="nav-link" href="" >My Profile</a>&ndash;&gt;-->
-<!--                    </form>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <form class="form1" name="logout" action="/logout" method="post">-->
-<!--                        <button class="btn btn-danger" id="logout" type="submit">Logout</button>-->
-<!--                    </form>-->
-<!--                </li>-->
-
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </nav>-->
-
-<!--</header>-->
-
 
 <class class="main-body">
 
@@ -64,16 +22,27 @@
 <!--        <a href="">Preview</a>-->
     </h4>
 
+
     <div class="info-item">
         <span class="item-title">ID</span>
         <span class="item-text" th:text="${session.currentUser.id}"></span>
-<!--        <a href="">Change password</a>-->
     </div>
+
+    <form id="/" action="/handlerChangePsw" method="post">
+        <div class="info-item">
+            <span class="item-title">Password</span>
+            <button class="change" id="change" type="submit">Change</button>
+        </div>
+    </form>
+
 
     <div class="info-item">
         <span class="item-title">Email</span>
-        <span class="item-text" th:text="${session.currentUser.email}"}></span>
-        <a href="">Edit</a>
+        <span class="item-text" name="email" id="email" th:text="${session.currentUser.email}"}></span>
+        <input type="hidden" name="input" id="email2" th:placeholder="${session.currentUser.email}"/>
+        <button style="visibility: hidden" name="save" id="save1" onclick="save1()">save</button>
+        <button id="edit1" onclick="edit1()">edit</button>
+
     </div>
 
 <!--    <div class="info-item">-->
@@ -84,73 +53,57 @@
 
     <div class="info-item">
         <span class="item-title">Fullname</span>
-        <span class="item-text" th:text="${session.currentUser.fullname}"></span>
-        <a href="">Edit</a>
+        <span class="item-text" name="fullName" id="fullName" th:text="${session.currentUser.fullname}"></span>
+        <input type="hidden" name="input" id="fullName2" th:placeholder="${session.currentUser.fullname}"/>
+        <button style="visibility: hidden" name="save" id="save2" onclick="save2()">save</button>
+        <button id="edit2" onclick="edit2()">edit</button>
+
     </div>
 
     <div class="info-item">
         <span class="item-title">ScreenName</span>
-        <span class="item-text" th:text="${session.currentUser.screenname}"></span>
-        <a href="">Edit</a>
-    </div>
+        <span class="item-text" name="screenName" id="screenName"  th:text="${session.currentUser.screenname}"></span>
+        <input type="hidden" name="input" id="screenName2" th:placeholder="${session.currentUser.screenname}"/>
+        <button style="visibility: hidden" name="save" id="save3" onclick="save3()">save</button>
+        <button id="edit3" onclick="edit3()">edit</button>
 
-<!--    <div class="info-item">-->
-<!--        <span class="item-title">Gender</span>-->
-<!--        <span class="item-text">1</span>-->
-<!--        <a href="">Edit</a>-->
-<!--    </div>-->
+    </div>
 
     <div class="info-item">
         <span class="item-title">PhoneNumber</span>
-        <span class="item-text" th:text="${session.currentUser.phone_number}" ></span>
-        <a href="">Edit</a>
+        <span class="item-text" name="phoneNumber" id="phoneNumber" th:text="${session.currentUser.phone_number}" ></span>
+        <input type="hidden" name="input" id="phoneNumber2" th:placeholder="${session.currentUser.phone_number}"/>
+        <button style="visibility: hidden" name="save" id="save4" onclick="save4()">save</button>
+        <button id="edit4" onclick="edit4()">edit</button>
+
     </div>
 
 
-
-<!--    <div class="info-item">-->
-<!--        <span class="item-title">Info</span>-->
-<!--        <span class="item-text">1</span>-->
-<!--        <a href="">Edit</a>-->
-<!--    </div>-->
 
 
     <div class="profile">
         <div class="profile-title">
 
         </div>
-        <!-- <span class="title">Profile</span>
-            <a href="">Swipe</a> -->
 
 
         <div class="base-info">
-<!--            <div class="form-item">-->
-<!--                <div class="form-lable">Name</div>-->
-<!--                <div class="form-content">-->
-<!--                    <input class="text-box" type="text">-->
-<!--                </div>-->
-<!--                <div class="access">-->
-<!--                    <select name="select" id="">-->
-<!--                        <option value="">111</option>-->
-<!--                        <option value="">222</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--            </div>-->
 
             <div class="form-item">
                 <div class="form-lable">Gender</div>
-                <div class="access">
-                    <select name="select" id="">
-                        <option value="">Male</option>
-                        <option value="">Female</option>
+                <div class="access" >
+                    <select name="gender">
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
                     </select>
+
                 </div>
             </div>
 
             <div class="form-item">
                 <div class="form-lable">What's up</div>
                 <div class="form-content">
-                    <textarea class="desciption" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea class="desciption" th:placeholder="${session.currentUser.info}" name="" id="" cols="30" rows="10"></textarea>
                 </div>
             </div>
 
@@ -162,10 +115,18 @@
 
     </div>
     <br/>
-    <div class="button">
-        <button class="save">Save
+
+    <form id="profile-form" action="/handlerSaveEditProfile" method="post">
+
+        <button class="button" type="submit">Save
         </button>
-    </div>
+
+
+    </form>
+
+    <form  action="/backProfile" method="post">
+        <button class="button"  type="submit">Back </button>
+    </form>
 
 
 </class>
@@ -173,3 +134,65 @@
 </body>
 
 </html>
+
+<script>
+    function edit1(){
+        document.getElementById('email').style.display='none';
+        document.getElementById('email2').removeAttribute("type");
+        document.getElementById('edit1').style.display='none';
+        document.getElementById('save1').style="visibility: visible";
+    }
+    function save1(){
+        var newEmail = document.getElementById('email2').value;
+        document.getElementById('email').innerHTML = newEmail;
+        document.getElementById('email').style.display="";
+        document.getElementById('email2').style.display="none";
+        document.getElementById('save1').style.display='none';
+        document.getElementById('edit1').style="visibility: visible";
+    }
+
+    function edit2(){
+        document.getElementById('fullName').style.display='none';
+        document.getElementById('fullName2').removeAttribute("type");
+        document.getElementById('edit2').style.display='none';
+        document.getElementById('save2').style="visibility: visible";
+    }
+    function save2(){
+        var newFullName = document.getElementById('fullName2').value;
+        document.getElementById('fullName').innerHTML = newFullName;
+        document.getElementById('fullName').style.display="";
+        document.getElementById('fullName2').style.display="none";
+        document.getElementById('save2').style.display='none';
+        document.getElementById('edit2').style="visibility: visible";
+    }
+
+    function edit3(){
+        document.getElementById('screenName').style.display='none';
+        document.getElementById('screenName2').removeAttribute("type");
+        document.getElementById('edit3').style.display='none';
+        document.getElementById('save3').style="visibility: visible";
+    }
+    function save3(){
+        var newScreenName = document.getElementById('screenName2').value;
+        document.getElementById('screenName').innerHTML = newScreenName;
+        document.getElementById('screenName').style.display="";
+        document.getElementById('screenName2').style.display="none";
+        document.getElementById('save3').style.display='none';
+        document.getElementById('edit3').style="visibility: visible";
+    }
+
+    function edit4(){
+        document.getElementById('phoneNumber').style.display='none';
+        document.getElementById('phoneNumber2').removeAttribute("type");
+        document.getElementById('edit4').style.display='none';
+        document.getElementById('save4').style="visibility: visible";
+    }
+    function save4(){
+        var newPhoneNumber = document.getElementById('phoneNumber2').value;
+        document.getElementById('phoneNumber').innerHTML = newPhoneNumber;
+        document.getElementById('phoneNumber').style.display="";
+        document.getElementById('phoneNumber2').style.display="none";
+        document.getElementById('save4').style.display='none';
+        document.getElementById('edit4').style="visibility: visible";
+    }
+</script>

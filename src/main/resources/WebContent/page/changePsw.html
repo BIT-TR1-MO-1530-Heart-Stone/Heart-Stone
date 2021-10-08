@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ChangePassword</title>
+    <link rel="stylesheet" href="change.css">
+</head>
+
+<body>
+
+<class class="main-body">
+
+    <h4 class="top">Change password
+        <span class="process-container">
+            <span class="process-bar"></span>
+            </span>
+    </h4>
+
+    <div id="register">
+
+        <form action="/savePassword" method="post">
+        <br><br><br><br>
+        <input type="password" required="required" placeholder="Previous Password" id="password" name="password" /><br>
+        <input type="password" required="required" placeholder="New Password" onkeyup="checkpassword()" id="password2" name="password2" />
+        <span id="tishi"></span><br>
+
+            <button class="but"  type="submit">Save </button><br>
+        </form>
+
+        <form  action="/backEditPage" method="post">
+            <button class="but"  type="submit">Back </button>
+        </form>
+    </div>
+
+</class>
+
+</body>
+
+</html>

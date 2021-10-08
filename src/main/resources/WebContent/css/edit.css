@@ -97,8 +97,15 @@ body {
     display: inline-block;
 }
 
-.info-item a {
+.info-item button {
     float: right;
+    margin: -1.5px;
+}
+
+.change{
+
+    margin: -1.5px;
+
 }
 
 .profile {
@@ -156,10 +163,11 @@ body {
 }
 
 .button {
-    text-align: center;
+    width: 100px;
+    margin-left: 330px;
+    margin-bottom: 20px;
 }
 
-.save {
-    left: 50%;
-    right: 50%;
+.info-item a{
+    float: right;
 }

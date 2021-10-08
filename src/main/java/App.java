@@ -53,6 +53,13 @@ public class App {
         app.get(Path.Web.GOTOPROFILE, MenuController.handlerGoToProfile);
         app.get(Path.Web.REGISTERPAGE, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
+        app.get(Path.Web.CHANGEPASSWORD,ChangeController.handlerGoToChangePSW);
+        app.get(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
+        app.post(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
+
+        app.get(Path.Web.BACKPROFILE,EditController.handlerBackProfile);
+        app.post(Path.Web.BACKPROFILE,EditController.handlerBackProfile);
+
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
         app.post(Path.Web.BACKTOLOGIN, RegisterController.handlerBackToLogin);
 
@@ -61,6 +68,7 @@ public class App {
         app.post(Path.Web.CollectPost, CollectController.handlerCollectPost);
         app.post(Path.Web.UnCollectPost, CollectController.handlerUnCollectPost);
         app.post(Path.Web.GOTOPROFILE,MenuController.handlerGoToProfile);
+        app.post(Path.Web.CHANGEPASSWORD,ChangeController.handlerGoToChangePSW);
 
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
@@ -68,6 +76,7 @@ public class App {
         app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
         app.post(Path.Web.HANDLER_DELETEPOST, PostController.handlerDeletePost);
         app.post(Path.Web.NAVIGATION_LOGOUT, LoginController.handlerLogout);
+
         app.post(Path.Web.EDITPROFILE,EditController.handlerEditProfile);
 
       //  app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
