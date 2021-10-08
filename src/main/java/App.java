@@ -77,7 +77,7 @@ public class App {
         app.post(Path.Web.HANDLER_DELETEPOST, PostController.handlerDeletePost);
         app.post(Path.Web.NAVIGATION_LOGOUT, LoginController.handlerLogout);
 
-        app.post(Path.Web.EDITPROFILE,EditController.handlerEditProfile);
+        app.post(Path.Web.EDITPROFILE,ProfileController.handlerGoEditPage);
 
       //  app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
