@@ -111,7 +111,9 @@
                         th:text="${post.likesCount}" th:id="'likeCount'+${post.Id}"></span>
                 like</button>
                     </form>
+
             </div>
+                    &nbsp;
             <!-- like area end-->
                     <!-- collect area start-->
                     <div>
@@ -124,7 +126,7 @@
                                           th:id="'collect'+${post.Id}"
                                           class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span
                                     th:id="'collect'+${post.Id}"></span>
-                                cancel</button>
+                                cancel collection</button>
                         </form>
                         <form name= "handlerPostId" action="/handlerCollectPost" method="post" >
                             <input type="hidden" name="postId" th:value="${post.Id}"/>
@@ -139,7 +141,7 @@
                     </div>
                     <!-- collect area end-->
             <!-- delete area start-->
-                    <div>
+                    <div class="ml-auto float-right">
                         <form name= "handlerPostId" action="/handlerDeletePost" method="post" >
                             <form th:method="DELETE" th:action="@{/posts/{postId}(postId=${post.Id})}">
                                 <input type="hidden" name="with" th:value="${post.Id}"/>
