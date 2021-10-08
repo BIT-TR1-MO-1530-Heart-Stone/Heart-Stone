@@ -9,9 +9,9 @@ public class Collect {
     private int user_id;
     private int post_id;
 
-    public Collect(String like_date, int user_id, int post_id) {
+    public Collect(String collect_date, int user_id, int post_id) {
         this.collect_Id = collect_Id;
-        collect_date = collect_date;
+        this.collect_date = collect_date;
         this.user_id = user_id;
         this.post_id = post_id;
     }

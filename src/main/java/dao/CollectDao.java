@@ -15,13 +15,13 @@ public class CollectDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String deletePost = "insert into collection (Collection_date, User_id, Post_id) values(?,?,?)";
+            String collectPost = "INSERT INTO `collection` (Collection_date, User_id, Post_id) VALUES(?,?,?)";
+            prst = conn.prepareStatement(collectPost);
             prst.setString(1, collect.getcollect_date());
             prst.setInt(2, collect.getUser_id());
             prst.setInt(3, collect.getPost_id());
-            int result = statement.executeUpdate(deletePost);
-            statement.close();
-            return result > 0 ? true : false;
+            boolean result = prst.executeUpdate() > 0;
+            return result;
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             return false;
@@ -35,11 +35,11 @@ public class CollectDao {
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             String deleteCollect = "DELETE FROM `collection` WHERE User_id=? and Post_id=?";
+            prst = conn.prepareStatement(deleteCollect);
             prst.setInt(1, collect.getUser_id());
             prst.setInt(2, collect.getPost_id());
-            int result = statement.executeUpdate(deleteCollect);
-            statement.close();
-            return result > 0 ? true : false;
+            boolean result = prst.executeUpdate() > 0;
+            return result;
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             return false;
