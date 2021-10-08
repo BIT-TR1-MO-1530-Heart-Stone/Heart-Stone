@@ -50,6 +50,7 @@ public class App {
      **/
     public static void configureRoutes(Javalin app) {
         app.get(Path.Web.INDEX, IndexController.serverIndexPage);
+        app.get(Path.Web.GOTOPROFILE, MenuController.handlerGoToProfile);
         app.get(Path.Web.REGISTERPAGE, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
