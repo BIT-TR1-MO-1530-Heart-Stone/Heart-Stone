@@ -16,15 +16,16 @@ public class EditController {
 
     public static Handler handlerEditProfile = ctx -> {
         User user = RequestUtil.getUpdateUserInfo(ctx);
+        ctx.render(Path.Template.EditPROFILE);
         //print info
-        System.out.println("Update user:"+user.getEmail());
-        if (UserDao.modifyInfomation(user)) {
-            User user1 = UserDao.getUserByUserEmailAndPassword(user.getEmail(), user.getPassword());
-            ctx.sessionAttribute("currentUser", user1);
-            ctx.redirect(Path.Web.QUERYALLPOSTNOW);
-        } else {
-            ctx.render(Path.Template.EditPROFILE);
-        }
+//        System.out.println("Update user:"+user.getEmail());
+//        if (UserDao.modifyInfomation(user)) {
+//            User user1 = UserDao.getUserByUserEmailAndPassword(user.getEmail(), user.getPassword());
+//            ctx.sessionAttribute("currentUser", user1);
+//            ctx.redirect(Path.Web.QUERYALLPOSTNOW);
+//        } else {
+//            ctx.render(Path.Template.EditPROFILE);
+//        }
     };
     public static Handler handlerListUserInfo = ctx ->{
         User currentUser = ctx.sessionAttribute("currentUser");

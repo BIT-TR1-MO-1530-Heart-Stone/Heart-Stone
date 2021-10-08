@@ -1,87 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <title>EditProfile</title>
     <link rel="stylesheet" href="edit.css">
-
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
 </head>
 
 <body>
+
+<!--<header>-->
+
+<!--    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">-->
+<!--        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">-->
+
+<!--        </div>-->
+<!--        <div class="mx-auto order-0">-->
+<!--            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>-->
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
+<!--        </div>-->
+
+<!--        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+
+<!--            </ul>-->
+<!--            <ul class="navbar-nav ml-auto">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/">History</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/">Help</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <form id="goToProfile" action="/goToProfile" method="post">-->
+<!--                        <button id="GoProfile" type="submit">Profile </button>-->
+<!--                        &lt;!&ndash;                        <a class="nav-link" href="" >My Profile</a>&ndash;&gt;-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <form class="form1" name="logout" action="/logout" method="post">-->
+<!--                        <button class="btn btn-danger" id="logout" type="submit">Logout</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+<!--</header>-->
+
+
 <class class="main-body">
-    
+
     <h4 class="top">My information
         <span class="process-container">
-                        <span class="process-bar"></span>
+            <span class="process-bar"></span>
             </span>
-        <a href="">Preview</a>
+<!--        <a href="">Preview</a>-->
     </h4>
 
     <div class="info-item">
-        <span class="item-title">Password</span>
-        <span class="item-text">123112313</span>
-        <a href="">Change password</a>
+        <span class="item-title">ID</span>
+        <span class="item-text" th:text="${session.currentUser.id}"></span>
+<!--        <a href="">Change password</a>-->
     </div>
 
     <div class="info-item">
+        <span class="item-title">Email</span>
+        <span class="item-text" th:text="${session.currentUser.email}"}></span>
+        <a href="">Edit</a>
+    </div>
+
+<!--    <div class="info-item">-->
+<!--        <span class="item-title">Password</span>-->
+<!--        <span class="item-text">123112313</span>-->
+<!--        <a href="">Change password</a>-->
+<!--    </div>-->
+
+    <div class="info-item">
         <span class="item-title">Fullname</span>
-        <span class="item-text">1223344</span>
+        <span class="item-text" th:text="${session.currentUser.fullname}"></span>
         <a href="">Edit</a>
     </div>
 
     <div class="info-item">
         <span class="item-title">ScreenName</span>
-        <span class="item-text">1</span>
+        <span class="item-text" th:text="${session.currentUser.screenname}"></span>
         <a href="">Edit</a>
     </div>
 
-    <div class="info-item">
-        <span class="item-title">Gender</span>
-        <span class="item-text">1</span>
-        <a href="">Edit</a>
-    </div>
+<!--    <div class="info-item">-->
+<!--        <span class="item-title">Gender</span>-->
+<!--        <span class="item-text">1</span>-->
+<!--        <a href="">Edit</a>-->
+<!--    </div>-->
 
     <div class="info-item">
         <span class="item-title">PhoneNumber</span>
-        <span class="item-text">1</span>
+        <span class="item-text" th:text="${session.currentUser.phone_number}" ></span>
         <a href="">Edit</a>
     </div>
 
-    <div class="info-item">
-        <span class="item-title">Email</span>
-        <span class="item-text">1</span>
-        <a href="">Edit</a>
-    </div>
 
-    <div class="info-item">
-        <span class="item-title">Info</span>
-        <span class="item-text">1</span>
-        <a href="">Edit</a>
-    </div>
+
+<!--    <div class="info-item">-->
+<!--        <span class="item-title">Info</span>-->
+<!--        <span class="item-text">1</span>-->
+<!--        <a href="">Edit</a>-->
+<!--    </div>-->
 
 
     <div class="profile">
         <div class="profile-title">
-            <h5>Profile<a href="">Swipe</a></h5>
+
         </div>
         <!-- <span class="title">Profile</span>
             <a href="">Swipe</a> -->
 
 
         <div class="base-info">
-            <div class="form-item">
-                <div class="form-lable">Name</div>
-                <div class="form-content">
-                    <input class="text-box" type="text">
-                </div>
-                <div class="access">
-                    <select name="select" id="">
-                        <option value="">111</option>
-                        <option value="">222</option>
-                    </select>
-                </div>
-            </div>
+<!--            <div class="form-item">-->
+<!--                <div class="form-lable">Name</div>-->
+<!--                <div class="form-content">-->
+<!--                    <input class="text-box" type="text">-->
+<!--                </div>-->
+<!--                <div class="access">-->
+<!--                    <select name="select" id="">-->
+<!--                        <option value="">111</option>-->
+<!--                        <option value="">222</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
 
             <div class="form-item">
                 <div class="form-lable">Gender</div>
@@ -116,7 +170,6 @@
 
 </class>
 
-</div>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,8 @@
         function jump(){
             window.location.href="http:/www.baidu.com";
         }
+
+
     </script>
 </head>
 
@@ -109,12 +111,10 @@
 </header>
 
 <main role="main" class="container ">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" action="/editProfile" method="POST">
         <div id="content">
 
             <div id="Top"></div>
-
-
             <div class="tool1"></div>
 
             <div id="Left">
@@ -131,14 +131,17 @@
             <div id="Midle">
                 <div>
                     <div class="name">
-                        <h3>ScreenName</h3>
+                        <h3 th:text="${session.currentUser.screenname}">ScreenName</h3>
                     </div>
 
 
                     <div class="click-button">
-                        <a class="btn btn-primary btn-lg" onclick="window.location.href = '/editProfile'" >Post here</a>
+                        <button class="but" type="submit">Edit Profile</button>
+<!--                        <a class="" onclick="window.location.href = '/main'" >Post here</a>-->
+
+
 <!--                        <form id="Profile" action="/editProfile" method="post">-->
-<!--                            <button id="editProfile" type="button" onclick="jump()">Edit Profile </button>-->
+<!--                            <button class="but" onclick="window.location.href = '/editProfile'">Edit Profile</button>-->
 <!--                        </form>-->
 <!--                        <button type="button" onclick="window.location.href ='editProfile.html'"> Edit Profile</button>-->
 <!--                        <button value="click" onclick="window.location.href = '/addPost'">edit profile</button>-->
@@ -150,29 +153,65 @@
                 <ul class="basic-info">
                     <li class="info">
                             <span class="info-span">
-                            <span class="span">1</span> Posts
+                                FullName:
+                            <span class="span" th:text="${session.currentUser.fullname}">fullname</span>
                             </span>
                     </li>
 
                     <li class="info">
-                        <a class="info-a" href="">
-                            <span class="span" title="2222">0</span> Follwers
-                        </a>
+                            <span class="info-span">
+                                Gender:
+                            <span class="span"  th:if="${session.currentUser.gender} eq 1">Male</span>
+                                <span class="span"  th:if="${session.currentUser.gender} eq 0">Female</span>
+                            </span>
+                    </li>
+
+                    <br/>
+
+                    <li class="info">
+                            <span class="info-span">
+                                Email:
+                            <span class="span" th:text="${session.currentUser.email}">email</span>
+                            </span>
                     </li>
 
                     <li class="info">
-                        <a class="info-a" href="">
-                            Following
-                            <span class="span" title="2222">0</span>
-                        </a>
+                            <span class="info-span">
+                                PhoneNumber:
+                            <span class="span" th:text="${session.currentUser.phone_number}">phonenumber</span>
+                            </span>
                     </li>
 
+
+                    <!--                    <li class="info">-->
+<!--                        <a class="info-a" href="">-->
+<!--                            <span class="span" title="2222">0</span> Follwers-->
+<!--                        </a>-->
+<!--                    </li>-->
+
+<!--                    <li class="info">-->
+<!--                        <a class="info-a" href="">-->
+<!--                            Following-->
+<!--                            <span class="span" title="2222">0</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+
                 </ul>
+
+
+<!--                <ul class="basic-info">-->
+<!--                    <li class="info">-->
+<!--                            <span class="info-span">-->
+<!--                                Email:-->
+<!--                            <span class="span" th:text="${session.currentUser.email}">email</span>-->
+<!--                            </span>-->
+<!--                    </li>-->
+<!--                </ul>-->
             </div>
 
 
             <div id="Right">
-                <h5 class="whatup">This is my intro</h5>
+                <h5 class="whatup"  th:text="${session.currentUser.info}">This is my intro</h5>
             </div>
 
         </div>

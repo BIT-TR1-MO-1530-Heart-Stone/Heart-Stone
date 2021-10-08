@@ -49,8 +49,9 @@ public class RequestUtil {
         user.setEmail(CurrentUser.getEmail());
         user.setFullname(ctx.formParam("fullname"));
         user.setScreenname(ctx.formParam("screenname"));
-        user.setPrivacy(Integer.parseInt(ctx.formParam("private")));
-        user.setGender(Integer.parseInt(ctx.formParam("gender")));
+//        user.setPrivacy(Integer.parseInt(ctx.formParam("private")));
+        user.setPrivacy(0);
+//        user.setGender(Integer.parseInt(ctx.formParam("gender")));
         user.setInfo(ctx.formParam("info"));
         user.setPhone_number(ctx.formParam("phonenumber"));
 //        user.setProfile_picture();
