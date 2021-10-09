@@ -1,7 +1,11 @@
 package Controller;
 
 import dao.UserDao;
+import io.javalin.http.Handler;
 import model.User;
+import util.Path;
+
+import static util.RequestUtil.getRegisterInfo;
 
 public class UserController {
     //authenticate email & pwd

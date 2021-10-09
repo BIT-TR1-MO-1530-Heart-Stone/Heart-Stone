@@ -2,25 +2,29 @@ package model;
 
 /**@author Xinyu Chen, 2021. email: s3798356@student.rmit.edu.au**/
 
-public class Like {
+public class Collect {
 
-    private int id;
-    private String Like_date;
+    private int collect_Id;
+    private String collect_date;
     private int user_id;
     private int post_id;
 
-    public Like(String like_date, int user_id, int post_id) {
-        this.id = id;
-        Like_date = like_date;
+    public Collect(String collect_date, int user_id, int post_id) {
+        this.collect_Id = collect_Id;
+        this.collect_date = collect_date;
         this.user_id = user_id;
         this.post_id = post_id;
     }
-    public int getId() {
-        return id;
+
+    public void collectPost() {
     }
 
-    public String getLike_date() {
-        return Like_date;
+    public int getId() {
+        return collect_Id;
+    }
+
+    public String getcollect_date() {
+        return collect_date;
     }
 
     public int getUser_id() {

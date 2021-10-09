@@ -1,0 +1,173 @@
+html {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.top-bg {
+    background-color: #fff;
+}
+
+.top-content {
+    width: 1250px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 9px 0px;
+}
+
+.top-left {
+    float: left;
+}
+
+.top-right {
+    float: right;
+}
+
+.top-left img,
+.top-left .search-box {
+    float: left;
+}
+
+.top-nav,
+.nav-right {
+    float: left;
+    overflow: hidden;
+}
+
+.top-nav li {
+    float: left;
+}
+
+.main-body {
+    /* margin: 0 auto;
+    width: 990px;
+    margin: 10px auto;
+    height: 500px; */
+    position: absolute;
+    margin: 0 auto;
+    padding: 10px 300px;
+    float: left;
+    width: 840px;
+    background-color: #fff;
+}
+
+.body-left {
+    float: left;
+    width: 150px;
+    padding-top: 10px;
+}
+
+.top {
+    font-size: 12px;
+    border-bottom: 2px solid red;
+    padding-bottom: 8px;
+}
+
+.top a {
+    float: right;
+    font-weight: normal;
+    color: #0A8CD2;
+}
+
+.top,
+.top>span,
+.top>a {
+    vertical-align: middle;
+}
+
+.info-item {
+    width: 800px;
+    height: 12px;
+    border: 1px solid #d9d9d9;
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 11px;
+    padding: 14px 19px;
+}
+
+.info-item .item-title {
+    font-weight: bold;
+    width: 305px;
+    display: inline-block;
+}
+
+.info-item button {
+    float: right;
+    margin: -1.5px;
+}
+
+.change{
+
+    margin: -1.5px;
+
+}
+
+.profile {
+    width: 800px;
+    padding: 14px 19px;
+    border: 1px solid #d9d9d9;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.base-info {
+    margin-top: 25px;
+    padding-bottom: 45px;
+}
+
+.profile-title a {
+    float: right;
+    clear: #0A8CD2;
+    font-style: normal;
+}
+
+.profile .profile-title .title {
+    font-weight: bold;
+    width: 305px;
+    display: inline-block;
+}
+
+.form-item {
+    /* height: 40px; */
+    overflow: hidden;
+    margin-top: 9px;
+}
+
+.form-item>div {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.form-lable {
+    width: 50px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.form-content,
+.form-content input {
+    vertical-align: middle;
+}
+
+.form-content .desciption {
+    width: 198px;
+    height: 20px;
+    border: 1px solid #808080;
+}
+
+.button {
+    width: 100px;
+    margin-left: 330px;
+    margin-bottom: 20px;
+}
+
+.info-item a{
+    float: right;
+}

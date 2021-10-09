@@ -8,11 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Team Heart-Stone" />
-        <module name="project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="project" target="16" />
       <module name="Team Heart-Stone" target="16" />
     </bytecodeTargetLevel>
   </component>

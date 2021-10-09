@@ -1,7 +1,4 @@
-import Controller.IndexController;
-import Controller.LoginController;
-import Controller.PostController;
-import Controller.RegisterController;
+import Controller.*;
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 import util.*;
@@ -53,12 +50,45 @@ public class App {
      **/
     public static void configureRoutes(Javalin app) {
         app.get(Path.Web.INDEX, IndexController.serverIndexPage);
+        app.get(Path.Web.GOTOPROFILE, MenuController.handlerGoToProfile);
+        app.get(Path.Web.GOTOLIKE, MenuController.handlerGoToLike);
+        app.get(Path.Web.GOTOCOLLECTION, MenuController.handlerGoToCollection);
         app.get(Path.Web.REGISTERPAGE, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
+        app.get(Path.Web.CHANGEPASSWORD,EditController.handlerGoToChangePSW);
+        app.get(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
+        app.post(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
+        app.get(Path.Web.QUERYPROFILE,MenuController.handlerGoToProfile);
+
+        app.get(Path.Web.BACKPROFILE,EditController.handlerBackProfile);
+        app.post(Path.Web.BACKPROFILE,EditController.handlerBackProfile);
+
         app.post(Path.Web.HANDLER_REGISTER,RegisterController.handlerRegister);
+        app.post(Path.Web.BACKTOLOGIN, RegisterController.handlerBackToLogin);
 
+        app.post(Path.Web.LikePost, LikeController.handlerLikePost);
+        app.post(Path.Web.UnLikePost, LikeController.handlerUnLikePost);
+        app.post(Path.Web.CollectPost, CollectController.handlerCollectPost);
+        app.post(Path.Web.UnCollectPost, CollectController.handlerUnCollectPost);
+        app.post(Path.Web.GOTOPROFILE,MenuController.handlerGoToProfile);
+        app.post(Path.Web.CHANGEPASSWORD,EditController.handlerGoToChangePSW);
+
+        app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
+//        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
+        app.get(Path.Web.QUERYALLLIKEPOSTNOW, PostController.handlerListLikePost);
+        app.get(Path.Web.QUERYALLCOLLECTIONPOSTNOW, PostController.handlerListCollectedPost);
 
+        app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
+        app.post(Path.Web.HANDLER_DELETEPOST, PostController.handlerDeletePost);
+        app.post(Path.Web.NAVIGATION_LOGOUT, LoginController.handlerLogout);
+
+        app.post(Path.Web.EDITPROFILE,ProfileController.handlerGoEditPage);
+
+        app.post(Path.Web.SAVEPASSWORD,ChangeController.handlerChangePSW);
+
+        app.post(Path.Web.EDITINFORMATION,EditController.handlerEditProfile);
+      //  app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
 
 }

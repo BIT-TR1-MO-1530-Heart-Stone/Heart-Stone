@@ -5,7 +5,7 @@ package model;
  **/
 
 public class User {
-    private String id;
+    private int id;
     private String email;
     private String password;
     private String fullname;
@@ -13,6 +13,8 @@ public class User {
     private String phone_number;
     private String info;
     private int gender;
+    private int privacy;
+    private String profile_picture;
 
     public User() {
     }
@@ -83,11 +85,22 @@ public class User {
         this.gender = gender;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public void setProfile_picture(String profile_picture) {
+        this.profile_picture = profile_picture;
+    }
+
+    public void setPrivacy(int privacy) {
+        this.privacy = privacy;
+    }
+    public int getPrivacy() {
+        return privacy;
     }
 }

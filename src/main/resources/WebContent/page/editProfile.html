@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EditProfile</title>
+    <link rel="stylesheet" href="edit.css">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
+</head>
+
+<body>
+<!--<header>-->
+
+<!--    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">-->
+<!--        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">-->
+
+<!--        </div>-->
+<!--        <div class="mx-auto order-0">-->
+<!--            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>-->
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
+<!--        </div>-->
+
+<!--        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+
+<!--            </ul>-->
+<!--            <ul class="navbar-nav ml-auto">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/queryAllPostNow">Main</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/handlerGoToLike">My LikeList</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/handlerGoToCollection">My CollectionList</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/goToProfile">My Profile</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <form class="form1" name="logout" action="/logout" method="post">-->
+<!--                        <button class="btn btn-danger" id="logout" type="submit">Logout</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+<!--</header>-->
+<br>
+<br>
+<br>
+
+<class class="main-body">
+
+    <h4 class="top">My information
+        <span class="process-container">
+            <span class="process-bar"></span>
+            </span>
+<!--        <a href="">Preview</a>-->
+    </h4>
+
+
+    <div class="info-item">
+        <span class="item-title">Email</span>
+        <span class="item-text" id="email" th:text="${session.currentUser.email}"></span>
+    </div>
+
+    <form id="/" action="/handlerChangePsw" method="post">
+        <div class="info-item">
+            <span class="item-title">Password</span>
+            <button class="change" id="change" type="submit">Change</button>
+        </div>
+    </form>
+
+
+<!--    <div class="info-item">-->
+<!--        <span class="item-title">Password</span>-->
+<!--        <span class="item-text">123112313</span>-->
+<!--        <a href="">Change password</a>-->
+<!--    </div>-->
+
+    <div class="info-item">
+        <span class="item-title">Fullname</span>
+        <span class="item-text" name="fullName" id="fullName" th:text="${session.currentUser.fullname}"></span>
+        <input type="hidden" name="input" id="fullName2" th:placeholder="${session.currentUser.fullname}"/>
+        <button style="visibility: hidden" name="save" id="save2" onclick="save2()">save</button>
+        <button id="edit2" onclick="edit2()">edit</button>
+
+    </div>
+
+    <div class="info-item">
+        <span class="item-title">ScreenName</span>
+        <span class="item-text" name="screenName" id="screenName"  th:text="${session.currentUser.screenname}"></span>
+        <input type="hidden" name="input" id="screenName2" th:placeholder="${session.currentUser.screenname}"/>
+        <button style="visibility: hidden" name="save" id="save3" onclick="save3()">save</button>
+        <button id="edit3" onclick="edit3()">edit</button>
+
+    </div>
+
+    <div class="info-item">
+        <span class="item-title">PhoneNumber</span>
+        <span class="item-text" name="phoneNumber" id="phoneNumber" th:text="${session.currentUser.phone_number}" ></span>
+        <input type="hidden" name="input" id="phoneNumber2" th:placeholder="${session.currentUser.phone_number}"/>
+        <button style="visibility: hidden" name="save" id="save4" onclick="save4()">save</button>
+        <button id="edit4" onclick="edit4()">edit</button>
+
+    </div>
+
+
+
+
+    <div class="profile">
+        <div class="profile-title">
+
+        </div>
+
+
+        <div class="base-info">
+
+            <div class="form-item">
+                <div class="form-lable">Gender</div>
+                <div class="access" >
+                    <select name="gender" id="select1">
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-lable">Privacy</div>
+                <div class="access" >
+                    <select name="privacy" id="select2">
+                        <option value="0">Everyone</option>
+                        <option value="1">Only Friends</option>
+                        <option value="2">Only Myself</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-lable">Description</div>
+                <div class="form-content">
+                    <textarea class="desciption" th:placeholder="${session.currentUser.info}" th:value="${session.currentUser.info}" id="info" name="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <br/>
+
+
+
+    <form id="profile-form"  action="/handlerSaveEditProfile" method="post">
+
+        <input type="hidden" name="newEmail" id="newEmail">
+        <input type="hidden" name="newFullName" id="newFullName" />
+        <input type="hidden" name="newScreenName"  id="newScreenName" />
+        <input type="hidden" name="newPhoneNumber"  id="newPhoneNumber" />
+        <input type="hidden" name="newGender"  id="newGender" />
+        <input type="hidden" name="newPrivacy" id="newPrivacy" />
+        <input type="hidden" name="newInfo"  id="newInfo" />
+        <button class="button" onclick="Save()" >Save </button>
+    </form>
+
+    <form  action="/backProfile" method="post">
+        <button class="button"  type="submit">Back </button>
+    </form>
+
+
+</class>
+
+</body>
+
+</html>
+
+<script>
+
+    function Save(){
+
+        var email = document.getElementById("email").innerText;
+        var fullName = document.getElementById("fullName").innerText;
+        var screenName = document.getElementById("screenName").innerText;
+        var phoneNumber = document.getElementById("phoneNumber").innerText;
+
+        var myselect = document.getElementById("select1");
+        var index = myselect.selectedIndex ;
+        var gender = myselect.options[index].value;
+
+        var myselect2 = document.getElementById("select2");
+        var index2 = myselect2.selectedIndex ;
+        var privacy = myselect2.options[index2].value;
+
+        var info = document.getElementById("info").value;
+
+        document.getElementById("newEmail").value=email;
+        document.getElementById("newFullName").value= fullName;
+        document.getElementById("newScreenName").value= screenName;
+        document.getElementById("newPhoneNumber").value= phoneNumber;
+        document.getElementById("newGender").value= gender;
+        document.getElementById("newPrivacy").value= privacy;
+        document.getElementById("newInfo").value= info;
+
+        var test1 = document.getElementById("newPrivacy").value;
+        var test2 = document.getElementById("newFullName").value;
+        var test3 = document.getElementById("newScreenName").value;
+        var test4 = document.getElementById("newPhoneNumber").value;
+        var test5 = document.getElementById("newGender").value;
+        var test6 = document.getElementById("newInfo").value;
+    }
+    function edit1(){
+        document.getElementById('email').style.display='none';
+        document.getElementById('email2').removeAttribute("type");
+        document.getElementById('edit1').style.display='none';
+        document.getElementById('save1').style="visibility: visible";
+
+    }
+    function save1(){
+        var newEmail = document.getElementById('email2').value;
+        document.getElementById('email').innerHTML = newEmail;
+        document.getElementById('email').style.display="";
+        document.getElementById('email2').style.display="none";
+        document.getElementById('save1').style.display='none';
+        document.getElementById('edit1').style="visibility: visible";
+    }
+
+    function edit2(){
+        document.getElementById('fullName').style.display='none';
+        document.getElementById('fullName2').removeAttribute("type");
+        document.getElementById('edit2').style.display='none';
+        document.getElementById('save2').style="visibility: visible";
+    }
+    function save2(){
+        var newFullName = document.getElementById('fullName2').value;
+        document.getElementById('fullName').innerHTML = newFullName;
+        document.getElementById('fullName').style.display="";
+        document.getElementById('fullName2').style.display="none";
+        document.getElementById('save2').style.display='none';
+        document.getElementById('edit2').style="visibility: visible";
+    }
+
+    function edit3(){
+        document.getElementById('screenName').style.display='none';
+        document.getElementById('screenName2').removeAttribute("type");
+        document.getElementById('edit3').style.display='none';
+        document.getElementById('save3').style="visibility: visible";
+    }
+    function save3(){
+        var newScreenName = document.getElementById('screenName2').value;
+        document.getElementById('screenName').innerHTML = newScreenName;
+        document.getElementById('screenName').style.display="";
+        document.getElementById('screenName2').style.display="none";
+        document.getElementById('save3').style.display='none';
+        document.getElementById('edit3').style="visibility: visible";
+    }
+
+    function edit4(){
+        document.getElementById('phoneNumber').style.display='none';
+        document.getElementById('phoneNumber2').removeAttribute("type");
+        document.getElementById('edit4').style.display='none';
+        document.getElementById('save4').style="visibility: visible";
+    }
+    function save4(){
+        var newPhoneNumber = document.getElementById('phoneNumber2').value;
+        document.getElementById('phoneNumber').innerHTML = newPhoneNumber;
+        document.getElementById('phoneNumber').style.display="";
+        document.getElementById('phoneNumber2').style.display="none";
+        document.getElementById('save4').style.display='none';
+        document.getElementById('edit4').style="visibility: visible";
+    }
+</script>

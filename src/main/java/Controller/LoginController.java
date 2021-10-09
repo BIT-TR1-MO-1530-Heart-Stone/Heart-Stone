@@ -18,7 +18,7 @@ public class LoginController {
         Map<String, Object> model = new HashMap<>();
         String email = getQueryEmail(ctx);
         String password = getQueryPassword(ctx);
-        System.out.println(email+password);
+//        System.out.println(email+password);
         if (!UserController.authenticate(email, password)) {
             ctx.render(Path.Template.LOGIN, model);
             System.out.printf("login failed!");
@@ -26,13 +26,17 @@ public class LoginController {
             User user = UserDao.getUserByUserEmailAndPassword(email, password);
             ctx.sessionAttribute("currentUser", user);
             ctx.redirect(Path.Web.QUERYALLPOSTNOW);
-            System.out.printf("login success!");
+            System.out.printf("User: " + email + "login success!");
 //            ctx.render(Path.Template.MAIN, model);
         }
     };
     //login out
     public static Handler handlerLogout = ctx -> {
+
+        System.out.println("User logout!!");
         ctx.sessionAttribute("currentUser", null);
-        ctx.redirect(Path.Web.INDEX);
+        ctx.render(Path.Template.LOGIN);
+        System.out.println("session is null!!");
+
     };
 }

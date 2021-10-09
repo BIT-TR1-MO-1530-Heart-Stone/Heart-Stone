@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My like</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<main role="main" class="container ">
+<body>
+<header>
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/queryAllPostNow">Main</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/handlerGoToCollection">My CollectionList</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/goToProfile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form1" name="logout" action="/logout" method="post">
+                        <button class="btn btn-danger" id="logout" type="submit">Logout</button>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+</header>
+<br>
+<br>
+<br>
+<main role="main" class="container ">
+<div class="list-group">
+    <li class="list-group-item" th:each="post:${postList}">
+        <div class="media">
+            <div class="media-heading">
+
+                <h2><a th:href="@{/posts/{postId}(postId=${post.Id})}" th:text="${post.Title}">title</a></h2>
+                <h4 th:text="${post.Info}">content</h4>
+                <span class="date" th:text="${'Post on ' + post.Date}"></span>
+            </div>
+            </div>
+    </li>
+</div>
+
+</main>
+</body>
+</main>
+</html>

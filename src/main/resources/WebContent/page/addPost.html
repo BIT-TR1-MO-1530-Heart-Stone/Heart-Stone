@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Post</title>
-    <link rel="stylesheet" type="text/css" href="Post.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Post.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -32,15 +32,24 @@
             <!-- create post -->
             <h3>New Post</h3>
             <br>
-            <form action="#" th:action="@{/toPost}" th:object="${postDto}" method="POST">
+            <form action="/handlerCreatePost" method="POST">
                 <div class="form-group">
-                    <input th:field="*{title}" type="text" class="form-control" style="width:1000px;height:35px" placeholder="title">
+                    <input th:field="*{title}" name="title" id="title" type="text" class="form-control" style="width:1000px;height:35px" placeholder="title">
                 </div>
                 <br>
                 <div class="form-group">
-                    <textarea th:field="*{content}" rows="5" class="form-control" style="resize: vertical;width:1000px;height:135px" placeholder="body"></textarea>
+                    <textarea th:field="*{content}" name="postInfo" id="postInfo" rows="5" class="form-control" style="resize: vertical;width:1000px;height:135px" placeholder="body"></textarea>
                 </div>
                 <br>
+                <div>
+                    <h5>Who can see it?</h5>
+                    <select name="visible" class="m-wrap"  style="width: 180px; padding: 2px 0;">
+
+                        <option value="0">Only me</option>
+                        <option value="1">My friends</option>
+                        <option value="2">Everyone</option>
+                    </select>
+                </div>
                 <div style="text-align:center">
                     <button style="display:block;margin:0 auto" class="but" type="submit">Submit</button>
                 </div>

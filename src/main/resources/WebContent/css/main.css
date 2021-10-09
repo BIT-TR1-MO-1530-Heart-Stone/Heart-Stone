@@ -2,7 +2,7 @@ html{
     overflow-y: scroll;
 }
 body{
-    background-image: url(../images/a.jpg);
+    background-image: url(images/main.jpg);
     background-repeat:no-repeat;
     background-size:1300px 550px;
 }
@@ -22,7 +22,15 @@ body{
 }
 h1{
     font-family: "Sofia";
-
+    color: whitesmoke;
 }
-
+h5{
+    color: whitesmoke;
+}
+h3{
+    text-shadow:0 0 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    color:#4a77d4;
+}
 

@@ -18,7 +18,7 @@
 
         </div>
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" href="/">Redbook</a>
+            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,25 +27,32 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav mr-auto">
 
-                </ul>
+            </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">History</a>
+                    <a class="nav-link" href="/queryAllPostNow">Main</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Help</a>
+                    <a class="nav-link" href="/handlerGoToLike">My LikeList</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">My Account</a>
+                    <a class="nav-link" href="/handlerGoToCollection">My CollectionList</a>
                 </li>
                 <li class="nav-item">
-                    <a  class="btn btn-outline-danger" href="/logout">Logout</a>
+                    <a class="nav-link" href="/goToProfile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form1" name="logout" action="/logout" method="post">
+                        <button class="btn btn-danger" id="logout" type="submit">Logout</button>
+                    </form>
                 </li>
 
             </ul>
         </div>
     </nav>
+
 </header>
+
 <main role="main" class="container ">
 
     <div class="search" style="margin: 100px 5px">
@@ -57,7 +64,7 @@
         </form>
     </div>
     <div>
-        <h1>Meet your beautiful life!</h1>
+        <h1>Enjoy your beautiful life!</h1>
         <h5>Meet what you want</h5>
         <h5>Share your beautiful life</h5>
         <h5>Explore the unknown life</h5>
@@ -65,10 +72,93 @@
     <br>
     <br>
     <div>
-        <a  class="btn btn-primary btn-lg" href="/">Post here</a>
+        <a class="btn btn-primary btn-lg" onclick="window.location.href = '/addPost'" >Post here</a>
+    </div>
+    <div>
+        <br><br><br>
+        <h3>Popular Posts</h3>
+        <br>
+        <br>
+        <div class="list-group">
+            <li class="list-group-item" th:each="post:${postList}">
+                <div class="media">
+                    <div class="media-heading">
+                        <!--                        <input type="text" name="firstname" value="Mickey">-->
+                        <h2><a th:href="@{/posts/{postId}(postId=${post.Id})}" th:text="${post.Title}">title</a></h2>
+                        <h4 th:text="${post.Info}">content</h4>
+                        <span class="date" th:text="${'Post on ' + post.Date}"></span>
+                    </div>
+                    <!-- like area -->
+            <div>
+                <form name= "handlerPostId" action="/handlerUnLikePost" method="post" >
+                <!--<a th:onclick="likes([[${postId}]])" th:text="${post.likeCount}" class="icon solid fa-heart"></a>-->
+                    <input type="hidden" name="postId" th:value="${post.Id}"/>
+                    <button class="btn btn-success" th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 1" type="submit"
+                        th:onclick="likes([[${post.Id}]])">
+									<span style="color: #00827A;"
+                                          th:id="'likespan'+${post.Id}"
+                                          class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span
+                        th:text="${post.likesCount}" th:id="'likeCount'+${post.Id}"></span>
+                unlike</button>
+                </form>
+                <form name= "handlerPostId" action="/handlerLikePost" method="post" >
+                    <input type="hidden" name="postId" th:value="${post.Id}"/>
+                    <button class="btn btn-success" th:id="'like'+${post.Id}" th:if="${post.isLikes} eq 0" type="submit"
+                        th:onclick="likes([[${post.Id}]])">
+									<span style="color: #00827A;"
+                                          th:id="'likespan'+${post.Id}"
+                                          class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <span
+                        th:text="${post.likesCount}" th:id="'likeCount'+${post.Id}"></span>
+                like</button>
+                    </form>
 
+            </div>
+                    &nbsp;
+            <!-- like area end-->
+                    <!-- collect area start-->
+                    <div>
+                        <form name= "handlerPostId" action="/handlerUnCollectPost" method="post" >
+
+                            <input type="hidden" name="postId" th:value="${post.Id}"/>
+                            <button class="btn btn-success" th:id="'collect'+${post.Id}" th:if="${post.isCollect} eq 1" type="submit"
+                                    th:onclick="collect([[${post.Id}]])">
+									<span style="color: #00827A;"
+                                          th:id="'collect'+${post.Id}"
+                                          class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span
+                                    th:id="'collect'+${post.Id}"></span>
+                                cancel collection</button>
+                        </form>
+                        <form name= "handlerPostId" action="/handlerCollectPost" method="post" >
+                            <input type="hidden" name="postId" th:value="${post.Id}"/>
+                            <button class="btn btn-success" th:id="'collect'+${post.Id}" th:if="${post.isCollect} eq 0" type="submit"
+                                    th:onclick="collect([[${post.Id}]])">
+									<span style="color: #00827A;"
+                                          th:id="'collect'+${post.Id}"
+                                          class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <span
+                                     th:id="'collect'+${post.Id}"></span>
+                                collect</button>
+                        </form>
+                    </div>
+                    <!-- collect area end-->
+            <!-- delete area start-->
+                    <div class="ml-auto float-right">
+                        <form name= "handlerPostId" action="/handlerDeletePost" method="post" >
+                            <form th:method="DELETE" th:action="@{/posts/{postId}(postId=${post.Id})}">
+                                <input type="hidden" name="with" th:value="${post.Id}"/>
+                                <button class="btn btn-danger" th:if="${post.isWriter} eq 1" type="submit">delete</button>
+                            </form>
+
+                        </form>
+
+                    </div>
+            <!-- delete area end-->
+        </div>
+
+
+                </div>
+
+        </ul>
     </div>
 </main>
 </body>
-
 </html>

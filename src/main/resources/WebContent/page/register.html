@@ -1,28 +1,62 @@
 <!DOCTYPE html>
-<head xmlns="http://www.w3.org/1999/html">
+<head>
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet"  href="register.css"/>
 </head>
 <main role="main" class="container ">
     <body>
+
+    <div id="register">
     <form id="register-form" action="/handlerRegister" method="post">
-        <div id="register">
+
             <h1>Register</h1>
             <input type="email" required="required" placeholder="email" id="email" name="email"/><br>
             <input type="password" required="required" placeholder="password" id="password" name="password"/><br>
-            <input type="password" required="required" placeholder="Confirm User Password" id="password2" name="password2"/><br>
+            <input type="password" required="required" placeholder="Confirm User Password" onkeyup="checkpassword()" id="password2" name="password2"/><span id="tishi"></span><br>
             <input type="text" required="required" placeholder="fullname" id="fullname" name="fullname"/><br>
             <input type="text" required="required" placeholder="screenname" id="screenname" name="screenname"/><br>
             <input type="text" required="required" placeholder="phone_number" id="phone_number" name="phone_number"/><br>
             <input type="text" required="required" placeholder="personalized signature" id="info" name="info"/><br>
-            <select name="gender">
-                <option value="1">Male</option>
-                <option value="0">Female</option>
-            </select><br>
+            <div>
+            <select name="gender" class="m-wrap"  style="width: 180px; padding: 2px 0;">
+
+                <option value="1"> Male</option>
+                <option value="0"> Female</option>
+            </select>
+
+            </div>
+             <br>
             <button class="but" type="submit">Sign up</button>
-        </div>
+            <br/>
+
+
     </form>
+    <form id="backToLogin" action="/backLogin" method="post">
+        <button class="but" id="backLogin" type="submit">Back </button>
+    </form>
+    </div>
+
+    <script type="text/javascript">
+        function checkpassword() {
+            var password = document.getElementById("password").value;
+            var repassword = document.getElementById("password2").value;
+
+            if(password == repassword) {
+                document.getElementById("tishi").innerHTML="<br><font color='green'>Correct!</font>";
+                document.getElementById("submit").disabled = false;
+
+            }else {
+                document.getElementById("tishi").innerHTML="<br><font color='red'>The two passwords are inconsistent!</font>";
+                document.getElementById("submit").disabled = true;
+            }
+        }
+
+        function jump(){
+            window.location.href="http://blog.sina.com.cn/mleavs";
+        }
+
+    </script>
     </body>
 </main>
 </html>

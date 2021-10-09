@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+        function jump(){
+            window.location.href="http:/www.baidu.com";
+        }
+
+
+    </script>
+</head>
+
+<style type="text/css">
+    #div1 {
+        width: 160px;
+        height: 160px;
+        border-radius: 100%;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    img {
+        max-height: 100%;
+    }
+
+    body {
+        background-color: #E9F5E9;
+        margin: 0;
+    }
+
+    html,
+    body,
+    form {
+        height: auto;
+    }
+
+    #content {
+        padding: 50px 100px 50px 100px;
+        height: 600px;
+        width: 1000px;
+        background-color: White;
+        vertical-align: top;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #Top {
+        padding: 0px 0px 0px 0px;
+        height: 50px;
+        /* background-color: blue; */
+        width: 100%;
+    }
+
+    #Left {
+        height: 50%;
+        width: 20%;
+        float: left;
+        padding-right: 20px;
+        /* background-color: antiquewhite; */
+    }
+
+    #Midle {
+        height: 30%;
+        width: 50%;
+        float: left;
+        padding-right: 0px;
+        padding-left: 0px;
+        /* background-color: red; */
+    }
+
+    #Right {
+        height: 20%;
+        width: 50%;
+        padding-right: 0px;
+        /* background-color: yellow; */
+        float: left;
+    }
+</style>
+
+
+<body>
+<header>
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/queryAllPostNow">Main</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/handlerGoToLike">My LikeList</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/handlerGoToCollection">My CollectionList</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form1" name="logout" action="/logout" method="post">
+                        <button class="btn btn-danger" id="logout" type="submit">Logout</button>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+</header>
+<br>
+<br>
+<br>
+
+<main role="main" class="container ">
+    <form id="form1" runat="server" action="/editProfile" method="POST">
+        <div id="content">
+
+            <div id="Top"></div>
+            <div class="tool1"></div>
+
+            <div id="Left">
+
+                <div id="div1" class=“photo”>
+                    <img src="http://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/48540923dd54564e2d86086eb8de9c82d0584f82.jpg" alt="">
+                </div>
+
+            </div>
+
+            <div class="tool2"></div>
+
+
+            <div id="Midle">
+                <div>
+                    <div class="name">
+                        <h3 th:text="${session.currentUser.screenname}">ScreenName</h3>
+                    </div>
+
+
+                    <div class="click-button">
+                        <button class="but" type="submit">Edit Profile</button>
+<!--                        <a class="" onclick="window.location.href = '/main'" >Post here</a>-->
+
+
+<!--                        <form id="Profile" action="/editProfile" method="post">-->
+<!--                            <button class="but" onclick="window.location.href = '/editProfile'">Edit Profile</button>-->
+<!--                        </form>-->
+<!--                        <button type="button" onclick="window.location.href ='editProfile.html'"> Edit Profile</button>-->
+<!--                        <button value="click" onclick="window.location.href = '/addPost'">edit profile</button>-->
+
+                    </div>
+
+                </div>
+
+                <ul class="basic-info">
+                    <li class="info">
+                            <span class="info-span">
+                                FullName:
+                            <span class="span" th:text="${session.currentUser.fullname}">fullname</span>
+                            </span>
+                    </li>
+
+                    <li class="info">
+                            <span class="info-span">
+                                Gender:
+                            <span class="span"  th:if="${session.currentUser.gender} eq 1">Male</span>
+                                <span class="span"  th:if="${session.currentUser.gender} eq 0">Female</span>
+                            </span>
+                    </li>
+
+                    <br/>
+
+                    <li class="info">
+                            <span class="info-span">
+                                Email:
+                            <span class="span" th:text="${session.currentUser.email}">email</span>
+                            </span>
+                    </li>
+
+                    <li class="info">
+                            <span class="info-span">
+                                PhoneNumber:
+                            <span class="span" th:text="${session.currentUser.phone_number}">phonenumber</span>
+                            </span>
+                    </li>
+
+
+                    <!--                    <li class="info">-->
+<!--                        <a class="info-a" href="">-->
+<!--                            <span class="span" title="2222">0</span> Follwers-->
+<!--                        </a>-->
+<!--                    </li>-->
+
+<!--                    <li class="info">-->
+<!--                        <a class="info-a" href="">-->
+<!--                            Following-->
+<!--                            <span class="span" title="2222">0</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+
+                </ul>
+
+
+<!--                <ul class="basic-info">-->
+<!--                    <li class="info">-->
+<!--                            <span class="info-span">-->
+<!--                                Email:-->
+<!--                            <span class="span" th:text="${session.currentUser.email}">email</span>-->
+<!--                            </span>-->
+<!--                    </li>-->
+<!--                </ul>-->
+            </div>
+
+
+            <div id="Right">
+                <h5 class="whatup"  th:text="${session.currentUser.info}">This is my intro</h5>
+            </div>
+
+        </div>
+    </form>
+</main>
+</body>
+
+
+
+</html>
+
+
+
