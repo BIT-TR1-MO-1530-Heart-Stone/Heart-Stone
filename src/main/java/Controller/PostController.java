@@ -76,8 +76,10 @@ public class PostController {
     public static Handler handlerListLikePost = ctx ->{
         User user = ctx.sessionAttribute("currentUser");
         List<Post> likePost = PostDao.getLikePosts(user.getId());
+
         Map<String, Object> model = new HashMap<>();
         model.put("postList",likePost);
+        System.out.println("LikePost Length(handlerListLikePost)::::::"+likePost.size());
         //System.out.printf("List all success");
         if(likePost != null){
             // System.out.println(allPost.get(0).getInfo());

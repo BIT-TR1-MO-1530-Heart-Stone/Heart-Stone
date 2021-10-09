@@ -20,7 +20,7 @@ public class RegisterController {
         if (UserDao.register(user)) {
             User user1 = UserDao.getUserByUserEmailAndPassword(user.getEmail(), user.getPassword());
             ctx.sessionAttribute("currentUser", user1);
-            ctx.redirect(Path.Web.QUERYALLPOSTNOW);
+            ctx.redirect(Path.Web.INDEX);
         } else {
             ctx.render(Path.Template.REGISTER);
         }
