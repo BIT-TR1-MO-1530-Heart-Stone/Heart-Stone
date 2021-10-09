@@ -21,20 +21,18 @@
 
         <form action="/savePassword" method="post">
         <br><br><br><br>
-        <input type="password" required="required" placeholder="Previous Password" id="password" name="password" /><br>
-        <input type="password" required="required" placeholder="New Password" onkeyup="checkpassword()" id="password2" name="password2" />
-        <span id="tishi"></span><br>
-
-            <button class="but"  type="submit">Save </button><br>
+        <input type="password" required="required" placeholder="Previous Password" id="oldpwd" name="oldpwd" /><br>
+        <input type="password" required="required" placeholder="New Password" onkeyup="checkpassword()" id="newpwd" name="newpwd" />
+            <button class="but" type="submit">Save </button><br>
         </form>
-
-        <form  action="/backEditPage" method="post">
-            <button class="but"  type="submit">Back </button>
+        <form action="/backEditPage" method="post">
+            <button class="but" type="submit">Back </button>
         </form>
     </div>
 
 </class>
+<script>
 
+</script>
 </body>
-
 </html>

@@ -51,9 +51,11 @@ public class App {
     public static void configureRoutes(Javalin app) {
         app.get(Path.Web.INDEX, IndexController.serverIndexPage);
         app.get(Path.Web.GOTOPROFILE, MenuController.handlerGoToProfile);
+        app.get(Path.Web.GOTOLIKE, MenuController.handlerGoToLike);
+        app.get(Path.Web.GOTOCOLLECTION, MenuController.handlerGoToCollection);
         app.get(Path.Web.REGISTERPAGE, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
-        app.get(Path.Web.CHANGEPASSWORD,ChangeController.handlerGoToChangePSW);
+        app.get(Path.Web.CHANGEPASSWORD,EditController.handlerGoToChangePSW);
         app.get(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
         app.post(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
 
@@ -68,7 +70,7 @@ public class App {
         app.post(Path.Web.CollectPost, CollectController.handlerCollectPost);
         app.post(Path.Web.UnCollectPost, CollectController.handlerUnCollectPost);
         app.post(Path.Web.GOTOPROFILE,MenuController.handlerGoToProfile);
-        app.post(Path.Web.CHANGEPASSWORD,ChangeController.handlerGoToChangePSW);
+        app.post(Path.Web.CHANGEPASSWORD,EditController.handlerGoToChangePSW);
 
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
@@ -79,6 +81,7 @@ public class App {
 
         app.post(Path.Web.EDITPROFILE,ProfileController.handlerGoEditPage);
 
+        app.post(Path.Web.SAVEPASSWORD,ChangeController.handlerChangePSW);
       //  app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
 

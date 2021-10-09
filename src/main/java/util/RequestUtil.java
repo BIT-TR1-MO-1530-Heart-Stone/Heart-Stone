@@ -58,7 +58,7 @@ public class RequestUtil {
         return user;
     }
     public static String[] getNewAndOldPwd(Context ctx) {
-        String Pwd[] = new String[0];
+        String Pwd[] = new String[3];
         //Old Pwd
         Pwd[0] = ctx.formParam("oldpwd");
         //New Pwd
@@ -104,6 +104,7 @@ public class RequestUtil {
         return ctx.formParam("with");
 //        return "2";
     }
+
 
     //LikePost
     public static LikePost getLikePost(Context ctx){
