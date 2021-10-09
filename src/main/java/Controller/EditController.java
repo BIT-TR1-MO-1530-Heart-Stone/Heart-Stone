@@ -40,27 +40,17 @@ public class EditController {
     };
 
     public static Handler handlerEditPwd = ctx -> {
-        String pwd[] = RequestUtil.getNewAndOldPwd(ctx);
-        User currentUser = ctx.sessionAttribute("currentUser");
-        User user = UserDao.getUserByUserEmail(currentUser.getEmail());
-        System.out.println("Update user:"+currentUser.getEmail());
-        if (pwd[0]==user.getPassword()){
-            if (UserDao.changePassword(pwd[1], user.getEmail(), user.getPassword())) {
-                User user1 = UserDao.getUserByUserEmailAndPassword(user.getEmail(), user.getPassword());
-                ctx.sessionAttribute("currentUser", user1);
-                System.out.println("success");
-//                ctx.redirect(Path.Web.QUERYALLPOSTNOW);
-            } else {
-                System.out.println("fail");
-//                ctx.render(Path.Template.EditPROFILE);
-            }
-        }
+
 
     };
 
     public static Handler handlerBackProfile = ctx -> {
-
         ctx.render(Path.Template.PROFILE);
+    };
+
+    public static Handler handlerGoToChangePSW = ctx -> {
+
+        ctx.render(Path.Template.ChangePsw);
 
     };
 }
