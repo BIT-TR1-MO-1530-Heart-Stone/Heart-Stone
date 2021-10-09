@@ -71,7 +71,7 @@ public class PostController {
         if(likePost != null){
             // System.out.println(allPost.get(0).getInfo());
         }
-//        ctx.render(Path.Template.MAIN, model);
+        ctx.render(Path.Template.lIKE, model);
     };
     public static Handler handlerListLikePost = ctx ->{
         User user = ctx.sessionAttribute("currentUser");
@@ -82,7 +82,7 @@ public class PostController {
         if(likePost != null){
             // System.out.println(allPost.get(0).getInfo());
         }
-//        ctx.render(Path.Template.MAIN, model);
+        ctx.render(Path.Template.lIKE, model);
     };
     public static Handler handlerListCollectedPost = ctx ->{
         User user = ctx.sessionAttribute("currentUser");
@@ -93,7 +93,7 @@ public class PostController {
         if(collectPosts != null){
             // System.out.println(allPost.get(0).getInfo());
         }
-//        ctx.render(Path.Template.MAIN, model);
+        ctx.render(Path.Template.COLLECTION, model);
     };
 
 }

@@ -75,6 +75,9 @@ public class App {
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
+        app.get(Path.Web.QUERYALLLIKEPOSTNOW, PostController.handlerListLikePost);
+        app.get(Path.Web.QUERYALLCOLLECTIONPOSTNOW, PostController.handlerListCollectedPost);
+
         app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
         app.post(Path.Web.HANDLER_DELETEPOST, PostController.handlerDeletePost);
         app.post(Path.Web.NAVIGATION_LOGOUT, LoginController.handlerLogout);

@@ -15,12 +15,14 @@ public class MenuController {
     public static Handler handlerGoToLike = ctx -> {
         System.out.println("yeeeeeeeeeep");
         ctx.render(Path.Template.lIKE);
+        ctx.redirect(Path.Web.QUERYALLLIKEPOSTNOW);
 
     };
 
     public static Handler handlerGoToCollection = ctx -> {
         System.out.println("yeeeeeeeeeep");
         ctx.render(Path.Template.COLLECTION);
+        ctx.redirect(Path.Web.QUERYALLCOLLECTIONPOSTNOW);
 
     };
 

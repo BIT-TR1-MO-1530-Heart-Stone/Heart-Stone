@@ -11,6 +11,8 @@ public class Path {
 
         public static final String NAVIGATION_LOGOUT = "/logout";
         public static final String QUERYALLPOSTNOW = "/queryAllPostNow";
+        public static final String QUERYALLLIKEPOSTNOW = "/handlerListLikePost";
+        public static final String QUERYALLCOLLECTIONPOSTNOW = "/handlerListCollectedPost";
         public static final String CREATEPOSTPAGE = "/addPost";
         public static final String HANDLER_DELETEPOST = "/handlerDeletePost";
         public static final String HANDLER_CREATEPOST = "/handlerCreatePost";
