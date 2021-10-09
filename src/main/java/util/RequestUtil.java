@@ -46,15 +46,20 @@ public class RequestUtil {
         User user=new User();
         User CurrentUser = ctx.sessionAttribute("currentUser");
         user.setId(CurrentUser.getId());
-        user.setEmail(CurrentUser.getEmail());
-        user.setFullname(ctx.formParam("fullname"));
-        user.setScreenname(ctx.formParam("screenname"));
-//        user.setPrivacy(Integer.parseInt(ctx.formParam("private")));
-        user.setPrivacy(0);
-//        user.setGender(Integer.parseInt(ctx.formParam("gender")));
-        user.setInfo(ctx.formParam("info"));
-        user.setPhone_number(ctx.formParam("phonenumber"));
+        user.setEmail(ctx.formParam("newEmail"));
+        user.setFullname(ctx.formParam("newFullName"));
+        user.setScreenname(ctx.formParam("newScreenName"));
+        user.setPrivacy(Integer.parseInt(ctx.formParam("newPrivacy")));
+//        user.setPrivacy(0);
+        user.setGender(Integer.parseInt(ctx.formParam("newGender")));
+        user.setInfo(ctx.formParam("newInfo"));
+        user.setPhone_number(ctx.formParam("newPhoneNumber"));
+
+//        System.out.println("get info from front-end(CurrentUser): "+CurrentUser.getId());
+//        System.out.println("get info from front-end(user): "+user.getId());
+//        System.out.println("get info from front-end(ctx): "+ctx.formParam("newScreenName"));
 //        user.setProfile_picture();
+
         return user;
     }
     public static String[] getNewAndOldPwd(Context ctx) {

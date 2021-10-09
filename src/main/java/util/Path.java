@@ -27,7 +27,9 @@ public class Path {
         public static final String SAVEPASSWORD = "/savePassword";
         public static final String BACKEDITPAGE = "/backEditPage";
         public static final String BACKPROFILE = "/backProfile";
+        public static final String EDITINFORMATION = "/handlerSaveEditProfile";
 
+        public static final String QUERYPROFILE = "/queryProfile";
     }
 
     public static class Template {

@@ -56,6 +56,7 @@ public class App {
         app.get(Path.Web.CHANGEPASSWORD,EditController.handlerGoToChangePSW);
         app.get(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
         app.post(Path.Web.BACKEDITPAGE,ChangeController.handlerBackEditPage);
+        app.get(Path.Web.QUERYPROFILE,MenuController.handlerGoToProfile);
 
         app.get(Path.Web.BACKPROFILE,EditController.handlerBackProfile);
         app.post(Path.Web.BACKPROFILE,EditController.handlerBackProfile);
@@ -80,6 +81,8 @@ public class App {
         app.post(Path.Web.EDITPROFILE,ProfileController.handlerGoEditPage);
 
         app.post(Path.Web.SAVEPASSWORD,ChangeController.handlerChangePSW);
+
+        app.post(Path.Web.EDITINFORMATION,EditController.handlerEditProfile);
       //  app.get(Path.Web.MAINPAGEPOSTLIST, PostController.MainPagePostList);
     }
 

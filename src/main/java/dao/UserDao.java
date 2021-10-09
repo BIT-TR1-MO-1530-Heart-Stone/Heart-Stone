@@ -103,10 +103,10 @@ public class UserDao {
             conn = JDBCutil.getCon();
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
-            String query = "UPDATE user T SET T.=Fullname = '" + user.getFullname() + "', T.Screenname = '" + user.getScreenname() + "', T.Gender = '" + user.getGender()
+            String query = "UPDATE user T SET T.Fullname = '" + user.getFullname() + "', T.Screenname = '" + user.getScreenname() + "', T.Gender = '" + user.getGender()
                     + "', T.Phone_number = '" + user.getPhone_number()+ "', T.Private = '" + user.getPrivacy() + "', T.info = '" + user.getInfo() + "'" + " WHERE T.ID = '"
                     + user.getId() + "'";
-            System.out.println(query);
+//            System.out.println(query);
             int result = statement.executeUpdate(query);
             statement.close();
             return result > 0 ? true : false;

@@ -24,8 +24,8 @@
 
 
     <div class="info-item">
-        <span class="item-title">ID</span>
-        <span class="item-text" th:text="${session.currentUser.id}"></span>
+        <span class="item-title">Email</span>
+        <span class="item-text" id="email" th:text="${session.currentUser.email}"></span>
     </div>
 
     <form id="/" action="/handlerChangePsw" method="post">
@@ -35,15 +35,6 @@
         </div>
     </form>
 
-
-    <div class="info-item">
-        <span class="item-title">Email</span>
-        <span class="item-text" name="email" id="email" th:text="${session.currentUser.email}"}></span>
-        <input type="hidden" name="input" id="email2" th:placeholder="${session.currentUser.email}"/>
-        <button style="visibility: hidden" name="save" id="save1" onclick="save1()">save</button>
-        <button id="edit1" onclick="edit1()">edit</button>
-
-    </div>
 
 <!--    <div class="info-item">-->
 <!--        <span class="item-title">Password</span>-->
@@ -92,7 +83,7 @@
             <div class="form-item">
                 <div class="form-lable">Gender</div>
                 <div class="access" >
-                    <select name="gender">
+                    <select name="gender" id="select1">
                         <option value="1">Male</option>
                         <option value="0">Female</option>
                     </select>
@@ -101,9 +92,21 @@
             </div>
 
             <div class="form-item">
-                <div class="form-lable">What's up</div>
+                <div class="form-lable">Privacy</div>
+                <div class="access" >
+                    <select name="privacy" id="select2">
+                        <option value="0">Everyone</option>
+                        <option value="1">Only Friends</option>
+                        <option value="2">Only Myself</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-lable">Description</div>
                 <div class="form-content">
-                    <textarea class="desciption" th:placeholder="${session.currentUser.info}" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea class="desciption" th:placeholder="${session.currentUser.info}" th:value="${session.currentUser.info}" id="info" name="" cols="30" rows="10"></textarea>
                 </div>
             </div>
 
@@ -116,12 +119,18 @@
     </div>
     <br/>
 
-    <form id="profile-form" action="/handlerSaveEditProfile" method="post">
-
-        <button class="button" type="submit">Save
-        </button>
 
 
+    <form id="profile-form"  action="/handlerSaveEditProfile" method="post">
+
+        <input type="hidden" name="newEmail" id="newEmail">
+        <input type="hidden" name="newFullName" id="newFullName" />
+        <input type="hidden" name="newScreenName"  id="newScreenName" />
+        <input type="hidden" name="newPhoneNumber"  id="newPhoneNumber" />
+        <input type="hidden" name="newGender"  id="newGender" />
+        <input type="hidden" name="newPrivacy" id="newPrivacy" />
+        <input type="hidden" name="newInfo"  id="newInfo" />
+        <button class="button" onclick="Save()" >Save </button>
     </form>
 
     <form  action="/backProfile" method="post">
@@ -136,11 +145,47 @@
 </html>
 
 <script>
+
+    function Save(){
+
+        var email = document.getElementById("email").innerText;
+        var fullName = document.getElementById("fullName").innerText;
+        var screenName = document.getElementById("screenName").innerText;
+        var phoneNumber = document.getElementById("phoneNumber").innerText;
+
+        var myselect = document.getElementById("select1");
+        var index = myselect.selectedIndex ;
+        var gender = myselect.options[index].value;
+
+        var myselect2 = document.getElementById("select2");
+        var index2 = myselect2.selectedIndex ;
+        var privacy = myselect2.options[index2].value;
+
+        var info = document.getElementById("info").innerHTML;
+
+        document.getElementById("newEmail").value=email;
+        document.getElementById("newFullName").value= fullName;
+        document.getElementById("newScreenName").value= screenName;
+        document.getElementById("newPhoneNumber").value= phoneNumber;
+        document.getElementById("newGender").value= gender;
+        document.getElementById("newPrivacy").value= privacy;
+        document.getElementById("newInfo").value= info;
+
+        var test1 = document.getElementById("newPrivacy").value;
+        var test2 = document.getElementById("newFullName").value;
+        var test3 = document.getElementById("newScreenName").value;
+        var test4 = document.getElementById("newPhoneNumber").value;
+        var test5 = document.getElementById("newGender").value;
+        var test6 = document.getElementById("newInfo").value;
+
+        alert(info);
+    }
     function edit1(){
         document.getElementById('email').style.display='none';
         document.getElementById('email2').removeAttribute("type");
         document.getElementById('edit1').style.display='none';
         document.getElementById('save1').style="visibility: visible";
+
     }
     function save1(){
         var newEmail = document.getElementById('email2').value;
