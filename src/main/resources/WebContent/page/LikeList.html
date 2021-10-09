@@ -6,6 +6,19 @@
     <p>1</p>
 </head>
 <body>
+<div class="list-group">
+    <li class="list-group-item" th:each="post:${postList}">
+        <div class="media">
+            <div class="media-heading">
 
+                <h2><a th:href="@{/posts/{postId}(postId=${post.Id})}" th:text="${post.Title}">title</a></h2>
+                <h4 th:text="${post.Info}">content</h4>
+                <span class="date" th:text="${'Post on ' + post.Date}"></span>
+            </div>
+
+
+            </div>
+    </li>
+</div>
 </body>
 </html>
