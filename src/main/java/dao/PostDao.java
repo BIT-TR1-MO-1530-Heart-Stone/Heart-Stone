@@ -138,6 +138,34 @@ public class PostDao {
          }
         return postList;
     }
+    public static List<Post> getMinePosts(int userId) throws Exception{
+        List<Post> post=getAllPosts(userId);
+        for(int i=0;i<post.size();i++){
+            if (post.get(i).getIsWriter()!=1){
+                post.remove(i);
+            }
+        }
+        return post;
+    }
+    public static List<Post> getLikePosts(int userId) throws Exception{
+        List<Post> post=getAllPosts(userId);
+        for(int i=0;i<post.size();i++){
+            if (post.get(i).getIsLikes()!=1){
+                post.remove(i);
+            }
+        }
+        return post;
+    }
+
+    public static List<Post> getCollectPosts(int userId) throws Exception{
+        List<Post> post=getAllPosts(userId);
+        for(int i=0;i<post.size();i++){
+            if (post.get(i).getIsCollect()!=1){
+                post.remove(i);
+            }
+        }
+        return post;
+    }
 
 
 }

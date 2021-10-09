@@ -51,6 +51,8 @@ public class App {
     public static void configureRoutes(Javalin app) {
         app.get(Path.Web.INDEX, IndexController.serverIndexPage);
         app.get(Path.Web.GOTOPROFILE, MenuController.handlerGoToProfile);
+        app.get(Path.Web.GOTOLIKE, MenuController.handlerGoToLike);
+        app.get(Path.Web.GOTOCOLLECTION, MenuController.handlerGoToCollection);
         app.get(Path.Web.REGISTERPAGE, RegisterController.registerPage);
         app.post(Path.Web.LOGIN, LoginController.handlerLogin);
         app.get(Path.Web.CHANGEPASSWORD,EditController.handlerGoToChangePSW);
@@ -74,6 +76,9 @@ public class App {
         app.get(Path.Web.CREATEPOSTPAGE, PostController.CreatePostpage);
 //        app.get(Path.Web.POSTMAINPAGE, PostController.PostMainPage);
         app.get(Path.Web.QUERYALLPOSTNOW, PostController.handlerListAllPost);
+        app.get(Path.Web.QUERYALLLIKEPOSTNOW, PostController.handlerListLikePost);
+        app.get(Path.Web.QUERYALLCOLLECTIONPOSTNOW, PostController.handlerListCollectedPost);
+
         app.post(Path.Web.HANDLER_CREATEPOST, PostController.handlerCreatePost);
         app.post(Path.Web.HANDLER_DELETEPOST, PostController.handlerDeletePost);
         app.post(Path.Web.NAVIGATION_LOGOUT, LoginController.handlerLogout);

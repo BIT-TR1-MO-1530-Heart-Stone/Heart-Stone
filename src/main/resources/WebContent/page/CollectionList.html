@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My collection</title>
+
+</head>
+<body>
+<header>
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="/">Heart-Stone</a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        </div>
+    </nav>
+</header>
+<br>
+<br>
+<br>
+<div>
+
+    <li class="list-group-item" th:each="post:${postList}">
+        <div class="media">
+            <div class="media-heading">
+                <!--                        <input type="text" name="firstname" value="Mickey">-->
+                <h2><a th:href="@{/posts/{postId}(postId=${post.Id})}" th:text="${post.Title}">title</a></h2>
+                <h4 th:text="${post.Info}">content</h4>
+                <span class="date" th:text="${'Post on ' + post.Date}"></span>
+            </div>
+
+
+        </div>
+    </li>
+
+</div>
+</body>
+</html>

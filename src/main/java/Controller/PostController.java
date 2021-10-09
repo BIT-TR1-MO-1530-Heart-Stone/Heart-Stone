@@ -5,14 +5,10 @@ import io.javalin.http.Handler;
 import model.Post;
 import model.User;
 import util.Path;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
 import static util.RequestUtil.*;
-
 
 public class PostController {
     // Jump to the Post  main page
@@ -65,6 +61,39 @@ public class PostController {
             System.err.println("Delete failed");
             ctx.render(Path.Template.DeletePost);
         }
+    };
+    public static Handler handlerListMinePost = ctx ->{
+        User user = ctx.sessionAttribute("currentUser");
+        List<Post> likePost = PostDao.getMinePosts(user.getId());
+        Map<String, Object> model = new HashMap<>();
+        model.put("postList",likePost);
+        //System.out.printf("List all success");
+        if(likePost != null){
+            // System.out.println(allPost.get(0).getInfo());
+        }
+        ctx.render(Path.Template.lIKE, model);
+    };
+    public static Handler handlerListLikePost = ctx ->{
+        User user = ctx.sessionAttribute("currentUser");
+        List<Post> likePost = PostDao.getLikePosts(user.getId());
+        Map<String, Object> model = new HashMap<>();
+        model.put("postList",likePost);
+        //System.out.printf("List all success");
+        if(likePost != null){
+            // System.out.println(allPost.get(0).getInfo());
+        }
+        ctx.render(Path.Template.lIKE, model);
+    };
+    public static Handler handlerListCollectedPost = ctx ->{
+        User user = ctx.sessionAttribute("currentUser");
+        List<Post> collectPosts = PostDao.getCollectPosts( user.getId());
+        Map<String, Object> model = new HashMap<>();
+        model.put("postList",collectPosts);
+        //System.out.printf("List all success");
+        if(collectPosts != null){
+            // System.out.println(allPost.get(0).getInfo());
+        }
+        ctx.render(Path.Template.COLLECTION, model);
     };
 
 }
