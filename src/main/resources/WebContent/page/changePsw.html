@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -69,19 +69,37 @@
 
         <form action="/savePassword" method="post">
         <br><br><br><br>
+            <input type="hidden" name="realpwd"  id="realpwd" th:value="${session.currentUser.password}"/>
         <input type="password" required="required" placeholder="Previous Password" id="oldpwd" name="oldpwd" /><br>
         <input type="password" required="required" placeholder="New Password" onkeyup="checkpassword()" id="newpwd" name="newpwd" />
             <br>
-            <button class="but" type="submit">Save </button><br>
-
+            <button class="but" type="submit" onclick="del()">Save </button><br>
         </form>
         <form action="/backEditPage" method="post">
             <button class="but" type="submit">Back </button>
         </form>
     </div>
-
 </class>
-<script>
+<script >
+    function del() {
+
+        var realPSW = document.getElementById("realpwd").value;
+        var inputPWS = document.getElementById("oldpwd").value;
+        // alert("realPSW:"+realPSW+"  input:"+inputPWS);
+
+        if(realPSW == inputPWS){
+            var msg = "Confirm change password?";
+            if (confirm(msg)==true){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            alert("Previous Password is wrong!");
+        }
+
+
+    }
 
 </script>
 </body>
