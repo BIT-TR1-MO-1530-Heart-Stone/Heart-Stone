@@ -149,10 +149,13 @@ public class PostDao {
     }
     public static List<Post> getLikePosts(int userId) throws Exception{
         List<Post> post=getAllPosts(userId);
+
         for(int i=0;i<post.size();i++){
-            if (post.get(i).getIsLikes()!=1){
-                post.remove(i);
-            }
+                if (post.get(i).getIsLikes()!=1){
+                    post.remove(i);
+                    i--;
+                }
+
         }
         return post;
     }
@@ -162,6 +165,7 @@ public class PostDao {
         for(int i=0;i<post.size();i++){
             if (post.get(i).getIsCollect()!=1){
                 post.remove(i);
+                i--;
             }
         }
         return post;
